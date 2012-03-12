@@ -1,0 +1,767 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xorg-app</Name>
+        <Homepage>http://www.x.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>app:console</IsA>
+        <IsA>app:gui</IsA>
+        <Summary>X.Org applications</Summary>
+        <Description>xorg-app contains base Xorg applications.</Description>
+        <Archive sha1sum="7303f12fae8cce92da2dbd88c9d31d816dc5da06" type="tarbz2">mirrors://xorg/individual/app/appres-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="146b4ece2867479045c3b4593b22c9f1d21da14a" type="tarbz2">mirrors://xorg/individual/app/bdftopcf-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="010e152dfdf3b279b9ba249fb3bf39d7243da027" type="tarbz2">mirrors://xorg/individual/app/beforelight-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="4f6f847b6cfc3e250f1befe907a3d1957f4a43c8" type="tarbz2">mirrors://xorg/individual/app/bitmap-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="a1a8af23afde85bada5472da1ac029a384dedae4" type="tarbz2">mirrors://xorg/individual/app/editres-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="a609fba513947e5267c924f85774c0e44a076a7d" type="tarbz2">mirrors://xorg/individual/app/fonttosfnt-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="00177564597ac629207ca597f663b689902817df" type="tarbz2">mirrors://xorg/individual/app/fslsfonts-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="5310493f53277fd196f93bbb7f2a204cad8997b7" type="tarbz2">mirrors://xorg/individual/app/fstobdf-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="9b446c0d1815dce48bdea32db7dea7e429f6a310" type="tarbz2">mirrors://xorg/individual/app/iceauth-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="f5a73d6626b9d4016423594ad18b3073b556e3bf" type="tarbz2">mirrors://xorg/individual/app/ico-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="4c1c9b16dbd9c442a76203b57a9fef33965415d9" type="tarbz2">mirrors://xorg/individual/app/listres-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="fa974b417f6b65c241398d8d011207c6facb0766" type="tarbz2">mirrors://xorg/individual/app/luit-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="a0daa928b449998a2374c0472fd715792075f8b3" type="tarbz2">mirrors://xorg/individual/app/mkcomposecache-1.2.1.tar.bz2</Archive>
+        <Archive sha1sum="c2b504f5a019777f2f0d3c2fc635b114c7924804" type="tarbz2">mirrors://xorg/individual/app/mkfontdir-1.0.6.tar.bz2</Archive>
+        <Archive sha1sum="5a8ac438d6d6694dcf1314b74c4d9f029da4f486" type="tarbz2">mirrors://xorg/individual/app/mkfontscale-1.0.9.tar.bz2</Archive>
+        <Archive sha1sum="ba606d39fba6021c4db76d79751779f7b5c862e9" type="tarbz2">mirrors://xorg/individual/app/oclock-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="31da797a325afac7d892f0409ef0fc7df5b6adbb" type="tarbz2">mirrors://xorg/individual/app/rendercheck-1.4.tar.bz2</Archive>
+        <Archive sha1sum="d0360dda290b76c41fa467c47d4c122ea8cc92a4" type="tarbz2">mirrors://xorg/individual/app/rgb-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="92b1743af23e7bc8be732f314cba92dedf7907d3" type="tarbz2">mirrors://xorg/individual/app/rstart-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="e5785e243cea56c48a6492f6ec329c5cf7dbbca6" type="tarbz2">mirrors://xorg/individual/app/scripts-1.0.1.tar.bz2</Archive>
+        <Archive sha1sum="6f260f1ddc366da070a6d60301b9fb64a99c119a" type="tarbz2">mirrors://xorg/individual/app/sessreg-1.0.6.tar.bz2</Archive>
+        <Archive sha1sum="860785e16313d30792fe62604f65d84281812322" type="tarbz2">mirrors://xorg/individual/app/setxkbmap-1.2.0.tar.bz2</Archive>
+        <Archive sha1sum="161bf5f037db70dd75cb327648fbba559e821e76" type="tarbz2">mirrors://xorg/individual/app/showfont-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="59e19def9a351896cb3101cb580ae424e9e48a3e" type="tarbz2">mirrors://xorg/individual/app/smproxy-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="bd47bcd36b12ba0fb43efa6d730d451af26d173b" type="tarbz2">mirrors://xorg/individual/app/twm-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="383ff3cc93340b246e9fee29cad605478399eb62" type="tarbz2">mirrors://xorg/individual/app/viewres-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="ca693d23cd343df51baac76e693e769ce5ef6a30" type="tarbz2">mirrors://xorg/individual/app/x11perf-1.5.2.tar.bz2</Archive>
+        <Archive sha1sum="6d94b5822e8ce08630a8ff510230246d5ed45290" type="tarbz2">mirrors://xorg/individual/app/xauth-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="e297b359ab83f3844ca5ea1c23280b2f8bb71cfd" type="tarbz2">mirrors://xorg/individual/app/xbacklight-1.1.2.tar.bz2</Archive>
+        <Archive sha1sum="17337a951264f0f96f6d03893f9dfd9cf8f12a5a" type="tarbz2">mirrors://xorg/individual/app/xbiff-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="2206fc4bf3719c43fa13a6c64a37b40607d8e5e2" type="tarbz2">mirrors://xorg/individual/app/xcalc-1.0.4.1.tar.bz2</Archive>
+        <Archive sha1sum="d1ec94f032174f5d011e33817cb7f48e3cd957be" type="tarbz2">mirrors://xorg/individual/app/xclipboard-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="1651ac8961c0aa287a6a7412ee5e6d3bfc3bb3e2" type="tarbz2">mirrors://xorg/individual/app/xclock-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="14df39b4d5518f551302c210131dcc5bac03f3ff" type="tarbz2">mirrors://xorg/individual/app/xcmsdb-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="9b4d7c3c64b3d980ea317b5206fee17adefd1d65" type="tarbz2">mirrors://xorg/individual/app/xcompmgr-1.1.5.tar.bz2</Archive>
+        <Archive sha1sum="195299d4948ba4c62e961ddd0bd4572283244715" type="tarbz2">mirrors://xorg/individual/app/xconsole-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="244c180aae8cc07175b93f314d5bbbf24171658a" type="tarbz2">mirrors://xorg/individual/app/xcursorgen-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="281bee72116311e2d8393ae53ea832e9d267eded" type="tarbz2">mirrors://xorg/individual/app/xdbedizzy-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="18f603e76a82fd2a62017dbd0c51258769539b0a" type="tarbz2">mirrors://xorg/individual/app/xditview-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="5d53cd31afd40bdc4575b5347f2cda67f135f5f2" type="tarbz2">mirrors://xorg/individual/app/xdpyinfo-1.2.0.tar.bz2</Archive>
+        <Archive sha1sum="e6f8735d09c9da67bba3cd3c39f34f5d1fc79a70" type="tarbz2">mirrors://xorg/individual/app/xedit-1.2.0.tar.bz2</Archive>
+        <Archive sha1sum="77dcbdaa2046db56f31936f921843bd05df2255f" type="tarbz2">mirrors://xorg/individual/app/xev-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="efe6116d31a7f69e4fb6038613e52b0960b9b61c" type="tarbz2">mirrors://xorg/individual/app/xeyes-1.1.1.tar.bz2</Archive>
+        <Archive sha1sum="030659e3728f5f7142e1cf727f147aceeabe4b9e" type="tarbz2">mirrors://xorg/individual/app/xf86dga-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="9cf24f00b428bc02d8635634cdb3b7422e7d74a5" type="tarbz2">mirrors://xorg/individual/app/xfd-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="26da3f96eeeae0deeb10797dc0b8479c1fe16924" type="tarbz2">mirrors://xorg/individual/app/xfindproxy-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="df2eb12b90339b7091bd362b095344015ec8b6fa" type="tarbz2">mirrors://xorg/individual/app/xfontsel-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="aa0f4cb4e307c531a78ba9d09c44d042c072742b" type="tarbz2">mirrors://xorg/individual/app/xfs-1.1.1.tar.bz2</Archive>
+        <Archive sha1sum="21c5f544f34d9164797575da85727558f5e09d33" type="tarbz2">mirrors://xorg/individual/app/xfsinfo-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="2878987e3f1c9d35fca5292d860c23daa6b5d1f1" type="tarbz2">mirrors://xorg/individual/app/xfwp-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="c4124b42618c6d4bc9eb9690348b5d60e4c9daed" type="tarbz2">mirrors://xorg/individual/app/xgamma-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="cb0c0285f1354a983b5cd4a925844a8ab56e4f09" type="tarbz2">mirrors://xorg/individual/app/xgc-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="b4fde9899861f1a97395f8c7197db00cc44242a7" type="tarbz2">mirrors://xorg/individual/app/xhost-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="70f258279acaa45fb77820ae3f8c2bee9f2d2235" type="tarbz2">mirrors://xorg/individual/app/xinput-1.5.3.tar.bz2</Archive>
+        <Archive sha1sum="02d7e7b67a6ef3035f92f9e541252bf85e3f0385" type="tarbz2">mirrors://xorg/individual/app/xkbcomp-1.2.1.tar.bz2</Archive>
+        <Archive sha1sum="f7d4eb5485c2b450266e4e467106f4d8560f4edd" type="tarbz2">mirrors://xorg/individual/app/xkbevd-1.1.2.tar.bz2</Archive>
+        <Archive sha1sum="4e7c91a137f0746202b3a74bbaf49c849484aa30" type="tarbz2">mirrors://xorg/individual/app/xkbprint-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="e5a2619b9449f95e02b520b492de0575bc4551d6" type="tarbz2">mirrors://xorg/individual/app/xkbutils-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="bab7b9c7f3bc053d743eb339cf5fa496bace57e5" type="tarbz2">mirrors://xorg/individual/app/xkill-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="dcad93d769b0614466f1e48fed5dd956349cfcfb" type="tarbz2">mirrors://xorg/individual/app/xload-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="5016e74ba16ac80f3eac1c97738a6afbfc8b3bdd" type="tarbz2">mirrors://xorg/individual/app/xlogo-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="2982df6844d60cd12a09208808ab6baa767fe35f" type="tarbz2">mirrors://xorg/individual/app/xlsatoms-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="67bfdcb089e8669df7ec5bc7a137e037047f2535" type="tarbz2">mirrors://xorg/individual/app/xlsclients-1.1.1.tar.bz2</Archive>
+        <Archive sha1sum="9d4e0adbcb83362dd9234e90507c0528f60e309b" type="tarbz2">mirrors://xorg/individual/app/xlsfonts-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="95695d4d4a731e5deb4196a0cc6d04ecaba023fe" type="tarbz2">mirrors://xorg/individual/app/xmag-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="ba10cf0b2d0c2b40ded93e892c69e7bd4586ad1e" type="tarbz2">mirrors://xorg/individual/app/xman-1.1.2.tar.bz2</Archive>
+        <Archive sha1sum="a8bfefbbe7785fa0e58ed4f596f4d79ba0b4d9b2" type="tarbz2">mirrors://xorg/individual/app/xmessage-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="3b771d8e7de175dc6890bcf03bd1fcf91c7ad919" type="tarbz2">mirrors://xorg/individual/app/xmh-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="c97fb42f40b094868f6ef445f25c600f326b1942" type="tarbz2">mirrors://xorg/individual/app/xmodmap-1.0.5.tar.bz2</Archive>
+        <Archive sha1sum="7db4e5feb82d5d05038722d3af00d28e103bed18" type="tarbz2">mirrors://xorg/individual/app/xmore-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="9dbd0ff136b612285e00d92d0c7675a4207b1c4a" type="tarbz2">mirrors://xorg/individual/app/xpr-1.0.3.tar.bz2</Archive>
+        <Archive sha1sum="d531be0f5f2b7758216ea4d7890f88c42c5fa3fd" type="tarbz2">mirrors://xorg/individual/app/xprop-1.2.1.tar.bz2</Archive>
+        <Archive sha1sum="ef45925d5b0e72c73d21798d65a41d476fdb0d3f" type="tarbz2">mirrors://xorg/individual/app/xrandr-1.3.5.tar.bz2</Archive>
+        <Archive sha1sum="efa5f2420411988d6a6e142934393fd272507857" type="tarbz2">mirrors://xorg/individual/app/xrdb-1.0.9.tar.bz2</Archive>
+        <Archive sha1sum="5e85ee14ea9a357c1d4372bbc068a8d452a134aa" type="tarbz2">mirrors://xorg/individual/app/xrefresh-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="9b1eb8835637dd70eea1a1365df5d909a306cc2c" type="tarbz2">mirrors://xorg/individual/app/xset-1.2.1.tar.bz2</Archive>
+        <Archive sha1sum="add4e6a91c9d0e7d1a80b3534c64d6b7bf633ea0" type="tarbz2">mirrors://xorg/individual/app/xsetmode-1.0.0.tar.bz2</Archive>
+        <Archive sha1sum="a8b01c6f27625a6f6943f9be17b1e5511f69d710" type="tarbz2">mirrors://xorg/individual/app/xsetpointer-1.0.1.tar.bz2</Archive>
+        <Archive sha1sum="1ef9ddd80c7013dc6d33e5c421537eb8b0427da4" type="tarbz2">mirrors://xorg/individual/app/xsetroot-1.1.0.tar.bz2</Archive>
+        <Archive sha1sum="3ed9a9bb4bb26a9a867fecc352eeb0656476fa19" type="tarbz2">mirrors://xorg/individual/app/xsm-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="32374e671e5cdd4d55bd7f3f6619cc5b5267fda8" type="tarbz2">mirrors://xorg/individual/app/xstdcmap-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="2f3f821943018c07efd4547afa4313ac92718b1e" type="tarbz2">mirrors://xorg/individual/app/xvidtune-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="dc326464748fa608da50386112a89024804c1910" type="tarbz2">mirrors://xorg/individual/app/xvinfo-1.1.1.tar.bz2</Archive>
+        <Archive sha1sum="4ef4fd9072a507e9a1ee88ba1d28b314006cc109" type="tarbz2">mirrors://xorg/individual/app/xwd-1.0.4.tar.bz2</Archive>
+        <Archive sha1sum="c90b3c289f95474aa8eb6cf1bf4caf3b9dbf82d3" type="tarbz2">mirrors://xorg/individual/app/xwininfo-1.1.2.tar.bz2</Archive>
+        <Archive sha1sum="2e706d50c7039e3daa4963d36ab703e48aa652ed" type="tarbz2">mirrors://xorg/individual/app/xwud-1.0.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>fontconfig-devel</Dependency>
+            <Dependency>freetype-devel</Dependency>
+            <Dependency>libdmx-devel</Dependency>
+            <Dependency>libfontenc-devel</Dependency>
+            <Dependency>libFS-devel</Dependency>
+            <Dependency>libICE-devel</Dependency>
+            <Dependency>libpng-devel</Dependency>
+            <Dependency>libSM-devel</Dependency>
+            <Dependency>libXaw-devel</Dependency>
+            <Dependency>libXcomposite-devel</Dependency>
+            <Dependency>libXcursor-devel</Dependency>
+            <Dependency>libXdamage-devel</Dependency>
+            <Dependency>libXext-devel</Dependency>
+            <Dependency>libXfixes-devel</Dependency>
+            <Dependency>libXfont-devel</Dependency>
+            <Dependency>libXft-devel</Dependency>
+            <Dependency>libXi-devel</Dependency>
+            <Dependency>libXinerama-devel</Dependency>
+            <Dependency>libxkbfile-devel</Dependency>
+            <Dependency>libXmu-devel</Dependency>
+            <Dependency>libXrandr-devel</Dependency>
+            <Dependency>libXrender-devel</Dependency>
+            <Dependency>libXScrnSaver-devel</Dependency>
+            <Dependency>libXt-devel</Dependency>
+            <Dependency>libXtst-devel</Dependency>
+            <Dependency>libXv-devel</Dependency>
+            <Dependency>libXxf86dga-devel</Dependency>
+            <Dependency>libXxf86vm-devel</Dependency>
+            <Dependency>xbitmaps</Dependency>
+            <Dependency>xcb-util-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">xedit-locale.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xorg-app</Name>
+        <RuntimeDependencies>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>libdmx</Dependency>
+            <Dependency>libfontenc</Dependency>
+            <Dependency>libFS</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency versionFrom="1.0.5">libXaw</Dependency>
+            <Dependency>libXcomposite</Dependency>
+            <Dependency>libXcursor</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXfixes</Dependency>
+            <Dependency releaseFrom="15">libXfont</Dependency>
+            <Dependency>libXft</Dependency>
+            <Dependency versionFrom="1.3">libXi</Dependency>
+            <Dependency>libXinerama</Dependency>
+            <Dependency>libxkbfile</Dependency>
+            <Dependency>libXmu</Dependency>
+            <Dependency versionFrom="1.2.91">libXrandr</Dependency>
+            <Dependency>libXrender</Dependency>
+            <Dependency>libXScrnSaver</Dependency>
+            <Dependency>libXt</Dependency>
+            <Dependency>libXtst</Dependency>
+            <Dependency>libXv</Dependency>
+            <Dependency>libXxf86dga</Dependency>
+            <Dependency>libXxf86vm</Dependency>
+            <Dependency>mcpp</Dependency>
+            <Dependency>xcb-util</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="data">/usr/share/X11</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <Provides>
+            <COMAR script="pakhandler.py">System.PackageHandler</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="51">
+            <Date>2011-06-30</Date>
+            <Version>7.6</Version>
+            <Comment>
+                New releases. These are mainly maintenance and bugfix releases:
+                * glproto-1.4.14
+                * mkfontscale-1.0.9
+                * smproxy-1.0.5
+                * xman-1.1.2
+                * xprop-1.2.1
+                * xrandr-1.3.5
+                * xwininfo-1.1.2
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="50" type="security">
+            <Date>2011-04-06</Date>
+            <Version>7.6</Version>
+            <Comment>Update xrdb to 1.0.9 to fix (CVE-2011-0465)</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="49">
+            <Date>2011-03-21</Date>
+            <Version>7.6</Version>
+            <Comment>
+                New releases:
+                * xbiff-1.0.3
+                * xfindproxy-1.0.2
+                * xfwp-1.0.2
+                * xkbcomp-1.2.1
+                * xkbprint-1.0.3
+                * xrdb-1.0.8
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="48">
+            <Date>2010-12-14</Date>
+            <Version>7.6</Version>
+            <Comment>
+                New releases:
+                * xkbevd-1.1.2
+                * xbacklight-1.1.2
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="47">
+            <Date>2010-11-30</Date>
+            <Version>7.6</Version>
+            <Comment>
+                New releases:
+                * mkfontdir-1.0.6
+                * rendercheck-1.4
+                * xcalc-1.0.4.1
+                * xgamma-1.0.4
+                * xinput-1.5.3
+                * xkill-1.0.3
+                * xrdb-1.0.7
+                * xrefresh-1.0.4
+                * xset-1.2.1
+                * xvinfo-1.1.1
+                * xwd-1.0.4
+                * xwud-1.0.3
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="46">
+            <Date>2010-11-01</Date>
+            <Version>7.6</Version>
+            <Comment>
+                New releases:
+                - appres-1.0.3
+                - bdftopcf-1.0.3
+                - beforelight-1.0.4
+                - editres-1.0.5
+                - fslsfonts-1.0.3
+                - fstobdf-1.0.4
+                - iceauth-1.0.4
+                - ico-1.0.3
+                - mkfontscale-1.0.8
+                - rstart-1.0.4
+                - showfont-1.0.3
+                - twm-1.0.5
+                - viewres-1.0.3
+                - xdbedizzy-1.1.0
+                - xedit-1.2.0
+                - xev-1.1.0
+                - xf86dga-1.0.3
+                - xfs-1.1.1
+                - xfsinfo-1.0.3
+                - xgc-1.0.3
+                - xhost-1.0.4
+                - xkbcomp-1.2.0
+                - xkbevd-1.1.1
+                - xkbutils-1.0.3
+                - xlogo-1.0.3
+                - xmag-1.0.4
+                - xman-1.1.1
+                - xmh-1.0.2
+                - xprop-1.2.0
+                - xrandr-1.3.4
+                - xsetroot-1.1.0
+                - xwininfo-1.1.1
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="45">
+            <Date>2010-10-28</Date>
+            <Version>7.6_20101028</Version>
+            <Comment>
+                New releases:
+                - bitmap-1.0.5
+                - luit-1.1.0
+                - oclock-1.0.2
+                - rgb-1.0.4
+                - setxkbmap-1.2.0
+                - smproxy-1.0.4
+                - x11perf-1.5.2
+                - xauth-1.0.5
+                - xclock-1.0.5
+                - xcmsdb-1.0.3
+                - xconsole-1.0.4
+                - xcursorgen-1.0.4
+                - xdpyinfo-1.2.0
+                - xfd-1.1.0
+                - xfontsel-1.0.3
+                - xload-1.1.0
+                - xlsclients-1.1.1
+                - xmodmap-1.0.5
+                - xsm-1.0.2
+                - xstdcmap-1.0.2
+                - xwininfo-1.1.0
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="44">
+            <Date>2010-10-12</Date>
+            <Version>7.5_20100817</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="43">
+            <Date>2010-08-19</Date>
+            <Version>7.5_20100817</Version>
+            <Comment>Fix build with new libpng</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="42">
+            <Date>2010-08-17</Date>
+            <Version>7.5_20100817</Version>
+            <Comment>
+                New releases/snapshots:
+                - sessreg-1.0.6
+                - xconsole-1.0.3_20100817git53fdc18
+                - xditview-1.0.2
+                - xinput-1.5.2
+                - xlsatoms-1.1.0
+                - xlsclients-1.1.0
+                - xlsfonts-1.0.3
+                - xmore-1.0.2
+                - xrandr-1.3.3
+                - xset-1.2.0
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="41">
+            <Date>2010-04-24</Date>
+            <Version>7.5_20100424</Version>
+            <Comment>
+                New releases:
+                - listres-1.0.2
+                - luit-1.0.5
+                - viewres-1.0.2
+                - xbiff-1.0.2
+                - xcalc-1.0.3
+                - xeyes-1.1.0
+                - xlogo-1.0.2
+                - xmessage-1.0.3
+                - xvidtune-1.0.2
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="40">
+            <Date>2010-04-13</Date>
+            <Version>7.5_20100413</Version>
+            <Comment>New release: xinput-1.5.1</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2009-12-09</Date>
+            <Version>7.5_20091209</Version>
+            <Comment>
+                New releases:
+                - setxkbmap-1.1.0
+                - smproxy-1.0.3
+                - x11perf-1.5.1
+                - xclipboard-1.1.0
+                - xcmsdb-1.0.2
+                - xcompmgr-1.1.5
+                - xcursorgen-1.0.3
+                - xdpyinfo-1.1.0
+                - xgc-1.0.2
+                - xinput-1.5.0
+                - xkbevd-1.1.0
+                - xkbprint-1.0.2
+                - xkbutils-1.0.2
+                - xlsclients-1.0.2
+                - xman-1.1.0
+                - xpr-1.0.3
+                - xrefresh-1.0.3
+                - xsetroot-1.0.3
+                - xvinfo-1.1.0
+                - xwd-1.0.3
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2009-11-17</Date>
+            <Version>7.5_20091014</Version>
+            <Comment>Fix the package handler which was removing encodings.dir files</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2009-10-14</Date>
+            <Version>7.5_20091014</Version>
+            <Comment>
+                * Use mcpp for xrdb
+                * New releases:
+                  - appres-1.0.2
+                  - bdftopcf-1.0.2
+                  - bitmap-1.0.4
+                  - editres-1.0.4
+                  - iceauth-1.0.3
+                  - luit-1.0.4
+                  - mkcomposecache-1.2.1
+                  - mkfontdir-1.0.5
+                  - mkfontscale-1.0.7
+                  - sessreg-1.0.5
+                  - xauth-1.0.4
+                  - xbacklight-1.1.1
+                  - xclock-1.0.4
+                  - xev-1.0.4
+                  - xeyes-1.0.991
+                  - xgamma-1.0.3
+                  - xhost-1.0.3
+                  - xkbcomp-1.1.1
+                  - xkill-1.0.2
+                  - xlsatoms-1.0.2
+                  - xmodmap-1.0.4
+                  - xprop-1.1.0
+                  - xrandr-1.3.2
+                  - xrdb-1.0.6
+                  - xset-1.1.0
+                  - xwininfo-1.0.5
+                  - xwud-1.0.2
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2009-07-05</Date>
+            <Version>7.5_20090705</Version>
+            <Comment>
+                - Bumped: xfs-1.1.0
+                - Added missing fontconfig dependency
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2009-06-06</Date>
+            <Version>7.5_20090606</Version>
+            <Comment>Bumped: xinput-1.4.2</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2009-04-20</Date>
+            <Version>7.5_20090420</Version>
+            <Comment>Bumped: xinput-1.4.1</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2009-04-04</Date>
+            <Version>7.5_20090404</Version>
+            <Comment>Bumped: xrandr-1.3.0</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2009-03-22</Date>
+            <Version>7.5_20090322</Version>
+            <Comment>Drop xinit as it is packaged separately</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2009-02-09</Date>
+            <Version>7.5_20090209</Version>
+            <Comment>
+                * Bumped:
+                  - mkfontscale-1.0.6
+                  - xinput-1.4.0
+                    + Support for listing and changing input
+                      device properties.
+                  - xrandr-1.2.99.4
+                    + Several bug fixes
+                    + Manpage improvements
+                    + Addition of new RandR 1.3 options
+                      (--current, --{no,}primary)
+                * Drop xauth patch
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2008-12-18</Date>
+            <Version>7.5_20081218</Version>
+            <Comment>
+                * Bumped:
+                  - xinit-1.1.1
+                  - xrandr-1.2.99.3
+                    + Panning support
+                    + Transformation support
+                    + Various fixes
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2008-12-04</Date>
+            <Version>7.5_20081204</Version>
+            <Comment>
+                * Depend on new libraries. Use git snapshots to build some apps with those libs.
+                * Bumped:
+                  - bitmap-1.0.3_20081204
+                  - editres-1.0.3_20081204
+                  - listres-1.0.1_20081204
+                  - viewres-1.0.1_20081204
+                  - xbiff-1.0.1_20081204
+                  - xcalc-1.0.2_20081204
+                  - xclipboard-1.0.1_20081204
+                  - xclock-1.0.3_20081204
+                  - xconsole-1.0.3_20081204
+                  - xditview-1.0.1_20081204
+                  - xdm-1.1.8_20081204
+                  - xedit-1.1.2
+                  - xfd-1.0.1_20081204
+                  - xfontsel-1.0.2_20081204
+                  - xgc-1.0.1_20081204
+                  - xkbutils-1.0.1_20081204
+                  - xload-1.0.2_20081204
+                  - xlogo-1.0.1_20081204
+                  - xmag-1.0.2_20081204
+                  - xman-1.0.3_20081204
+                  - xmessage-1.0.2_20081204
+                  - xmh-1.0.1_20081204
+                  - xmore-1.0.1_20081204
+                  - xsm-1.0.1_20081204
+                  - xvidtune-1.0.1_20081204
+                * Dropped since the related extensions (XTrap and XPrint) are deprecated:
+                  - xphelloworld
+                  - xplsprinters
+                  - xprehashprinterlist
+                  - xtrap
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2008-09-01</Date>
+            <Version>7.3</Version>
+            <Comment>Bumped: xedit-1.1.1</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2008-09-01</Date>
+            <Version>7.3</Version>
+            <Comment>Add a package handler for the creation of fonts.dir and fonts.scale files.</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2008-07-09</Date>
+            <Version>7.3</Version>
+            <Comment>Drop xrx package as the new version requires firefox-devel</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2008-07-04</Date>
+            <Version>7.3</Version>
+            <Comment>Added locale fix for xedit. Bumped: xrx-1.0.2, xwd-1.0.2, xwininfo-1.0.4</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2008-06-22</Date>
+            <Version>7.3</Version>
+            <Comment>Bumped: rgb-1.0.3, sessreg-1.0.4, xinit-1.1.0</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2008-05-27</Date>
+            <Version>7.3</Version>
+            <Comment>Bumped: fonttosfnt-1.0.4, fslsfonts-1.0.2, fstobdf-1.0.3, mkfontscale-1.0.5, showfont-1.0.2, xdm-1.1.8, xdpyinfo-1.0.3, xfs-1.0.8, xfsinfo-1.0.2, xinit-1.0.9</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2008-05-09</Date>
+            <Version>7.3</Version>
+            <Comment>Bumped: xkbcomp-1.0.5</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2008-03-08</Date>
+            <Version>7.3</Version>
+            <Comment>Added: xcompmgr-1.1.4. Bumped: mkfontdir-1.0.4, mkfontscale-1.0.4, rendercheck-1.3, twm-1.0.4, x11perf-1.5, xauth-1.0.3, xdm-1.1.7, xev-1.0.3, xfs-1.0.6, xinit-1.0.8, xkbcomp-1.0.4, xprop-1.0.4, xrandr-1.2.3, xrdb-1.0.5, xset-1.0.4. Removed: proxymngr-1.0.1, xdriinfo-1.0.2 (it is a separate package now).</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2008-01-31</Date>
+            <Version>7.3</Version>
+            <Comment>Remove libAppleWM and libWindowsWM dependencies as they are not used.</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-01-21</Date>
+            <Version>7.3</Version>
+            <Comment>Remove deprecated lbx stuff and add new xinput tool.</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2007-12-28</Date>
+            <Version>7.3</Version>
+            <Comment>xfs-1.0.5</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2007-10-04</Date>
+            <Version>7.2</Version>
+            <Comment>xinit-1.0.7, xdpyinfo-1.0.2, xsetpointer-1.0.1</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2007-09-11</Date>
+            <Version>7.2</Version>
+            <Comment>xset-1.0.3, xwininfo-1.0.3, xinit-1.0.5, beforelight-1.0.3</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2007-08-20</Date>
+            <Version>7.2</Version>
+            <Comment>xclock-1.0.3, xgamma-1.0.2, xmodmap-1.0.3, xdm-1.1.6, xman-1.0.3, xmessage-1.0.2, xprop-1.0.3, xsetroot-1.0.2, xmag-1.0.2, xrdb-1.0.4, sessreg-1.0.3, xdriinfo-1.0.2, xdriinfo-1.0.2, xvinfo-1.0.2</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2007-08-03</Date>
+            <Version>7.2</Version>
+            <Comment>ico-1.0.2, xhost-1.0.2, iceauth-1.0.2, setxkbmap-1.0.4, </Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2007-07-14</Date>
+            <Version>7.2</Version>
+            <Comment>xrandr-1.2.2</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2007-07-03</Date>
+            <Version>7.2</Version>
+            <Comment>bdftopcf-1.0.1, xbacklight-1.1, xrandr-1.2.1, xinit-1.0.4</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2007-04-19</Date>
+            <Version>7.2</Version>
+            <Comment>xsetpointer reverted to 1.0.0</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2007-03-28</Date>
+            <Version>7.2</Version>
+            <Comment>mkfontdir, xauth, xload updated</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2007-02-22</Date>
+            <Version>7.2</Version>
+            <Comment>xrandr, xdm, mkcomposecache, xlsfonts, xfontsel, xpr updated</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2007-01-24</Date>
+            <Version>7.2_rc3</Version>
+            <Comment>appres, bitmap, editres, xrdb updated</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-01-08</Date>
+            <Version>7.2_rc3</Version>
+            <Comment>Define HAVE_STRCASECMP to speed up xkbcomp a little</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-01-05</Date>
+            <Version>7.2_rc3</Version>
+            <Comment>Disable static libraries</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-12-07</Date>
+            <Version>7.2_rc3</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-11-06</Date>
+            <Version>7.2_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-29</Date>
+            <Version>7.1</Version>
+            <Comment>fix #3899</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-10-12</Date>
+            <Version>7.1</Version>
+            <Comment>Update xdm</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-09-19</Date>
+            <Version>7.1</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

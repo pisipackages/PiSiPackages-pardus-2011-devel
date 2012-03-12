@@ -1,0 +1,69 @@
+diff -Nur grub-0.97-old/stage2/char_io.c grub-0.97/stage2/char_io.c
+--- grub-0.97-old/stage2/char_io.c	2010-10-22 14:53:16.695134471 +0300
++++ grub-0.97/stage2/char_io.c	2010-10-22 14:54:46.369155691 +0300
+@@ -241,8 +241,7 @@
+ {
+   cls ();
+ 
+-  grub_printf ("\n    GNU GRUB  version %s  (%dK lower / %dK upper memory)\n\n",
+-	  version_string, mbi.mem_lower, mbi.mem_upper);
++  grub_printf ("\n          Pardus Linux (http://www.pardus.org.tr), TUBITAK/UEKAE\n");
+ }
+ 
+ /* The number of the history entries.  */
+diff -Nur grub-0.97-old/stage2/stage2.c grub-0.97/stage2/stage2.c
+--- grub-0.97-old/stage2/stage2.c	2010-10-22 14:53:16.697135155 +0300
++++ grub-0.97/stage2/stage2.c	2010-10-22 15:07:52.397598250 +0300
+@@ -303,12 +303,6 @@
+ 
+       if (current_term->flags & TERM_DUMB)
+ 	print_entries_raw (num_entries, first_entry, menu_entries);
+-      else
+-	print_border (3, 12);
+-
+-      grub_printf ("\n\
+-      Use the %c and %c keys to select which entry is highlighted.\n",
+-		   DISP_UP, DISP_DOWN);
+       
+       if (! auth && password)
+ 	{
+@@ -322,19 +316,6 @@
+       Press enter to boot the selected OS or \'p\' to enter a\n\
+       password to unlock the next set of features.");
+ 	}
+-      else
+-	{
+-	  if (config_entries)
+-	    printf ("\
+-      Press enter to boot the selected OS, \'e\' to edit the\n\
+-      commands before booting, or \'c\' for a command-line.");
+-	  else
+-	    printf ("\
+-      Press \'b\' to boot, \'e\' to edit the selected command in the\n\
+-      boot sequence, \'c\' for a command-line, \'o\' to open a new line\n\
+-      after (\'O\' for before) the selected line, \'d\' to remove the\n\
+-      selected line, or escape to go back to the main menu.");
+-	}
+ 
+       if (current_term->flags & TERM_DUMB)
+ 	grub_printf ("\n\nThe selected entry is %d ", entryno);
+@@ -366,8 +347,8 @@
+ 			   entryno, grub_timeout);
+ 	  else
+ 	    {
+-	      gotoxy (3, 22);
+-	      grub_printf ("The highlighted entry will be booted automatically in %d seconds.    ",
++	      gotoxy (2, 27);
++	      grub_printf (" GNU GRUB %s - %d ", version_string,
+ 			   grub_timeout);
+ 	      gotoxy (74, 4 + entryno);
+ 	  }
+@@ -395,7 +376,7 @@
+ 	      if (current_term->flags & TERM_DUMB)
+ 		grub_putchar ('\r');
+ 	      else
+-		gotoxy (3, 22);
++		gotoxy (2, 27);
+ 	      printf ("                                                                    ");
+ 	      grub_timeout = -1;
+ 	      fallback_entryno = -1;

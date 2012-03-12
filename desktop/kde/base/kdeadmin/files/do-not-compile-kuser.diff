@@ -1,0 +1,25 @@
+Index: kdeadmin-4.6.1/CMakeLists.txt
+===================================================================
+--- kdeadmin-4.6.1.orig/CMakeLists.txt
++++ kdeadmin-4.6.1/CMakeLists.txt
+@@ -15,7 +15,6 @@ include_directories (${QDBUS_INCLUDE_DIR
+ 
+ macro_optional_add_subdirectory(strigi-analyzer)
+ if ( UNIX )
+-  macro_optional_add_subdirectory(kuser)
+   macro_optional_add_subdirectory(kcron)
+   macro_optional_add_subdirectory(ksystemlog)
+   macro_optional_add_subdirectory(system-config-printer-kde)
+Index: kdeadmin-4.6.1/doc/CMakeLists.txt
+===================================================================
+--- kdeadmin-4.6.1.orig/doc/CMakeLists.txt
++++ kdeadmin-4.6.1/doc/CMakeLists.txt
+@@ -1,8 +1,5 @@
+ 
+ if ( UNIX )
+-  if(BUILD_kuser)
+-    add_subdirectory(kuser)
+-  endif()
+   if(BUILD_kcron)
+     add_subdirectory(kcron)
+   endif()

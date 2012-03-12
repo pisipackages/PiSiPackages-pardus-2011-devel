@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>polkit</Name>
+        <Homepage>http://www.freedesktop.org/wiki/Software/PolicyKit</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2+</License>
+        <IsA>service</IsA>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>PolicyKit Authorization Framework</Summary>
+        <Description>polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to speak to privileged processes.</Description>
+        <Archive sha1sum="62907e1c9ffc45a8cd5f2cec2b5eabb168551f0e" type="targz">http://hal.freedesktop.org/releases/polkit-0.102.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pam-devel</Dependency>
+            <Dependency>dbus-devel</Dependency>
+            <Dependency>glib2-devel</Dependency>
+            <Dependency>expat-devel</Dependency>
+            <Dependency>dbus-glib-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">disable-docs.patch</Patch>
+            <Patch level="1">include-root-user.patch</Patch>
+
+            <!-- Patch for getting action message and desc. in system locale when GObject API is used
+            http://lists.freedesktop.org/archives/polkit-devel/2011-January/000338.html -->
+            <Patch level="1">use-system-locale-in-gobject-api.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>polkit-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development headers for polkit</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">polkit</Dependency>
+            <Dependency>glib2-devel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/pk-example-frobnicate</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/share/polkit-1/actions/org.freedesktop.policykit.examples.pkexec.policy</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>polkit</Name>
+        <RuntimeDependencies>
+            <Dependency>pam</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>expat</Dependency>
+            <Dependency>dbus-glib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/polkit-1</Path>
+            <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="data">/var/lib/polkit-1</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man8/pklocalauthority.8">man/pklocalauthority.8</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man8/polkit.8">man/polkit.8</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man8/polkitd.8">man/polkitd.8</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/pkaction.1">man/pkaction.1</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/pkcheck.1">man/pkcheck.1</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/pkexec.1">man/pkexec.1</AdditionalFile>
+
+            <AdditionalFile owner="root" permission="0644" target="/etc/polkit-1/localauthority.conf.d/70-desktop-policy.conf">70-desktop-policy.conf</AdditionalFile>
+            <!-- Example policy files from fedora
+            <AdditionalFile owner="root" permission="0644" target="/var/lib/polkit-1/localauthority/10-vendor.d/10-desktop-policy.pkla">10-desktop-policy.pkla</AdditionalFile>
+            -->
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="8" type="security">
+            <Date>2011-10-20</Date>
+            <Version>0.102</Version>
+            <Comment>Version bump to 0.102 to fix race condition in the pkexec utility and polkitd daemon (CVE-2011-1485) (pb#19383).</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-01-25</Date>
+            <Version>0.99</Version>
+            <Comment>Add patch for getting action message and desc. in system locale when GObject API is used.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-10-11</Date>
+            <Version>0.99</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-09-16</Date>
+            <Version>0.99</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-08-30</Date>
+            <Version>0.98</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-06-08</Date>
+            <Version>0.96</Version>
+            <Comment>Fix dependencies</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-03-11</Date>
+            <Version>0.96</Version>
+            <Comment>Fix pkexec information disclosure vulnerability.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-01-19</Date>
+            <Version>0.96</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>network-manager-applet</Name>
+        <Homepage>http://projects.gnome.org/NetworkManager</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>app:gui</IsA>
+        <Summary>Network connection manager GUI interface</Summary>
+        <Description>network-manager-applet is a powerful graphical frontend to NetworkManager.</Description>
+        <Archive sha1sum="2d1d576e616094e097971cebf973ffcd0f437583" type="tarbz2">mirrors://gnome/network-manager-applet/0.8/network-manager-applet-0.8.5.92.tar.bz2</Archive>
+        <AdditionalFiles>
+            <AdditionalFile target="po/tr.po">tr.po</AdditionalFile>
+        </AdditionalFiles>
+        <BuildDependencies>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>cairo-devel</Dependency>
+            <Dependency>gconf-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>libnotify-devel</Dependency>
+            <Dependency>gdk-pixbuf-devel</Dependency>
+            <Dependency>libgnome-keyring-devel</Dependency>
+            <Dependency versionFrom="0.8.5.91">NetworkManager-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">add-tr-to-LINGUAS.patch</Patch>
+            <Patch level="1">add-window-id-option-for-embed.diff</Patch>
+            <Patch level="1">default-to-system-scope.patch</Patch>
+            <Patch level="1">change-tab-order-in-editor.patch</Patch>
+            <Patch level="1">unify-button-labels.patch</Patch>
+
+            <!-- Remove applet now embedded/removed message which was writtern for debugging -->
+            <Patch level="1">prune-unused-message.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>network-manager-applet</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libnotify</Dependency>
+            <Dependency>gdk-pixbuf</Dependency>
+            <Dependency>gnome-keyring</Dependency>
+            <Dependency>libgnome-keyring</Dependency>
+            <Dependency versionFrom="0.8.5.91">NetworkManager</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/nm-applet</Path>
+            <Path fileType="data">/etc/dbus-1</Path>
+            <Path fileType="data">/etc/gconf/schemas</Path>
+            <Path fileType="data">/etc/xdg/autostart</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="11">
+            <Date>2011-09-20</Date>
+            <Version>0.8.5.92</Version>
+            <Comment>Version bump to 0.8.5.92 release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2011-08-08</Date>
+            <Version>0.8.5.91</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-04-26</Date>
+            <Version>0.8.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-03-02</Date>
+            <Version>0.8.3.996</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-11-10</Date>
+            <Version>0.8.2</Version>
+            <Comment>
+                - Version bump,
+                - Default to system scope.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-11-01</Date>
+            <Version>0.8.1</Version>
+            <Comment>Fix dependencies and add a patch to embed nm-connection-editor to any application.</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-13</Date>
+            <Version>0.8.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-07-23</Date>
+            <Version>0.8.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-05-26</Date>
+            <Version>0.8.0.998</Version>
+            <Comment>Bump to beta2</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-05-20</Date>
+            <Version>0.8.0.997</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-04-29</Date>
+            <Version>0.8_20100429</Version>
+            <Comment>Initial release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

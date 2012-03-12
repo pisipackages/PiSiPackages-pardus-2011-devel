@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bashdb</Name>
+        <Homepage>http://bashdb.sourceforge.net</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>A Debugger for Bash</Summary>
+        <Description>bashdb is a comprehensive source-code debugger for bash.</Description>
+        <Archive sha1sum="c2640aa3a35037d08fcd19e8b33002984a3f477c" type="targz">mirrors://sourceforge/bashdb/bashdb-4.2-0.8.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>bashdb</Name>
+        <Conflicts>
+            <Package releaseTo="4">bashdb</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/bashdb</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2011-08-01</Date>
+            <Version>4.2.0.8</Version>
+            <Comment>Version bump:
+                - More trace/untrace bug fixes and and more detailed error messages
+                - Split out untrace from trace, improve help
+                - Add test unit helper routine
+                - Start long process of DRYing code
+                - Convert "info signals" and "info source"
+                - Correct search integration test
+                - More better tab completion for subcommands
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-05-05</Date>
+            <Version>4.2.0.7</Version>
+            <Comment>Version bump:
+                - Updates for bash 4.2
+                - syntax coloring if the Python pygments package installed (and --highlight option used)
+                - easy way to evaluate the current source line or expression inside the source line (debugger commands "eval" and "eval?")
+                - ability to go into a nested shell but keeping existing variables and functions set. (debugger command "shell") With this, one needs...
+                - ability to save variables to an outer shell ("set_vars" function inside the interactive shell)
+                - ability to save values from inside a subshell to the outer shell (debugger command "export")
+                - add --init-file (akin to same option in bash) to have bash code sourced
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-03-06</Date>
+            <Version>4.2.0.6</Version>
+            <Comment>Version bump:
+                - Debugger "list" command carries on where we last left off and centers around a line unless given a start and end line number. l> added.
+                - Fixed --no-init (--nx, -n) option
+                - Fixed to work on bash version 4.2
+                - Reorganized command-processing code to simplify it, make it more dynamic, and allow for better expansion increasing DRYness. As a result some short abbreviations of commands have been dropped. Use "alias" to add back any that you want.
+                - Make "display" command more like gdb. Note this is an incompatible change. Left to do is to start indexing from 1.
+                - Emacs lisp code has been removed. Please multi-debugger code from http://github.com/rocky/emacs-dbgr instead.
+                - Numerous little bugs fixed.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-11-08</Date>
+            <Version>4.1.0.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-11-01</Date>
+            <Version>4.0.0.4</Version>
+            <Comment>Split bashdb-emacs package.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-29</Date>
+            <Version>4.0.0.4</Version>
+            <Comment>Mass rebuild for Pardus Corporate 2 Alpha 3</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-03-17</Date>
+            <Version>4.0.0.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-05-22</Date>
+            <Version>4.0.0.3</Version>
+            <Comment>Version bump to 4.0-0.3:
+                - Allow arbitrary number of aliases
+                - Bug fix for bash 4.x don't try to return negative values in functions
+                - Allow building on bash 3.1
+                - Fix bug in alternating between "step" and "next" commands
+                - Some other small doc and bug fixes.
+                * Package ready for 2009.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-11-29</Date>
+            <Version>4.0.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Test-Warn</Name>
+        <Homepage>http://search.cpan.org/dist/Test-Warn/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Perl extension to test methods for warnings</Summary>
+        <Description>perl-Test-Warn module provides a few convenience methods for testing warning based code.</Description>
+        <Archive sha1sum="378ff7f44b5268c7b91b01da2e16e2e09aa2422b" type="targz">mirrors://cpan/authors/id/C/CH/CHORNY/Test-Warn-0.22.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Sub-Uplevel</Dependency>
+            <Dependency>perl-Tree-DAG_Node</Dependency>
+            <Dependency>perl-Test-Pod</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Test-Warn</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Sub-Uplevel</Dependency>
+            <Dependency>perl-Tree-DAG_Node</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2010-10-13</Date>
+            <Version>0.22</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-07</Date>
+            <Version>0.22</Version>
+            <Comment>Remove perl-Test-Simple package, as it is included in perl-5.12.1. perl-Test-Pod is added for the tests to build deps. Now the package is ready for 2011.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-05</Date>
+            <Version>0.22</Version>
+            <Comment>Ready for 2011, version bump</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-02-11</Date>
+            <Version>0.21</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

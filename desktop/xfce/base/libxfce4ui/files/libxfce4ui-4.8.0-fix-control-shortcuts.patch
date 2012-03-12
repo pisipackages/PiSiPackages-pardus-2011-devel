@@ -1,0 +1,30 @@
+--- libxfce4ui-4.8.0/libxfce4kbd-private/xfce-shortcuts-grabber.c	2011-01-16 10:01:09.000000000 -0500
++++ hacked/libxfce4kbd-private/xfce-shortcuts-grabber.c	2011-12-18 00:29:58.343552611 -0500
+@@ -560,6 +560,9 @@
+ {
+   gchar   *name;
+   gboolean result = FALSE;
++  guint keycode;
++  guint modifiers;
++  gchar *shortcut2;
+ 
+   g_return_val_if_fail (context != NULL, TRUE);
+   g_return_val_if_fail (context->xevent != NULL, TRUE);
+@@ -569,13 +572,16 @@
+   name = xfce_shortcuts_grabber_shortcut_name (context->grabber, context->xevent->keycode,
+                                                context->xevent->state);
+ 
+-  if (G_UNLIKELY (g_str_equal (shortcut, name)))
++  xfce_shortcuts_grabber_parse_shortcut (context->grabber, shortcut, &keycode, &modifiers);
++  shortcut2 = xfce_shortcuts_grabber_shortcut_name (context->grabber, keycode, modifiers);
++  if (G_UNLIKELY (g_str_equal (shortcut2, name)))
+     {
+       context->result = shortcut;
+       result = TRUE;
+     }
+ 
+   g_free (name);
++  g_free (shortcut2);
+ 
+   gdk_flush ();
+   gdk_error_trap_pop ();

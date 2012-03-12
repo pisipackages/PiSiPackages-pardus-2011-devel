@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Readonly</Name>
+        <Homepage>http://search.cpan.org/dist/Readonly/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Facility for creating read-only scalars, arrays, hashes</Summary>
+        <Description>perl-Readonly is a facility for creating read-only scalars, arrays, hashes.</Description>
+        <Archive sha1sum="31220d04adc3b407cfe2d5bcb04d7ff07e923ab8" type="targz">mirrors://cpan/authors/id/R/RO/ROODE/Readonly-1.03.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Readonly</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2010-10-13</Date>
+            <Version>1.03</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-08-21</Date>
+            <Version>1.03</Version>
+            <Comment>Strictly depend on perl 5.12.1 and remove useless pisitools.removeDir func. in actions.py.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-08</Date>
+            <Version>1.03</Version>
+            <Comment>First release.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+

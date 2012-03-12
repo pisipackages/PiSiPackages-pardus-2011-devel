@@ -1,0 +1,156 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>eclipse-pde</Name>
+        <Homepage>http://www.eclipse.org/pde</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>EPL-1.0</License>
+        <IsA>app:gui</IsA>
+        <Summary>Plugin Development Tools (PDT) for Eclipse</Summary>
+        <Description>eclipse-pde provides tools to create, develop, test, debug, build and deploy Eclipse plug-ins, fragments, features, update sites and RCP products.</Description>
+        <Archive sha1sum="587c3fbb7ac6fa5647fcf080f9bde9fc01e23c97" type="zip">http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops/R-3.7.1-201109091335/org.eclipse.pde-3.7.1.zip</Archive>
+    </Source>
+
+    <Package>
+        <Name>eclipse-pde</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.7.1">eclipse</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>eclipse-pde-binary</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/opt</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="17">
+            <Date>2011-10-13</Date>
+            <Version>3.7.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2011-06-30</Date>
+            <Version>3.7</Version>
+            <Comment>Version bump for Eclipse Indigo (v3.7)</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2011-01-09</Date>
+            <Version>3.6.1</Version>
+            <Comment>
+                - Mark eclipse-pde-binary as obsolete
+                - Update runtime dependency
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2010-10-13</Date>
+            <Version>3.6.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2010-10-05</Date>
+            <Version>3.6.1</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-04-25</Date>
+            <Version>3.5.2</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-02-10</Date>
+            <Version>3.5.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2009-07-09</Date>
+            <Version>3.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-04-03</Date>
+            <Version>3.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-07-20</Date>
+            <Version>3.4</Version>
+            <Comment>Stable version bump</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-06-16</Date>
+            <Version>3.4_m7</Version>
+            <Comment>Version bump</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-04-15</Date>
+            <Version>3.4_m6a</Version>
+            <Comment>Version bump</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-07-08</Date>
+            <Version>3.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-03-02</Date>
+            <Version>3.2.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-16</Date>
+            <Version>3.2.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-07-28</Date>
+            <Version>3.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-02-02</Date>
+            <Version>3.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

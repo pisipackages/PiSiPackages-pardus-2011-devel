@@ -1,0 +1,260 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bash</Name>
+        <Homepage>http://cnswww.cns.cwru.edu/~chet/bash/bashtop.html</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>The standard GNU Bourne again shell</Summary>
+        <Description>Bash is the GNU Project's Bourne Again SHell, a complete implementation of the IEEE POSIX and Open Group shell specification with interactive command line editing, csh-like features such as history substitution.</Description>
+        <Archive sha1sum="3bd1ec9c66f3689f6b3495bdaaf9077b2e5dc150" type="targz">mirrors://gnu/bash/bash-4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ncurses-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Official Patches ftp://ftp.cwru.edu/pub/bash/bash-4.1-patches/ -->
+            <Patch>official-patches/bash41-001</Patch>
+            <Patch>official-patches/bash41-002</Patch>
+            <Patch>official-patches/bash41-003</Patch>
+            <Patch>official-patches/bash41-004</Patch>
+            <Patch>official-patches/bash41-005</Patch>
+            <Patch>official-patches/bash41-006</Patch>
+            <Patch>official-patches/bash41-007</Patch>
+
+            <!-- Fedora patches -->
+            <Patch level="1">fedora/bash-2.02-security.patch</Patch>
+            <Patch level="1">fedora/bash-2.03-paths.patch</Patch>
+            <Patch level="1">fedora/bash-2.03-profile.patch</Patch>
+            <Patch level="1">fedora/bash-2.05a-interpreter.patch</Patch>
+            <Patch level="1">fedora/bash-2.05b-debuginfo.patch</Patch>
+            <Patch level="1">fedora/bash-2.05b-manso.patch</Patch>
+            <Patch level="1">fedora/bash-2.05b-pgrp_sync.patch</Patch>
+            <Patch level="1">fedora/bash-2.05b-readline-oom.patch</Patch>
+            <Patch level="1">fedora/bash-2.05b-xcc.patch</Patch>
+            <Patch level="1">fedora/bash-3.2-audit.patch</Patch>
+            <Patch level="1">fedora/bash-3.2-ssh_source_bash.patch</Patch>
+            <Patch level="1">fedora/bash-bashbug.patch</Patch>
+            <Patch level="1">fedora/bash-infotags.patch</Patch>
+            <Patch level="1">fedora/bash-requires.patch</Patch>
+            <Patch level="1">fedora/bash-setlocale.patch</Patch>
+            <Patch level="1">fedora/bash-tty-tests.patch</Patch>
+            <Patch level="1">fedora/bash-4.0-nobits.patch</Patch>
+            <Patch level="1">fedora/bash-4.1-examples.patch</Patch>
+
+            <!-- Mandriva patches -->
+            <Patch level="1">mandriva/bash-4.0-profile.patch</Patch>
+            <Patch level="1">mandriva/bash-2.04-compat.patch</Patch>
+            <Patch>mandriva/bash-3.1-extended_quote.patch</Patch>
+            <Patch level="1">mandriva/bash-strcoll-bug.diff</Patch>
+            <Patch level="1">mandriva/bash-2.05b-checkwinsize.patch</Patch>
+            <Patch level="1">mandriva/bash-3.2-lzma-copmpletion.patch</Patch>
+            <Patch level="1">mandriva/bash-3.2-format-security.patch</Patch>
+
+            <Patch level="1">bash-4.1-fix-command-not-found-glitch.patch</Patch>
+
+            <!-- honeypot
+            <Patch level="1">bash-3.1-bash-logger.patch</Patch>
+            -->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>bash</Name>
+        <RuntimeDependencies>
+            <Dependency>ncurses</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/bash/bashrc">bashrc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/profile.d/command-not-found.sh">command-not-found.sh</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="24">
+            <Date>2010-10-18</Date>
+            <Version>4.1</Version>
+            <Comment>Fix command-not-found bug causing bash to not give error when the command can not be found</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2010-10-11</Date>
+            <Version>4.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2010-09-13</Date>
+            <Version>4.1</Version>
+            <Comment>Fix config file handling</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2010-09-03</Date>
+            <Version>4.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2010-06-08</Date>
+            <Version>3.2</Version>
+            <Comment>Add missing ncurses dependency.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2009-02-12</Date>
+            <Version>3.2</Version>
+            <Comment>
+                Add lots of official patches 34-48
+                Fix linking and ldflags problems
+                Fix force linking to curses
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2008-04-24</Date>
+            <Version>3.2</Version>
+            <Comment>Switch back to .sh suffix for profile.d</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2008-04-07</Date>
+            <Version>3.2</Version>
+            <Comment>command-not-found patch</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2007-12-26</Date>
+            <Version>3.2</Version>
+            <Comment>Sync with patches up to 033</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2007-08-23</Date>
+            <Version>3.2</Version>
+            <Comment>Sync with patches up to 025</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2007-03-11</Date>
+            <Version>3.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2007-01-19</Date>
+            <Version>3.1</Version>
+            <Comment>Provide /etc/bashrc as a symlink</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2007-01-17</Date>
+            <Version>3.1</Version>
+            <Comment>Fix #590</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2006-11-09</Date>
+            <Version>3.1</Version>
+            <Comment>Revert for fixing unicode problem</Comment>
+            <Name>Gürer Özen</Name>
+            <Email>gurer@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2006-11-04</Date>
+            <Version>3.2</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2006-06-03</Date>
+            <Version>3.1</Version>
+            <Comment>Fix crash in IFS multi byte handling</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2006-05-15</Date>
+            <Version>3.1</Version>
+            <Comment>revert gchistory to solve #2330</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2006-05-01</Date>
+            <Version>3.1</Version>
+            <Comment>gchistory patches ported</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2006-04-18</Date>
+            <Version>3.1</Version>
+            <Comment>Official patches added (015-017)</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-03-31</Date>
+            <Version>3.1</Version>
+            <Comment>fix #1941, cdspell</Comment>
+            <Name>Barış Metin</Name>
+            <Email>baris@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-03-28</Date>
+            <Version>3.1</Version>
+            <Comment>Version bump, remove gchistory</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2005-08-11</Date>
+            <Version>3.0</Version>
+            <Comment>Patch for gchistory added (use ctrl-up/ctrl-down to walk in global history, instead of up/down) #727</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-07-04</Date>
+            <Version>3.0</Version>
+            <Comment>http://sourceforge.net/projects/bash-gchistory/ added</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-04</Date>
+            <Version>3.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Barış Metin</Name>
+            <Email>baris@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

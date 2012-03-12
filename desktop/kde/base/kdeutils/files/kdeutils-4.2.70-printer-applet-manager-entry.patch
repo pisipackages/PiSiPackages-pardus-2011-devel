@@ -1,0 +1,13 @@
+Index: kdeutils-4.5.2/printer-applet/printer-applet.py
+===================================================================
+--- kdeutils-4.5.2.orig/printer-applet/printer-applet.py
++++ kdeutils-4.5.2/printer-applet/printer-applet.py
+@@ -270,6 +270,8 @@ class JobManager(QObject, monitor.Watche
+         self.mainWindow.actionCollection().addAction("printer_configuration", configureAction)
+         self.connect(configureAction, SIGNAL("triggered(bool)"), self.on_printer_configuration_activate)
+ 
++        self.sysTray.contextMenu().addAction(configureAction)
++
+         showCompletedJobsAction = KToggleAction( i18n( "Show Completed Jobs"), self.mainWindow)
+         self.mainWindow.actionCollection().addAction("show_completed_jobs", showCompletedJobsAction)
+         self.connect(showCompletedJobsAction, SIGNAL("triggered(bool)"), self.on_show_completed_jobs_activate);

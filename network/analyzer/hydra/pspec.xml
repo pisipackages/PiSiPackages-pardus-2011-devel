@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>hydra</Name>
+        <Homepage>http://www.thc.org/thc-hydra/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>Parallized login guesser</Summary>
+        <Description>hydra is a very fast login guesser supporting many protocols.</Description>
+        <Archive sha1sum="c878ac5a22e7693695921b215826c579117fd098" type="targz">http://freeworld.thc.org/releases/hydra-6.4-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libssh-devel</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>mysql-lib</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!--
+            <Patch level="1">hydra-5.4-_FORTIFY_SOURCE.patch</Patch>
+            <Patch>hydra-5.4-free-without-malloc.patch</Patch>
+            <Patch>hydra-5.4-libssh-0.4.0.patch</Patch>
+            -->
+            <Patch level="1">overlink.patch</Patch>
+            <Patch level="1">mathlib.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>hydra</Name>
+        <RuntimeDependencies>
+            <Dependency>libssh</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>mysql-lib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/hydra</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2011-07-06</Date>
+            <Version>6.4</Version>
+            <Comment>Force link with libm</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-07-04</Date>
+            <Version>6.4</Version>
+            <Comment>Version bump, enable mysql postgresql and subversion for now</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-13</Date>
+            <Version>5.7</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-09-11</Date>
+            <Version>5.7</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-05-27</Date>
+            <Version>5.4</Version>
+            <Comment>Make sure we link with math library wherever it is necessary, fixes build on 64 bit</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-15</Date>
+            <Version>5.4</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

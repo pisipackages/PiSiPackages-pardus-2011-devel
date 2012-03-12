@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libopenraw</Name>
+        <Homepage>http://libopenraw.freedesktop.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv3+</License>
+        <IsA>library</IsA>
+        <Summary>A library for camera RAW files decoding</Summary>
+        <Description>libopenraw is an ongoing project to provide a free software implementation for camera RAW files decoding. One of the main reason is that dcraw is not suited for easy integration into applications, and there is a need for an easy to use API to build free software digital image processing application.</Description>
+        <Archive sha1sum="6eb19679f3b5cdc566a4caa459811121a78ac0d9" type="targz">http://libopenraw.freedesktop.org/download/libopenraw-0.0.8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>jpeg-devel</Dependency>
+            <Dependency>boost-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">0001-Properly-decompress-CFA-from-Canon-7D-5DMkII-500D-1D.patch</Patch>
+            <Patch level="1">0001-Support-partially-PEF-from-Pentax-K20D.patch</Patch>
+            <Patch level="1">libopenraw-0.0.8-pixbufloaderdir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libopenraw</Name>
+        <RuntimeDependencies>
+            <Dependency>jpeg</Dependency>
+            <Dependency>boost</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libopenraw-devel</Name>
+        <Summary>Development files for libopenraw</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libopenraw</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2011-02-14</Date>
+            <Version>0.0.8</Version>
+            <Comment>Add some patches</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-12</Date>
+            <Version>0.0.8</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-09-09</Date>
+            <Version>0.0.8</Version>
+            <Comment>Split devel package.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-01-07</Date>
+            <Version>0.0.8</Version>
+            <Comment>Version bump to 0.0.8</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-04-27</Date>
+            <Version>0.0.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-10-13</Date>
+            <Version>0.0.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

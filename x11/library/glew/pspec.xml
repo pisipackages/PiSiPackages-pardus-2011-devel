@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>glew</Name>
+        <Homepage>http://glew.sourceforge.net</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <License>GLX</License>
+        <License>SGI-B</License>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>OpenGL Extension Wrangler Library</Summary>
+        <Description>OpenGL Extension Wrangler Library (GLEW) is a cross-platform C/C++ extension loading library. GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform. OpenGL core and extension functionality is exposed in a single header file.</Description>
+        <Archive sha1sum="450946935faa20ac4950cb42ff025be2c1f7c22e" type="targz">mirrors://sourceforge/glew/1.5.5/glew-1.5.8.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>freeglut-devel</Dependency>
+            <Dependency>mesa-devel</Dependency>
+            <Dependency>libXext-devel</Dependency>
+            <Dependency>libXi-devel</Dependency>
+            <Dependency>libXmu-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!--Dont change order of patch, otherwise "add_bin_target" cannot be applied-->
+            <Patch level="1">glew-1.5.8-makefile.patch</Patch>
+            <Patch level="1">glew-1.5.8-glewmx.patch</Patch>
+            <Patch level="1">glew-1.5.8-soname.patch</Patch>
+            <Patch level="1">add_bin_target.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>glew</Name>
+        <RuntimeDependencies>
+            <Dependency>freeglut</Dependency>
+            <Dependency>mesa</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXi</Dependency>
+            <Dependency>libXmu</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>glew-devel</Name>
+        <Summary>Development files for glew</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">glew</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/GL</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/lib32/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>glew-32bit</Name>
+        <PartOf>emul32</PartOf>
+        <Summary>32-bit shared libraries for glew</Summary>
+        <BuildType>emul32</BuildType>
+        <BuildDependencies>
+            <Dependency>mesa-32bit</Dependency>
+            <Dependency>libXi-32bit</Dependency>
+            <Dependency>libX11-32bit</Dependency>
+        </BuildDependencies>
+        <RuntimeDependencies>
+            <Dependency release="current">glew</Dependency>
+            <Dependency>mesa-32bit</Dependency>
+            <Dependency>libXi-32bit</Dependency>
+        </RuntimeDependencies>
+
+        <Files>
+            <Path fileType="library">/usr/lib32</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="10">
+            <Date>2011-04-26</Date>
+            <Version>1.5.8</Version>
+            <Comment>
+                * Update to 1.5.8 release
+                * Split and create emul32 package
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-10-12</Date>
+            <Version>1.5.5</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-08-24</Date>
+            <Version>1.5.5</Version>
+            <Comment>Version bump, split devel.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-07-12</Date>
+            <Version>1.5.4</Version>
+            <Comment>Version bump (#13741).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-06-02</Date>
+            <Version>1.5.1</Version>
+            <Comment>Fix package version and linking problems</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-05-12</Date>
+            <Version>1.5.0</Version>
+            <Comment>Remove conflicting headers with mesa package</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-01-03</Date>
+            <Version>1.5.1</Version>
+            <Comment>Stable bump and bug fix release.
+                     * Licensing issues with documentation is fixed
+                     * Incorrect parameter for glGetUniformLocation  is fixed
+                     * glewGetExtension fails on last entry  is fixed
+                     * Incomplete GL_NV_texture_shader tokens is fixed</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-07-26</Date>
+            <Version>1.5.0</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-01-12</Date>
+            <Version>1.3.5</Version>
+            <Comment>Fix library permission and cflags</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-27</Date>
+            <Version>1.3.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>

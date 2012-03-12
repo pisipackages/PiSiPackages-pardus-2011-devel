@@ -1,0 +1,671 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kde-l10n-tr</Name>
+        <Homepage>http://www.kde.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>locale:tr</IsA>
+        <Summary>Turkish KDE4 internationalization package</Summary>
+        <Description>kde-l10n-tr is the KDE4 internationalization package that provides Turkish translations for KDE4 applications.</Description>
+        <Archive type="tarbz2" sha1sum="81c51b15ebc60f3b56373687029d3dddd491e8e8">mirrors://kde/stable/4.6.5/src/kde-l10n/kde-l10n-tr-4.6.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Sync translations from branches/stable/l10n-kde/tr using sync-branch-translations.sh
+            <Patch level="1">BRANCH.patch</Patch> -->
+
+            <!-- Include playground-network translations too -->
+            <Patch level="1">add-playground-network-dir.patch</Patch>
+
+
+            <!-- Translations for Pardus specific modifications, won't go upstream -->
+
+
+            <!-- Panel show only icons label translation (Feature not forward-ported to 4.4
+            <Patch level="1">panel-show-only-icons.patch</Patch>
+            -->
+
+            <!-- Configure Date & Time' translation -->
+            <Patch level="1">configure-datetime-translation.diff</Patch>
+
+            <!-- Back button's translation for systemsettings
+            <Patch level="1">systemsettings-back-button.patch</Patch>
+            -->
+
+            <!-- plasma_engine_hotplug translations -->
+            <Patch level="1">notification-translation.diff</Patch>
+
+            <!-- KMix' context menu link for pavucontrol -->
+            <Patch level="1">kmix-add-pavucontrol-i18n.patch</Patch>
+
+            <!-- Translation for 'Manage Printers' option added to printer-applet
+            <Patch level="1">printer-applet-manager-printers.diff</Patch>
+            -->
+
+            <!-- Not enough disk space error while moving a file into trash -->
+            <Patch level="1">not-enough-disk-space.diff</Patch>
+
+            <!-- Suspend, sleep and hibernate fixes
+            <Patch level="1">suspend-hibernate-fixes.patch</Patch>-->
+
+            <!-- Fix for #13842 -->
+            <Patch level="1">fix-xdg-user-dirs-translations.diff</Patch>
+
+            <Patch level="1">remove-kdepim-translations.diff</Patch>
+            <Patch level="1">add-kdepim44-translations.diff</Patch>
+
+            <Patch level="1">fix-details-translation.diff</Patch>
+
+            <Patch level="1">may-to-mayis.patch</Patch>
+
+            <Patch>fix_tasks_applet.patch</Patch>
+
+            <!-- Fix for #15845 -->
+            <Patch level="1">fix-kteatime-trans.diff</Patch>
+            <Patch level="1">kcmlocale_systemwide.patch</Patch>
+
+            <!-- Fix missing space in restart dialog translation -->
+            <Patch level="1">fix-missing-space-in-restart-dialog-translation.diff</Patch>
+
+            <!-- Fix translation of tiklayin in Okular -->
+            <Patch level="1">fix-tuklayin.diff</Patch>
+            <Patch level="1">add_kcmkeyboard.patch</Patch>
+
+            <Patch level="1">fix-email-contributor.diff</Patch>
+            <Patch level="1">fix-kalzium-translations.diff</Patch>
+
+            <!-- system-config-printer-kde translations -->
+            <!--<Patch level="1">sync-scp-kde-translations-from-trunk.patch</Patch>-->
+
+            <!--Translations for our custom randr informatin bar-->
+            <Patch level="1">randr_information_bar.patch</Patch>
+
+            <!-- Translation fix for KSudoku 273403 -->
+            <Patch level="1">fix-ksudoku-translation-273403.diff</Patch>
+        </Patches>
+    </Source>
+    <Package>
+        <Name>kde-l10n-tr</Name>
+        <Replaces>
+            <Package>kde4-i18n-tr</Package>
+            <Package>kde-i18n-tr</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>kde-l10n-tr-doc</Name>
+        <Replaces>
+            <Package>kde4-i18n-tr-doc</Package>
+            <Package>kde-i18n-tr-doc</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="data">/usr/share/kde4</Path>
+            <Path fileType="doc">/usr/share/doc/kde4</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="79">
+            <Date>2011-08-01</Date>
+            <Version>4.6.5</Version>
+            <Comment>Remove extra minute and second words from ksudoku translations (kde#273403)</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="78">
+            <Date>2011-07-11</Date>
+            <Version>4.6.5</Version>
+            <Comment>Version bump to 4.6.5</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="77">
+            <Date>2011-07-04</Date>
+            <Version>4.6.3</Version>
+            <Comment>Add translations for randr information bar</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="76">
+            <Date>2011-05-23</Date>
+            <Version>4.6.3</Version>
+            <Comment>Re-enable system-config-printer-kde patch.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="75">
+            <Date>2011-05-20</Date>
+            <Version>4.6.3</Version>
+            <Comment>Remove trunk translations for kdepim.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="74">
+            <Date>2011-05-20</Date>
+            <Version>4.6.3</Version>
+            <Comment>Version bump to 4.6.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="73">
+            <Date>2011-05-12</Date>
+            <Version>4.6.2</Version>
+            <Comment>Sync system-config-printer-kde translations from trunk</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="72">
+            <Date>2011-04-25</Date>
+            <Version>4.6.2</Version>
+            <Comment>Fix translation of Switch Application Launcher.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="71">
+            <Date>2011-04-23</Date>
+            <Version>4.6.2</Version>
+            <Comment>Fix translation of "Email contributor" in kdelibs and fix some translations in Kalzium and Okular.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="70">
+            <Date>2011-04-11</Date>
+            <Version>4.6.2</Version>
+            <Comment>Version bump to 4.6.2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="69">
+            <Date>2011-03-28</Date>
+            <Version>4.6.1</Version>
+            <Comment>Include keyboard translation</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="68">
+            <Date>2011-03-26</Date>
+            <Version>4.6.1</Version>
+            <Comment>Include kdepim 4.4 translations again.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="67">
+            <Date>2011-03-25</Date>
+            <Version>4.6.1</Version>
+            <Comment>Version bump to 4.6.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="66">
+            <Date>2011-03-22</Date>
+            <Version>4.5.5</Version>
+            <Comment>Fix typo in Okular translation.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="65">
+            <Date>2011-02-23</Date>
+            <Version>4.5.5</Version>
+            <Comment>Add missing space to restart dialog of ksmserver.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="64">
+            <Date>2011-01-13</Date>
+            <Version>4.5.5</Version>
+            <Comment>Add turkish translation for kcmlocale</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="63">
+            <Date>2011-01-08</Date>
+            <Version>4.5.5</Version>
+            <Comment>Version bump to 4.5.5</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="62">
+            <Date>2010-12-27</Date>
+            <Version>4.5.4</Version>
+            <Comment>Fix weird KTeatime translation #15845</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="61">
+            <Date>2010-12-21</Date>
+            <Version>4.5.4</Version>
+            <Comment>Fix tasks applet tr locales</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="60">
+            <Date>2010-12-14</Date>
+            <Version>4.5.4</Version>
+            <Comment>Use pangram instead of a march to preview the fonts (#14403).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="59">
+            <Date>2010-12-13</Date>
+            <Version>4.5.4</Version>
+            <Comment>Add translations of 4 new strings added in randr-features-4.6-t1170315.diff patch of kdebase-workspace.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="58">
+            <Date>2010-12-12</Date>
+            <Version>4.5.4</Version>
+            <Comment>Version bump to 4.5.4</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="57">
+            <Date>2010-12-05</Date>
+            <Version>4.5.3</Version>
+            <Comment>Fix wrong translation of may, the month (#15464).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="56">
+            <Date>2010-11-17</Date>
+            <Version>4.5.3</Version>
+            <Comment>Fix silly translation of Details string</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="55">
+            <Date>2010-11-11</Date>
+            <Version>4.5.3</Version>
+            <Comment>Add KDEPIM 4.4 translations, since we downgraded.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="54">
+            <Date>2010-11-03</Date>
+            <Version>4.5.3</Version>
+            <Comment>Version bump to 4.5.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="53">
+            <Date>2010-10-26</Date>
+            <Version>4.5.2</Version>
+            <Comment>Sync translations with branch.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="52">
+            <Date>2010-10-12</Date>
+            <Version>4.5.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="51">
+            <Date>2010-10-05</Date>
+            <Version>4.5.2</Version>
+            <Comment>Version bump to 4.5.2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="50">
+            <Date>2010-09-19</Date>
+            <Version>4.5.1</Version>
+            <Comment>Version bump to 4.5.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="49">
+            <Date>2010-08-24</Date>
+            <Version>4.5.0</Version>
+            <Comment>Version bump to 4.5.0</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="48">
+            <Date>2010-08-05</Date>
+            <Version>4.4.5</Version>
+            <Comment>Version bump to 4.4.5</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="47">
+            <Date>2010-07-05</Date>
+            <Version>4.4.4</Version>
+            <Comment>Fix This Day in History plugin of Korganizer in Turkish locale.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="46">
+            <Date>2010-06-29</Date>
+            <Version>4.4.4</Version>
+            <Comment>Fix the translations of suspend, sleep and hibernate (#11643).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="45">
+            <Date>2010-05-31</Date>
+            <Version>4.4.4</Version>
+            <Comment>Version bump to 4.4.4</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="44">
+            <Date>2010-05-10</Date>
+            <Version>4.4.3</Version>
+            <Comment>Fix system-config-printer translations</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="43">
+            <Date>2010-05-10</Date>
+            <Version>4.4.3</Version>
+            <Comment>Sync translations.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="42">
+            <Date>2010-05-05</Date>
+            <Version>4.4.3</Version>
+            <Comment>Refactor patches, sync with branch</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="41">
+            <Date>2010-05-05</Date>
+            <Version>4.4.3</Version>
+            <Comment>Version bump to 4.4.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="40">
+            <Date>2010-01-27</Date>
+            <Version>4.3.5</Version>
+            <Comment>Version bump to 4.3.5</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2009-12-03</Date>
+            <Version>4.3.4</Version>
+            <Comment>Version bump to 4.3.4</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2009-11-13</Date>
+            <Version>4.3.3</Version>
+            <Comment>Translation for kdebase-runtime release 41, #11519</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2009-11-04</Date>
+            <Version>4.3.3</Version>
+            <Comment>Add translations for the new pavucontrol shortcut in KMix.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2009-11-01</Date>
+            <Version>4.3.3</Version>
+            <Comment>Version bump to 4.3.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2009-10-14</Date>
+            <Version>4.3.2</Version>
+            <Comment>Revert back to 4.3 series to restore normal repo state</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2009-10-14</Date>
+            <Version>4.2.4</Version>
+            <Comment>Revert to 4.2 series for critical bluetooth problem fix</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2009-10-13</Date>
+            <Version>4.3.2</Version>
+            <Comment>Drop kbluetooth translations.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2009-10-12</Date>
+            <Version>4.3.2</Version>
+            <Comment>Fix 'dah' typos of drkonqi and processui.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2009-10-06</Date>
+            <Version>4.3.2</Version>
+            <Comment>Version bump to 4.3.2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2009-10-02</Date>
+            <Version>4.3.1</Version>
+            <Comment>Version bump to 4.3.1 release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2009-07-21</Date>
+            <Version>4.2.4</Version>
+            <Comment>Fix Samba typo in systemsettings (#10506).</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2009-07-12</Date>
+            <Version>4.2.4</Version>
+            <Comment>Add translations of Sleep and Hibernate</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2009-07-12</Date>
+            <Version>4.2.4</Version>
+            <Comment>Add translation for wallpaper transition checkbox.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2009-06-26</Date>
+            <Version>4.2.4</Version>
+            <Comment>Fix translation of shutdown in kcmenergy module.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2009-06-23</Date>
+            <Version>4.2.4</Version>
+            <Comment>Fix typo in translations of &apos;Activate %1 Widget&apos;</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2009-06-12</Date>
+            <Version>4.2.4</Version>
+            <Comment>Version bump to 4.2.4 bugfix release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2009-06-11</Date>
+            <Version>4.2.3</Version>
+            <Comment>Add kbluetooth4 translations.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2009-05-28</Date>
+            <Version>4.2.3</Version>
+            <Comment>Add translation file for new crash assistant drkonqi2.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2009-05-27</Date>
+            <Version>4.2.3</Version>
+            <Comment>Add translation file for our amazing notification agent.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2009-05-27</Date>
+            <Version>4.2.3</Version>
+            <Comment>Add two missing translations for systemsettings and plasma settings.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2009-05-10</Date>
+            <Version>4.2.3</Version>
+            <Comment>Version bump to 4.2.3 bugfix release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2009-04-30</Date>
+            <Version>4.2.2</Version>
+            <Comment>Version bump to 4.2.2 bugfix release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2009-03-23</Date>
+            <Version>4.2.1</Version>
+            <Comment>Various fixes for katepart which is used everywhere you see a text editor in KDE4.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2009-03-05</Date>
+            <Version>4.2.1</Version>
+            <Comment>Version bump to 4.2.1 bugfix release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2009-01-29</Date>
+            <Version>4.2.0</Version>
+            <Comment>Version bump to 4.2 final release</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2008-12-19</Date>
+            <Version>4.1.85</Version>
+            <Comment>Version bump to 4.2 beta 2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2008-11-30</Date>
+            <Version>4.1.80</Version>
+            <Comment>Version bump to 4.2 beta 1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2008-11-08</Date>
+            <Version>4.1.3</Version>
+            <Comment>Stable update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2008-09-26</Date>
+            <Version>4.1.2</Version>
+            <Comment>Stable update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2008-09-05</Date>
+            <Version>4.1.1</Version>
+            <Comment>Stable update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2008-09-04</Date>
+            <Version>4.1.0</Version>
+            <Comment>Documentation package created</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-07-27</Date>
+            <Version>4.1.0</Version>
+            <Comment>Stable update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-07-15</Date>
+            <Version>4.0.98</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-07-14</Date>
+            <Version>4.0.83</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-05-28</Date>
+            <Version>4.0.80</Version>
+            <Comment>Stable update</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-05-11</Date>
+            <Version>4.0.4</Version>
+            <Comment>Stable update</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-04-07</Date>
+            <Version>4.0.3</Version>
+            <Comment>Stable update</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-01-31</Date>
+            <Version>4.0.1</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-01-07</Date>
+            <Version>4.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

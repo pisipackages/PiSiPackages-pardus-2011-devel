@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-smbc</Name>
+        <Homepage>http://cyberelk.net/tim/software/pysmbc</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Python interface to the libsmbclient library</Summary>
+        <Description>python-smbc is a Python binding for the libsmbclient library.</Description>
+        <Archive sha1sum="1963af6e7fcb75733d5a398ffc0c4578532bc61d" type="tarbz2">http://cyberelk.net/tim/data/pysmbc/pysmbc-1.0.10.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>samba-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-smbc</Name>
+        <RuntimeDependencies>
+            <Dependency>samba</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>pysmbc</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2010-12-26</Date>
+            <Version>1.0.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-13</Date>
+            <Version>1.0.9</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-08-25</Date>
+            <Version>1.0.9</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-07-12</Date>
+            <Version>1.0.8</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-01-15</Date>
+            <Version>1.0.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

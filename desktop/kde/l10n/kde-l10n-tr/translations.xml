@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>kde-l10n-tr</Name>
+        <Summary xml:lang="de">Türkisches KDE4-Internationalisierungspaket</Summary>
+        <Summary xml:lang="tr">KDE4 Türkçe yerelleştirme paketi</Summary>
+        <Description xml:lang="tr">kde-l10n-tr, KDE uygulamalarını Türkçe yerelde kullanmanızı sağlayan yerelleştirme paketidir.</Description>
+    </Source>
+</PISI>

@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>celt</Name>
+        <Homepage>http://www.celt-codec.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <Summary>An audio codec for use in low-delay speech and audio communication</Summary>
+        <Description>CELT (Constrained Energy Lapped Transform) is an ultra-low delay audio codec designed for realtime transmission of high quality speech and audio. This is meant to close the gap between traditional speech codecs (such as Speex) and traditional audio codecs (such as Vorbis).</Description>
+        <Archive sha1sum="112b641e56a7c0ea7b1c3511ac1716f9d4a8ea54" type="targz">http://downloads.xiph.org/releases/celt/celt-0.10.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libogg-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>celt</Name>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <RuntimeDependencies>
+            <Dependency>libogg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>celt-devel</Name>
+        <IsA>library</IsA>
+        <Summary>Development files for celt</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">celt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2011-02-08</Date>
+            <Version>0.10.0</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,124 @@
+diff -Naur plasma/generic/applets/devicenotifier-orig//devicenotifier.cpp plasma/generic/applets/devicenotifier/devicenotifier.cpp
+--- plasma/generic/applets/devicenotifier-orig//devicenotifier.cpp	2010-07-29 00:04:56.000000000 +0300
++++ plasma/generic/applets/devicenotifier/devicenotifier.cpp	2010-10-06 16:47:35.247000779 +0300
+@@ -31,6 +31,7 @@
+ #include <KCModuleProxy>
+ #include <KCModuleInfo>
+ #include <kdesktopfileactions.h>
++#include <KNotification>
+ 
+ //Plasma
+ #include <Plasma/ToolTipManager>
+@@ -40,6 +41,8 @@
+ #include <Solid/StorageDrive>
+ #include <Solid/OpticalDisc>
+ #include <Solid/OpticalDrive>
++#include <Solid/GenericInterface>
++#include <Solid/DeviceNotifier>
+ 
+ //Own
+ #include "notifierdialog.h"
+@@ -77,6 +80,7 @@
+ DeviceNotifier::~DeviceNotifier()
+ {
+     delete m_dialog;
++    pluggedDevices.clear();
+ }
+ 
+ void DeviceNotifier::init()
+@@ -101,6 +105,11 @@
+     connect(m_deviceNotificationsEngine, SIGNAL(sourceAdded(const QString&)),
+             this, SLOT(newNotification(const QString&)));
+ 
++    connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(const QString &)),
++            this, SLOT(onDeviceAdded(const QString &)));
++    connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(const QString &)),
++            this, SLOT(onDeviceRemoved(const QString &)));
++
+     setStatus(Plasma::PassiveStatus);
+     //feed the list with what is already reported by the engine
+     fillPreviousDevices();
+@@ -319,12 +328,31 @@
+ {
+     DataEngine::Data data = m_solidEngine->query(udi);
+     Solid::Device device = Solid::Device(udi);
++
+     deviceAdded(device, data["added"].toBool());
+ }
+ 
++void DeviceNotifier::onDeviceAdded(const QString &udi)
++{
++    Solid::Device device = Solid::Device(udi);
++    QString deviceInfo = device.vendor() + " " + device.product();
++
++    Solid::GenericInterface *interface = device.as<Solid::GenericInterface>();
++    if (!pluggedDevices.contains(udi)) {
++        if (interface) {
++            if (interface->property("info.subsystem").toString() == "usb_device"){
++                pluggedDevices.insert(udi, deviceInfo);
++                KNotification::event (KNotification::Notification, i18n("Device <b>%1</b> plugged in.", deviceInfo));
++            }
++        }
++    }
++
++}
++
+ void DeviceNotifier::deviceAdded(const Solid::Device &device, bool hotplugged)
+ {
+     const QString udi = device.udi();
++
+     if (m_showDevices == NonRemovableOnly) {
+         Solid::Device parentDevice = device.parent();
+         Solid::StorageDrive *drive = parentDevice.as<Solid::StorageDrive>();
+@@ -410,6 +438,15 @@
+     }
+ }
+ 
++void DeviceNotifier::onDeviceRemoved(const QString &udi)
++{
++    if (pluggedDevices.contains(udi)) {
++        QString deviceInfo = pluggedDevices[udi];
++        KNotification::event (KNotification::Notification, i18n("Device <b>%1</b> plugged out.", deviceInfo));
++        pluggedDevices.remove(udi);
++    }
++}
++
+ void DeviceNotifier::resetDevices()
+ {
+     while (m_lastPlugged.count() > 0) {
+diff -Naur plasma/generic/applets/devicenotifier-orig//devicenotifier.h plasma/generic/applets/devicenotifier/devicenotifier.h
+--- plasma/generic/applets/devicenotifier-orig//devicenotifier.h	2010-06-24 19:28:21.000000000 +0300
++++ plasma/generic/applets/devicenotifier/devicenotifier.h	2010-10-06 16:44:59.691000550 +0300
+@@ -22,6 +22,8 @@
+ #ifndef DEVICENOTIFIER_H
+ #define DEVICENOTIFIER_H
+ 
++#include <QHash>
++
+ //Solid
+ #include <Solid/Device>
+ 
+@@ -147,12 +149,14 @@
+         * @param udi the udi of the new source
+         **/
+         void onSourceAdded(const QString &udi);
++        void onDeviceAdded(const QString &udi);
+ 
+         /**
+         * @internal slot called when a source/device is removed in the hotplug engine
+         * @param udi the udi of the removed source
+         **/
+         void onSourceRemoved(const QString &udi);
++        void onDeviceRemoved(const QString &udi);
+ 
+         /**
+         * slot called when a source of the hotplug engine is updated
+@@ -185,6 +189,8 @@
+          */
+         void deviceAdded(const Solid::Device &device, bool hotplugged = true);
+ 
++        QHash<QString, QString> pluggedDevices;
++
+         /**
+         * @internal Used to fill the notifier from previous plugged devices
+         **/

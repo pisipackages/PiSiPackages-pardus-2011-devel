@@ -1,0 +1,187 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pixman</Name>
+        <Homepage>http://www.x.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>Pixel manipulation library</Summary>
+        <Description>Pixman contains lowlevel pixel manipulation routines.</Description>
+        <Archive sha1sum="d24ea233755d7dce9f0d93136ad99fba8d4e4fa0" type="tarbz2">mirrors://xorg/individual/lib/pixman-0.22.0.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>pixman</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pixman-devel</Name>
+        <Summary>Development files for pixman</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">pixman</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/lib32/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pixman-32bit</Name>
+        <PartOf>emul32</PartOf>
+        <Summary>32-bit shared libraries for pixman</Summary>
+        <BuildType>emul32</BuildType>
+        <RuntimeDependencies>
+            <Dependency release="current">pixman</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib32</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="18">
+            <Date>2011-07-07</Date>
+            <Version>0.22.0</Version>
+            <Comment>Add lib32 package for pixman</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
+        <Update release="17">
+            <Date>2011-05-16</Date>
+            <Version>0.22.0</Version>
+            <Comment>
+                * New stable release
+                * New r8g8b8a8 and r8g8b8x8 image formats
+                * Much faster image scaling on ARM and x86
+                * Faster 90/270 degree image rotation
+                * More comprehensive support for compositing triangles and trapezoids
+                * Plus a large number of other performace improvements and bug fixes
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2011-02-03</Date>
+            <Version>0.20.2</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2010-10-28</Date>
+            <Version>0.20.0</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2010-10-12</Date>
+            <Version>0.18.4</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2010-08-17</Date>
+            <Version>0.18.4</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-08-14</Date>
+            <Version>0.18.2</Version>
+            <Comment>Split development files</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-05-13</Date>
+            <Version>0.18.2</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-04-01</Date>
+            <Version>0.18.0</Version>
+            <Comment>New major stable release with new features and performance improvements</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-02-09</Date>
+            <Version>0.16.6</Version>
+            <Comment>New stable release with fixes for a couple of bugs related to alpha maps</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-12-15</Date>
+            <Version>0.16.4</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-02-13</Date>
+            <Version>0.14.0</Version>
+            <Comment>Bump to stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-11-29</Date>
+            <Version>0.13.2</Version>
+            <Comment>Bump to new development release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-09-18</Date>
+            <Version>0.12.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-03-30</Date>
+            <Version>0.10.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-03-12</Date>
+            <Version>0.9.6</Version>
+            <Comment>Update dependencies</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-11-22</Date>
+            <Version>0.9.6</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-09-17</Date>
+            <Version>0.9.5</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

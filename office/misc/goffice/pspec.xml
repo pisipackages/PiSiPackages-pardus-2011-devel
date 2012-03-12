@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>goffice</Name>
+        <Homepage>http://freshmeat.net/projects/goffice</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Set of document centric objects and utilities for Glib / GTK+</Summary>
+        <Description>goffice, shared library implementing document centric objects and utilities for Glib / GTK+.</Description>
+        <Archive sha1sum="aceee7ddff4a473131b4a0ac1c05e52a82755a4e" type="tarxz">mirrors://gnome/goffice/0.8/goffice-0.8.17.tar.xz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>cairo-devel</Dependency>
+            <Dependency>gconf-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>libgsf-devel</Dependency>
+            <Dependency>gtk-doc</Dependency>
+            <Dependency>libglade-devel</Dependency>
+            <Dependency>libgsf-gnome</Dependency>
+            <Dependency>atk-devel</Dependency>
+            <Dependency>gdk-pixbuf-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>goffice</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libgsf</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>gdk-pixbuf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/goffice</Path>
+            <Path fileType="doc">/usr/share/doc/goffice</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>goffice-devel</Name>
+        <Summary>Development files for Goffice</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">goffice</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>cairo-devel</Dependency>
+            <Dependency>gconf-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>libgsf-devel</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package releaseTo="1">goffice-devel</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2011-08-03</Date>
+            <Version>0.8.17</Version>
+            <Comment>Version bump:
+                * Plug leaks.
+                * Fix noisy leak. [Gnome bugzilla #652420]
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-06-20</Date>
+            <Version>0.8.16</Version>
+            <Comment>Version bump:
+                   * Improve ODF 1.2 output of fraction format.
+                   * Fix long-double compilation issue.
+                   * Improve accuracy of complex power.
+                   * Fix GOFormat problem resulting in "-0".  [gnome bugzilla #650928]
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-05-23</Date>
+            <Version>0.8.15</Version>
+            <Comment>Version bump:
+                * Fix format string parsing with localized colour names.
+                * Fixed closed bezier spline evaluation.
+                * Implement dropbar plots with linear or logarithmic index axis.
+                * Fix legends for plots with marker only style.
+                * Don't use badly rounded values when clipping markers.
+                * Implement probability plots with data as y values.
+                * Plug leaks.
+                * Detect more cases of linear-regression gone bad.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-03-28</Date>
+            <Version>0.8.14</Version>
+            <Comment>Version bump to latest version with many bugfixes and new enhancements. See NEWS for details.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-01-24</Date>
+            <Version>0.8.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-09-07</Date>
+            <Version>0.6.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,440 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pulseaudio</Name>
+        <Homepage>http://pulseaudio.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <License>GPLv2</License>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>A networked sound server with an advanced plugin system</Summary>
+        <Description>pulseaudio is a sound server for POSIX and Win32 systems. It allows you to do advanced operations on your sound data as it passes between your application and your hardware.</Description>
+        <Archive sha1sum="361f7d89606e8423aad19691bb27f6552e0b679e" type="targz">http://freedesktop.org/software/pulseaudio/releases/pulseaudio-0.9.23.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>doxygen</Dependency>
+            <Dependency>xcb-proto</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>lirc-devel</Dependency>
+            <Dependency>gconf-devel</Dependency>
+            <Dependency>avahi-devel</Dependency>
+            <Dependency>speex-devel</Dependency>
+            <Dependency>libSM-devel</Dependency>
+            <Dependency>libtdb-devel</Dependency>
+            <Dependency>libICE-devel</Dependency>
+            <Dependency>libXtst-devel</Dependency>
+            <Dependency>xcb-util-devel</Dependency>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>bluez-libs-devel</Dependency>
+            <Dependency>libsndfile-devel</Dependency>
+            <Dependency>libasyncns-devel</Dependency>
+            <Dependency>libatomic_ops-devel</Dependency>
+            <Dependency>libsamplerate-devel</Dependency>
+            <Dependency>jack-audio-connection-kit-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Mandriva patches -->
+
+            <!-- Change default resampling method to speex-float-0 for reducing
+            high CPU load of Pulseaudio: https://qa.mandriva.com/show_bug.cgi?id=36084 -->
+            <Patch level="1">mandriva/0502-Change-the-default-resample-method-to-speex-fixed-0-.patch</Patch>
+
+            <Patch level="1">mandriva/0503-start-PA-earlier-in-GNOME-Mdv-bug-47594.patch</Patch>
+            <Patch level="1">mandriva/0505-Mute-IEC958-Optical-Raw-for-AudigyX.patch</Patch>
+
+            <!-- Pardus patches -->
+            <Patch level="1">pardus/change-default-buffering-fragments.patch</Patch>
+
+            <!-- Change default buffering and lazy load KDE theme sounds -->
+            <Patch level="1">pardus/load-sample-dir-lazy.patch</Patch>
+
+            <!-- Disable flat volumes -->
+            <Patch level="1">pardus/daemon-conf-disable-flat-volumes.patch</Patch>
+
+            <Patch level="1">pardus/disable-valgrind.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pulseaudio-docs</Name>
+        <Summary>doxygen generated API documentation for PulseAudio</Summary>
+        <Files>
+            <Path fileType="doc">/usr/share/doc/pulseaudio/html</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio</Name>
+        <RuntimeDependencies>
+            <Dependency>lirc</Dependency>
+            <Dependency>speex</Dependency>
+            <Dependency>rtkit</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>libtdb</Dependency>
+            <Dependency>libXtst</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>xcb-util</Dependency>
+            <Dependency>avahi-libs</Dependency>
+            <Dependency>libasyncns</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency release="current">pulseaudio-libs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/lib/pm-utils/sleep.d</Path>
+            <Path fileType="executable">/usr/libexec/pulse/proximity-helper</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc/conf.d</Path>
+            <Path fileType="config">/etc/pulse</Path>
+            <Path fileType="data">/etc/xdg/autostart</Path>
+            <Path fileType="data">/lib/udev/rules.d</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/var/lib/pulse</Path>
+            <Path fileType="data">/var/run/pulse</Path>
+        </Files>
+        <AdditionalFiles>
+            <!--
+            <AdditionalFile owner="root" permission="0755" target="/usr/lib/pm-utils/sleep.d/02PulseAudio">pardus/02PulseAudio</AdditionalFile>
+            -->
+            <AdditionalFile owner="root" permission="0644" target="/etc/conf.d/pulseaudio">mandriva/pulseaudio.sysconfig</AdditionalFile>
+
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/scalable/apps/pulseaudio.svg">mandriva/pulseaudio.svg</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/scalable/devices/audio-backend-pulseaudio.svg">mandriva/pulseaudio.svg</AdditionalFile>
+
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/16x16/apps/pulseaudio.png">mandriva/pulseaudio16.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/22x22/apps/pulseaudio.png">mandriva/pulseaudio22.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/32x32/apps/pulseaudio.png">mandriva/pulseaudio32.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/48x48/apps/pulseaudio.png">mandriva/pulseaudio48.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/64x64/apps/pulseaudio.png">mandriva/pulseaudio64.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/128x128/apps/pulseaudio.png">mandriva/pulseaudio128.png</AdditionalFile>
+
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/16x16/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio16.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/22x22/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio22.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/32x32/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio32.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/48x48/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio48.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/64x64/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio64.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/128x128/devices/audio-backend-pulseaudio.png">mandriva/pulseaudio128.png</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <!-- For ownerships and permissions of /var/{run,lib}/pulse -->
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio-gconf</Name>
+        <Summary>GConf configuration backend for the PulseAudio sound server</Summary>
+        <RuntimeDependencies>
+            <Dependency>pulseaudio-libs</Dependency>
+            <Dependency>gconf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/pulse-0.9.23/modules/module-gconf.so</Path>
+            <Path fileType="executable">/usr/libexec/pulse/gconf-helper</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio-jack</Name>
+        <Summary>JACK sink and source modules for the PulseAudio sound server</Summary>
+        <RuntimeDependencies>
+            <Dependency>pulseaudio-libs</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/pulse-0.9.23/modules/module-jack*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio-libs</Name>
+        <Summary>Libraries for PulseAudio clients</Summary>
+        <RuntimeDependencies>
+            <Dependency>speex</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>libtdb</Dependency>
+            <Dependency>libXtst</Dependency>
+            <Dependency>avahi-libs</Dependency>
+            <Dependency>libasyncns</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>libsamplerate</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package releaseTo="22">pulseaudio</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="data">/usr/lib/libpulse*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio-libs-devel</Name>
+        <Summary>Development files for pulseaudio-libs</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">pulseaudio-libs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/lib32/pkgconfig</Path>
+            <Path fileType="data">/usr/share/vala/vapi</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pulseaudio-libs-32bit</Name>
+        <PartOf>emul32</PartOf>
+        <Summary>32-bit shared libraries for pulseaudio-libs</Summary>
+        <BuildType>emul32</BuildType>
+        <BuildDependencies>
+            <Dependency>dbus-32bit</Dependency>
+            <Dependency>glib2-32bit</Dependency>
+            <Dependency>speex-32bit</Dependency>
+            <Dependency>libcap-32bit</Dependency>
+            <Dependency>libsndfile-32bit</Dependency>
+            <Dependency>libtool-ltdl-32bit</Dependency>
+        </BuildDependencies>
+        <RuntimeDependencies>
+            <Dependency release="current">pulseaudio-libs</Dependency>
+            <Dependency>dbus-32bit</Dependency>
+            <Dependency>glib2-32bit</Dependency>
+            <Dependency>libcap-32bit</Dependency>
+            <Dependency>libsndfile-32bit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib32</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="28">
+            <Date>2011-06-24</Date>
+            <Version>0.9.23</Version>
+            <Comment>Version bump to bugfix release</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2011-03-01</Date>
+            <Version>0.9.22</Version>
+            <Comment>Add lib32 package for pulseaudio</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2011-02-24</Date>
+            <Version>0.9.22</Version>
+            <Comment>Add missing Conflict tags.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2011-01-29</Date>
+            <Version>0.9.22</Version>
+            <Comment>
+                - Version bump,
+                - Disable some Mandriva patches,
+                - Add latest stable-queue patches.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2011-01-15</Date>
+            <Version>0.9.21</Version>
+            <Comment>Disable the hook for now</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2010-10-12</Date>
+            <Version>0.9.21</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2010-08-24</Date>
+            <Version>0.9.21</Version>
+            <Comment>sync patches, split packages</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2010-05-25</Date>
+            <Version>0.9.21</Version>
+            <Comment>Drop gtk2 runtime dependency.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2010-03-31</Date>
+            <Version>0.9.21</Version>
+            <Comment>Add more patches, revert an upstream-reverted one, add libcap dependency.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2010-03-10</Date>
+            <Version>0.9.21</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2009-10-26</Date>
+            <Version>0.9.15</Version>
+            <Comment>Backport 5 patches from upstream which fix aborts with skype 2.1.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2009-08-03</Date>
+            <Version>0.9.15</Version>
+            <Comment>udev-extras is now merged into udev.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="16" type="security">
+            <Date>2009-07-20</Date>
+            <Version>0.9.15</Version>
+            <Comment>Remove exploitable LD_BIND_NOW hack (CVE-2009-1894) (#10490).</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2009-07-10</Date>
+            <Version>0.9.15</Version>
+            <Comment>Add hack for squeezing old configs, enable tsched, add 2 ubuntu patches.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2009-06-09</Date>
+            <Version>0.9.15</Version>
+            <Comment>Sync recommended upstream patches for the 0.9.15 branch.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2009-06-07</Date>
+            <Version>0.9.15</Version>
+            <Comment>Grab some upstream fixes which includes the fix for the muting problem (#9902).</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2009-04-26</Date>
+            <Version>0.9.15</Version>
+            <Comment>
+                - Version bump to the latest stable release,
+                - Reorganize dependencies and paths,
+                - Switch to speex-float-0 resampling method for reducing CPU load,
+                - Merge bluetooth modules into the main package,
+                - Drop jack-audio and gconf runtime dependencies from pulseaudio,
+                - Add COMAR service for system-wide PulseAudio support,
+                - Split doxygen API documentations,
+                - Disable timer based scheduling by default for not breaking buggy ALSA drivers.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2009-02-16</Date>
+            <Version>0.9.15_rc2</Version>
+            <Comment>
+                - Version bump to the latest testing release,
+                - Add libasyncns dependency,
+                - Disable timer based scheduling as it's buggy,
+                - Disable autospawning as it causes problems.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2008-12-22</Date>
+            <Version>0.9.13</Version>
+            <Comment>Add pm-utils hook to suspend an active source/sink.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2008-10-06</Date>
+            <Version>0.9.13</Version>
+            <Comment>
+                Version bump to 0.9.13. This is mostly a bugfix release.
+                However, it contains some minor API additions and new
+                Bluetooth support (experimental for now) contributed by
+                Google Summer Student João Paulo Rechi Vita.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-09-10</Date>
+            <Version>0.9.12</Version>
+            <Comment>Version bump with a post-release patch.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-07-24</Date>
+            <Version>0.9.11</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-04-10</Date>
+            <Version>0.9.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-03-13</Date>
+            <Version>0.9.9</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-12-27</Date>
+            <Version>0.9.8</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-28</Date>
+            <Version>0.9.6</Version>
+            <Comment>Add avahi deps.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-11</Date>
+            <Version>0.9.5</Version>
+            <Comment>Add avahi deps.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+         <Update release="1">
+            <Date>2007-03-21</Date>
+            <Version>0.9.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

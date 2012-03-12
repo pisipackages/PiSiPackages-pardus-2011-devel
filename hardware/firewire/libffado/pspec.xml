@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
+<PISI>
+    <Source>
+        <Name>libffado</Name>
+        <Homepage>http://www.ffado.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>GPLv3</License>
+        <Summary>Free firewire audio drivers</Summary>
+        <Description>libffado tries to provide open-source drivers for all FireWire based pro-audio devices.</Description>
+        <Archive sha1sum="a44f000aa045ed5cfb4784f73f68171968becd09" type="tarbz2">http://cekirdek.pardus.org.tr/~ozan/dist/sources/libffado-2.1.0-svn1964.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xdg-utils</Dependency>
+            <Dependency>glibmm-devel</Dependency>
+            <Dependency>libxmlpp-devel</Dependency>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>dbus-c++-devel</Dependency>
+            <Dependency>libsigc++-devel</Dependency>
+            <Dependency>libconfig-devel</Dependency>
+            <Dependency>python-qt-devel</Dependency>
+            <Dependency>libraw1394-devel</Dependency>
+            <Dependency>libiec61883-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">libffado-api-doc-only.patch</Patch>
+            <Patch level="1">libffado-libconfig145.patch</Patch>
+            <Patch level="1">flags.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libffado</Name>
+        <IsA>library</IsA>
+        <RuntimeDependencies>
+            <Dependency>glibmm</Dependency>
+            <Dependency>dbus-c++</Dependency>
+            <Dependency>libxmlpp</Dependency>
+            <Dependency>libconfig</Dependency>
+            <Dependency>libsigc++</Dependency>
+            <Dependency>xdg-utils</Dependency>
+            <Dependency>libraw1394</Dependency>
+            <Dependency>libiec61883</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/lib/udev/rules.d</Path>
+            <Path fileType="data">/usr/share/libffado</Path>
+            <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <!-- Generated with Debian's generate-udev-rules.py which reads stdin from configuration file -->
+            <AdditionalFile owner="root" permission="0644" target="/lib/udev/rules.d/60-ffado.rules">60-ffado.rules</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <Package>
+        <Name>libffado-devel</Name>
+        <IsA>library</IsA>
+        <Summary>Development files for libffado</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libffado</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>ffado-mixer</Name>
+        <Icon>ffado-mixer</Icon>
+        <IsA>app:gui</IsA>
+        <PartOf>hardware.sound</PartOf>
+        <Summary>Graphical User Interface for FFADO</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libffado</Dependency>
+            <Dependency>python-qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/ffado-mixer*</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/pardus-ffadomixer.desktop">pardus-ffadomixer.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-03-07</Date>
+            <Version>2.1.0_1964</Version>
+            <Comment>
+                - Switch to latest trunk,
+                - Add udev rules to correctly tag FW devices for ACL,
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-13</Date>
+            <Version>2.0.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-08-23</Date>
+            <Version>2.0.1</Version>
+            <Comment>Version bump, split devel package.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-03-17</Date>
+            <Version>2.0.0</Version>
+            <Comment>Version bump, add fix-idiotic-scons-script patch to fix unrecognized hashval error thanks to Onur.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-03-22</Date>
+            <Version>2.0_rc1</Version>
+            <Comment>Initial release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

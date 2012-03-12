@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>byobu</Name>
+        <Homepage>https://launchpad.net/byobu</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>An elegant enhancement of GNU Screen</Summary>
+        <Description>byobu includes a set of profiles for the GNU Screen window manager which are quite useful on machines running without a graphical desktop environment.</Description>
+        <Archive sha1sum="d120ffd4d7a692919028431df8eb1ac6fa8ed6ec" type="targz">http://launchpad.net/byobu/trunk/3.23/+download/byobu_3.23.orig.tar.gz</Archive>
+        <Patches>
+            <Patch>logo_pardus.patch</Patch>
+            <Patch>updates_available_pisi.patch</Patch>
+            <Patch>iwconfig_path_fix.patch</Patch>
+            <Patch>reboot_required_pisi.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>byobu</Name>
+        <RuntimeDependencies>
+            <Dependency>screen</Dependency>
+            <Dependency>newt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/byobu</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/byobu</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+            <Path fileType="doc">/usr/share/doc/byobu</Path>
+            <Path fileType="data">/usr/share/byobu</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="14">
+            <Date>2011-01-17</Date>
+            <Version>3.23</Version>
+            <Comment>
+                Version bump;
+                - drop unnecessary unit=kbps.
+                - when splitting, move the focus in the new split to the first window.
+                - support "hiding" sessions, by prepending a "." to the session name.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="13">
+            <Date>2011-01-02</Date>
+            <Version>3.18</Version>
+            <Comment>
+                Version bump;
+                - list byobu default sessions, plus named screen sessions.
+                - Notify if reboot is needed.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-12-27</Date>
+            <Version>3.17</Version>
+            <Comment>
+                Version bump;
+                - add cpu temp path for modern (x201) thinkpads.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-11-30</Date>
+            <Version>3.14</Version>
+            <Comment>
+                Version bump;
+                - Use getent instead of reading /etc/passwd directly.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-11-23</Date>
+            <Version>3.10</Version>
+            <Comment>
+                Version bump;
+                - add notify_osd support to byobu.
+                - fix migration to XDG.
+                - scale bogomips by number of processors, if using bogomips to estimate frequency.
+                - add a swap memory usage notification.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-10-25</Date>
+            <Version>3.6</Version>
+            <Comment>
+                Version bump;
+                - byobu-launcher: return false, if byobu doesn't launch because TERM=dumb.
+                - byobu: fix SSH_AUTH_SOCK breakage, define $RUN dir.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-10-12</Date>
+            <Version>3.5</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-09-18</Date>
+            <Version>3.5</Version>
+            <Comment>
+                Version bump;
+                - ec2_cost: testing crontab creation time is not accurate, use /etc/hostname instead; ensure that minimum hours is 1, not 0.
+                - network: use bps rather than B/s by default for network traffic.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-09-04</Date>
+            <Version>3.4</Version>
+            <Comment>
+                Version bump;
+                - usr/share/byobu/keybindings/f-keys: make F1 also point to the menu, along with F9; this might help in some tty environments outside of gnome-terminal.
+                - display both ifconfig and ip output in ip_address detail display.
+                - use ip rather than ifconfig to get the ip address, slight performance improvement.
+                - support a flag, IPV6=1, in .byobu/status, to allow for showing IPv6 addresses instead of IPv4.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-08-27</Date>
+            <Version>3.3</Version>
+            <Comment>
+                Version bump;
+                - clean up binary/decimal multipliers for network transfer vs. memory/disk capacities, in accordance with industry standards.
+                - usr/share/byobu/keybindings/f-keys: resize the screen as part of the F5/refresh.
+                - improve dash replacement in status config.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-08-05</Date>
+            <Version>3.1</Version>
+            <Comment>
+                Version bump;
+                - Allow users to specify their own -S .
+                - Few bugfixes.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-06-23</Date>
+            <Version>2.80</Version>
+            <Comment>Calculate available updates using pisi api.</Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-06-22</Date>
+            <Version>2.80</Version>
+            <Comment>
+                - usr/bin/byobu: ensure that .screenrc gets sourced if byobu is run with arguments.
+                - usr/bin/byobu-launcher: allow user to add custom screen arguments to byobu-launcher (useful in .profile for adding an option like -UDR).
+                - usr/bin/byobu-launcher: handle nasty recursion, if ssh'ing to localhost, and byobu-launches-by-default.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-08</Date>
+            <Version>2.74</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+

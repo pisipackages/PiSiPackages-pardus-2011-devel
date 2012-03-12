@@ -1,0 +1,48 @@
+Index: cfitsio/configure
+===================================================================
+--- cfitsio.orig/configure
++++ cfitsio/configure
+@@ -3778,7 +3778,8 @@ case $EXT in
+     SHLIB_SUFFIX=".sl"
+     ;;
+   lnx)
+-    SHLIB_LD=":"
++    SHLIB_LD="cc -shared -Wl,-soname,libcfitsio.so.0"
++    SHLIB_SUFFIX=".so.0"
+     ;;
+   osf)
+     SHLIB_LD="ld -shared -expect_unresolved '*'"
+@@ -3799,7 +3800,7 @@ esac
+ # Darwin uses gcc (=cc), but needs different flags (see above)
+ # if test "x$GCC" = xyes; then
+ if test "x$GCC" = xyes && test "x$EXT" != xdarwin && test "x$EXT" != xcygwin; then
+-  SHLIB_LD="$CC -shared"
++  SHLIB_LD="cc -shared -Wl,-soname,libcfitsio.so.0"
+   lhea_shlib_cflags='-fPIC'
+ fi
+ if test "x$lhea_shlib_cflags" != x; then
+Index: cfitsio/Makefile.in
+===================================================================
+--- cfitsio.orig/Makefile.in
++++ cfitsio/Makefile.in
+@@ -22,8 +22,8 @@ prefix		= @prefix@
+ exec_prefix	= @exec_prefix@
+ DESTDIR		= 
+ CFITSIO_PREFIX	= $(prefix)
+-CFITSIO_LIB	= $(DESTDIR)$(exec_prefix)/lib
+-CFITSIO_INCLUDE	= $(DESTDIR)$(prefix)/include
++CFITSIO_LIB	= $(DESTDIR)$(exec_prefix)/$(LIBDIR)
++CFITSIO_INCLUDE	= $(DESTDIR)$(prefix)/$(INCLUDEDIR)
+ INSTALL_DIRS	= $(DESTDIR)@INSTALL_ROOT@ ${CFITSIO_LIB} ${CFITSIO_LIB}/pkgconfig ${CFITSIO_INCLUDE}
+ 
+ 
+@@ -123,9 +123,6 @@ speed:		speed.o libcfitsio.a ${OBJECTS}
+ imcopy:		imcopy.o libcfitsio.a ${OBJECTS}
+ 		${CC} $(CFLAGS) $(DEFS) -o imcopy imcopy.o -L. -lcfitsio -lm ${LIBS}
+ 
+-listhead:	listhead.o libcfitsio.a ${OBJECTS}
+-		${CC} $(CFLAGS) $(DEFS) -o listhead listhead.o -L. -lcfitsio -lm ${LIBS}
+-
+ cookbook:	cookbook.o libcfitsio.a ${OBJECTS}
+ 		${CC} $(CFLAGS) $(DEFS) -o cookbook cookbook.o -L. -lcfitsio -lm ${LIBS}
+ 

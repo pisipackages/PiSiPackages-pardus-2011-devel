@@ -1,0 +1,26 @@
+Index: python-bugzilla-0.6.2/bin/bugzilla
+===================================================================
+--- python-bugzilla-0.6.2.orig/bin/bugzilla
++++ python-bugzilla-0.6.2/bin/bugzilla
+@@ -23,7 +23,7 @@ import magic
+ from tempfile import NamedTemporaryFile
+ 
+ version = '0.6.2'
+-default_bz = 'https://bugzilla.redhat.com/xmlrpc.cgi'
++default_bz = 'https://bugzilla.pardus.org.tr/xmlrpc.cgi'
+ 
+ # Initial simple logging stuff
+ logging.basicConfig()
+@@ -348,9 +348,9 @@ def main():
+     if global_opt.bztype == 'auto':
+         log.info('Autodetecting Bugzilla type')
+         # Cheat a little, for the sake of speed
+-        if 'bugzilla.redhat.com' in global_opt.bugzilla:
+-            log.info('Using RHBugzilla3 for URL containing bugzilla.redhat.com')
+-            bzclass = bugzilla.RHBugzilla3
++        if 'pardus.org.tr' in global_opt.bugzilla:
++            bzclass = bugzilla.Bugzilla36
++
+         else:
+             bzclass = bugzilla.Bugzilla
+     elif global_opt.bztype in bugzilla.classlist:

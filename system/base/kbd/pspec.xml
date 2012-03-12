@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kbd</Name>
+        <Homepage>http://freshmeat.net/projects/kbd/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Keyboard and console utilities</Summary>
+        <Description>The kbd package contains keytable files and keyboard utilities compatible with kernel version 1.1.54 and later.</Description>
+        <Archive sha1sum="ba1999b2dcc65f932427df14b1f14f1b308ad98a" type="tarbz2">ftp://ftp.kernel.org/pub/linux/utils/kbd/kbd-1.15.2.tar.bz2</Archive>
+        <Archive sha1sum="17625849ecf4dedf755aefa06d78406b92c31743" type="tarbz2" target="kbd-1.15.2">http://cekirdek.pardus.org.tr/~fatih/dist/kbd/kbd-latarcyrheb-16-fixed.tar.bz2</Archive>
+        <Archive sha1sum="a5f6d9dff7a8a484cd5014ec7ffdf1eaed27084a" type="tarbz2" target="kbd-1.15.2">http://cekirdek.pardus.org.tr/~fatih/dist/kbd/kbd-latsun-fonts.tar.bz2</Archive>
+        <Archive sha1sum="d52f95fdc761cead041d23992f8802be5ac4bc12" type="tarbz2" target="kbd-1.15.2">http://cekirdek.pardus.org.tr/~fatih/dist/kbd/ro_maps.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gettext</Dependency>
+            <Dependency>gzip</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Upstream commits -->
+            <Patch level="1">upstream/0001-Don-t-open-console-on-bkeymap.patch</Patch>
+            <Patch level="1">upstream/0002-loadkeys-a-Switch-to-ASCII-mode.patch</Patch>
+            <Patch level="1">upstream/0003-Do-not-set-prefer_unicode-for-iso-8859-1.patch</Patch>
+            <Patch level="1">upstream/0004-Replace-index-and-rindex-with-strchr-and-strrchr.patch</Patch>
+            <Patch level="1">upstream/0006-Fix-compose-as-usual-for-Unicode-diacritics.patch</Patch>
+
+            <!-- Mandriva patches -->
+            <Patch level="1">mandriva/kbd-1.15-mandriva.patch</Patch>
+            <Patch level="1">mandriva/kbd-1.15-tilde_twosuperior_french_kbd.patch</Patch>
+            <Patch level="1">mandriva/kbd-1.12-data_thai.patch</Patch>
+            <Patch level="1">mandriva/kbd-1.15-remove-unneeded-calls.patch</Patch>
+
+            <!-- Fedora patches -->
+            <Patch level="1">fedora/kbd-1.15-keycodes-man.patch</Patch>
+            <!--
+            <Patch level="1">fedora/kbd-1.15-unicode_start.patch</Patch>
+            -->
+            <Patch level="1">fedora/kbd-1.15-resizecon-x86_64.patch</Patch>
+            <Patch level="1">fedora/kbd-1.15-defkeymap.patch</Patch>
+
+            <!-- Pardus patches -->
+            <Patch level="1">pardus/unicode_start-default-font.patch</Patch>
+            <Patch level="1">pardus/tr-keypad-comma.patch</Patch>
+            <Patch level="1">pardus/tr-no-meta_space.patch</Patch>
+            <Patch level="1">pardus/trq-capslock-fix.patch</Patch>
+            <Patch level="1">pardus/currency.patch</Patch>
+            <Patch level="1">pardus/trf-keymap-fixes.patch</Patch>
+            <Patch level="1">pardus/trf-capslock-fix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kbd</Name>
+        <RuntimeDependencies>
+            <Dependency>gettext</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/keymaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/unimaps</Path>
+            <Path fileType="data">/usr/share/consolefonts</Path>
+            <Path fileType="data">/usr/share/consoletrans</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile permission="0644" target="/usr/share/consolefonts/lat5u-12.psf.gz">pardus/lat5u-12.psf.gz</AdditionalFile>
+            <AdditionalFile permission="0644" target="/usr/share/consolefonts/lat5u-14.psf.gz">pardus/lat5u-14.psf.gz</AdditionalFile>
+            <AdditionalFile permission="0644" target="/usr/share/consolefonts/lat5u-16.psf.gz">pardus/lat5u-16.psf.gz</AdditionalFile>
+
+            <!-- Grabbed from ftp://ftp.linux-france.org/pub/macintosh -->
+            <AdditionalFile permission="0644" target="/usr/share/keymaps/mac/all/mac-fr-ext_new.map.gz">mandriva/mac-fr-ext_new.kmap.gz</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="15">
+            <Date>2011-01-04</Date>
+            <Version>1.15.2</Version>
+            <Comment>
+                - Get upstream patches
+                - Add additional latarcyrheb* fonts
+                - Add ro maps
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2010-10-11</Date>
+            <Version>1.15.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2010-06-14</Date>
+            <Version>1.15.2</Version>
+            <Comment>
+                - Bump to new stable release
+                - Drop upstreamed patches
+                - Grab fixes from Fedora
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2009-07-14</Date>
+            <Version>1.15</Version>
+            <Comment>
+                - Fixed Turkish F keymap
+                - Remove ucwfonts and mdv keymaps patches
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2009-05-12</Date>
+            <Version>1.15</Version>
+            <Comment>Use rawInstall to remove build paths in man pages</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2009-05-12</Date>
+            <Version>1.15</Version>
+            <Comment>Fix currency of Euro and Cent</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-05-11</Date>
+            <Version>1.15</Version>
+            <Comment>
+                * Bump to new release
+                * Grab Mandriva and Fedora patches
+                * Add more console fonts and keymaps
+                * Remove Meta_space in trq and trf keymaps
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-03-08</Date>
+            <Version>1.12</Version>
+            <Comment>Fixes Turkish F layout problem reported in #5116</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-02-07</Date>
+            <Version>1.12</Version>
+            <Comment>Fix some getty problems, fix console part of bug #216</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-05-23</Date>
+            <Version>1.12</Version>
+            <Comment>Fix euro symbol on console font by Fatih Aşıcı, fixes bug #217</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-05-20</Date>
+            <Version>1.12</Version>
+            <Comment>Fix console font, add lat5u family fonts for special characters</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-03-16</Date>
+            <Version>1.12</Version>
+            <Comment>Fix asterisk, period, less and greater Meta keysyms for trq keymap</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-11-08</Date>
+            <Version>1.12</Version>
+            <Comment>Fix syntax errors in keymaps</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-11-08</Date>
+            <Version>1.12</Version>
+            <Comment>Add trqu and trfu from belgeler.org to use new kernel's unicode support</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-27</Date>
+            <Version>1.12</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

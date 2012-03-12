@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-decorator</Name>
+        <Homepage>http://www.phyast.pitt.edu/~micheles/python/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Python module to simplify the usage of decorators</Summary>
+        <Description>python-decorator simplifies the usage of decorators for the average programmer.</Description>
+        <Archive sha1sum="cb25e377fe0a2e0152ffb77789c6bb53c5f02384" type="targz">http://pypi.python.org/packages/source/d/decorator/decorator-3.2.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-nose</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-decorator</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2010-12-27</Date>
+            <Version>3.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-13</Date>
+            <Version>3.1.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-10-02</Date>
+            <Version>3.1.2</Version>
+            <Comment>
+                - Added decorator.factory, an easy way to define families of decorators.
+                - Added attributes args, varargs, keywords and arg0, ..., argN to FunctionMaker objects generated from a function.
+                - Fixed some Pylons-breaking bugs.
+            </Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-07-30</Date>
+            <Version>3.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethican Coşkuner</Name>
+            <Email>fethicanc@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+

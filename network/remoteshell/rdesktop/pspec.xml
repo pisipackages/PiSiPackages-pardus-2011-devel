@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rdesktop</Name>
+        <Homepage>http://rdesktop.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A Remote Desktop Protocol Client</Summary>
+        <Description>rdesktop is an open source client to connect to Windows NT/2000 Terminal Servers. Unlike Citrix ICA, no server extensions are required.</Description>
+        <Archive sha1sum="4f21a8fb2379ce05859e7fb13efa60071125d27f" type="targz">mirrors://sourceforge/rdesktop/rdesktop-1.7.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>libao-devel</Dependency>
+            <Dependency>libsamplerate-devel</Dependency>
+            <Dependency>pcsc-lite-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">rdesktop-libao.patch</Patch>
+            <Patch>rdesktop-1.6.0-pcsclite-1.6.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>rdesktop</Name>
+        <RuntimeDependencies>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libao</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>pcsc-lite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/rdesktop</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/rdesktop/keymaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="10" type="security">
+            <Date>2011-04-25</Date>
+            <Version>1.7.0</Version>
+            <Comment>Forgot to tag the bump as security :/</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-04-22</Date>
+            <Version>1.7.0</Version>
+            <Comment>Version bump to latest stable version that resolves a potential security vulnerability as well as a number of bugs:
+                * remote file access vulnerability (CVE-2011-1595), pb #17861.
+                * Fixes pb #17539, fixes crashes on x86_64.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-12-17</Date>
+            <Version>1.6.0</Version>
+            <Comment>* Add missing pcsc-lite-devel build-time dep,
+                * Fix build against current pcsc-lite,
+                * Patch libao for fixing some segfaults.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-12-17</Date>
+            <Version>1.6.0</Version>
+            <Comment>Fix runtime dep.</Comment>
+            <Name>Mete Bilgin</Name>
+            <Email>mbilgin@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-10-13</Date>
+            <Version>1.6.0</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-09-07</Date>
+            <Version>1.6.0</Version>
+            <Comment>Add build dependencies, remove system.base deps and enable-smartcard.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-05-15</Date>
+            <Version>1.6.0</Version>
+            <Comment>Package takeover, add missing runtime dependencies alsalib, libao, libsamplerate, libXau and libXdmcp packages, cosmetic fixes and some additions in dodoc. Make the package ready for 2009.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="3" type="security">
+            <Date>2008-05-11</Date>
+            <Version>1.6.0</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-10</Date>
+            <Version>1.5.0</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-07</Date>
+            <Version>1.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mobile-broadband-provider-info</Name>
+        <Homepage>http://live.gnome.org/NetworkManager/MobileBroadband/ServiceProviders</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>public-domain</License>
+        <IsA>data</IsA>
+        <Summary>Service provider specific settings of mobile broadband providers in different countries</Summary>
+        <Description>The mobile-broadband-provider-info package contains listings of mobile broadband (3G) providers and associated network and plan information.</Description>
+        <Archive sha1sum="8de9a7a60d4ef4e14a93149e1cc6f2abdf1eb72d" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/20110511/mobile-broadband-provider-info-20110511.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>mobile-broadband-provider-info</Name>
+        <Files>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="5">
+            <Date>2011-08-03</Date>
+            <Version>20110511</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-13</Date>
+            <Version>20100510</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-07-04</Date>
+            <Version>20100510</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-02-22</Date>
+            <Version>20100122</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-08-04</Date>
+            <Version>20090804</Version>
+            <Comment>First release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

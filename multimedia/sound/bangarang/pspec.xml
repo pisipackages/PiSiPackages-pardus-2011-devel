@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bangarang</Name>
+        <Homepage>http://gitorious.org/bangarang/pages/Home</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>bangarang</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Media Player for KDE</Summary>
+        <Description>bangarang is a KDE media player. The name comes from the Jamaican word for noisy, chaos or disorder. Main goal of the project is to have a media - audio and video - player that tries to get the basics right with a not-overwhelming interface.</Description>
+        <Archive sha1sum="9f2177b83d39ee20e8d5327c5ac822804fd3772a" type="targz">http://bangarangissuetracking.googlecode.com/files/bangarang-2.0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt-devel</Dependency>
+            <Dependency>taglib-devel</Dependency>
+            <Dependency>phonon-devel</Dependency>
+            <Dependency>soprano-devel</Dependency>
+            <Dependency>kdelibs-devel</Dependency>
+            <Dependency>kdemultimedia-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">tr-translations.patch</Patch>
+            <Patch>add-turkish-translations.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>bangarang</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>phonon</Dependency>
+            <Dependency>soprano</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>shared-desktop-ontologies</Dependency>
+            <!-- Interestingly this application does not use kcompactdisc library, so no need to add kdemultimedia or libkcompactdisc dep-->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-08-23</Date>
+            <Version>2.0.1</Version>
+            <Comment>Version bump to 2.0.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-01-31</Date>
+            <Version>2.0</Version>
+            <Comment>Version bump to 2.0:
+                * New Info View that provides helpful information about your media when you need it and integrated metadata editing and drilling.
+                * Info fetchers to help lookup additional media information for Artists, Movies, TV Shows, Actors, etc.
+                * Support for Audio and Video feeds
+                * Organize and browse media using (nepomuk) tags.
+                * Improved DVD support including support for subtitles, chapters, audio channels and angles.
+                * Embedded and external subtitle support
+                * Improved audio and video settings
+                * Bookmarks support
+                * Revamped Files and Folders support
+                * MPRIS and system tray support
+                * Shortcuts support
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-11-10</Date>
+            <Version>1.0.1</Version>
+            <Comment>Fix volume slider, backport patch from 2.0 series.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-11-07</Date>
+            <Version>1.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

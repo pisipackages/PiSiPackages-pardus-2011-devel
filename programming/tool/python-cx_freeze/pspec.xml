@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-cx_freeze</Name>
+        <Homepage>http://cx-freeze.sourceforge.net</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>PSF-2.2</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>Set of utilities for freezing Python scripts into executables</Summary>
+        <Description>python-cx_freeze is a set of scripts and modules for freezing Python scripts into executables in much the same way that py2exe and py2app do.</Description>
+        <Archive sha1sum="860de723365f2994f94f242f1147f89e09ed1ee9" type="targz">mirrors://sourceforge/cx-freeze/cx_Freeze-4.2.3.tar.gz</Archive>
+    </Source>
+    <Package>
+        <Name>python-cx_freeze</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc/python-cx_freeze</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="7">
+            <Date>2011-03-22</Date>
+            <Version>4.2.3</Version>
+            <Comment>Version bump:
+                1) Added support for Python 3.2.
+                2) Added hook for datetime module which implicitly imports the time module.
+                3) Fixed hook for tkinter in Python 3.x.
+                4) Always include the zlib module since the zipimport module requires it, even when compression is not taking place.
+                5) Added sample for a tkinter application.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-12-27</Date>
+            <Version>4.2.2</Version>
+            <Comment>Version bump: This release improves the hooks for a number of packages (including twitter and PyQt) and fixes a number of bugs uncovered by the release of Python 2.7.1.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-11-22</Date>
+            <Version>4.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-01-07</Date>
+            <Version>4.1.2</Version>
+            <Comment>Version bump with many bug-fixes and improvements.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-07-15</Date>
+            <Version>4.1</Version>
+            <Comment>Version bump with many bug-fixes and improvements.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-06-27</Date>
+            <Version>4.0.1</Version>
+            <Comment>Make the package ready for 2009.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-10-11</Date>
+            <Version>4.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+    </History>
+</PISI>

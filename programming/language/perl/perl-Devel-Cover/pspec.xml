@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Devel-Cover</Name>
+        <Homepage>http://search.cpan.org/dist/Devel-Cover/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Code coverage metrics for Perl</Summary>
+        <Description>perl-Devel-Cover is a perl module that provide code covarage metrics for Perl</Description>
+        <Archive sha1sum="d8e61a6df0a56dd8625fe48e25ea38145fc85054" type="targz">mirrors://cpan/authors/id/P/PJ/PJCJ/Devel-Cover-0.78.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Test-Warn</Dependency>
+            <Dependency>perl-Test-Pod-Coverage</Dependency>
+            <Dependency>perl-Template-Toolkit</Dependency>
+            <Dependency>perl-Tidy</Dependency>
+            <Dependency>perl-Pod-Coverage</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Devel-Cover</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Template-Toolkit</Dependency>
+            <Dependency>perl-Tidy</Dependency>
+            <Dependency>perl-Pod-Coverage</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2011-06-08</Date>
+            <Version>0.78</Version>
+            <Comment>New stable release. Read the included CHANGES file for more info</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-13</Date>
+            <Version>0.73</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-10-05</Date>
+            <Version>0.73</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

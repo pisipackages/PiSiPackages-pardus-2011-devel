@@ -1,0 +1,39 @@
+Index: doc/mk-agen-texi-in
+===================================================================
+--- doc/mk-agen-texi-in.orig	2011-02-03 18:07:54.000000000 +0100
++++ doc/mk-agen-texi-in	2011-03-09 14:35:50.638982611 +0100
+@@ -98,9 +98,9 @@ setup_exports()
+   srcdir=`cd @srcdir@ ; pwd`
+   PATH=${top_builddir}/columns:${PATH}
+   timer=`expr @AG_TIMEOUT@ '*' 5`
+-  d=`find ${top_builddir}/autoopts -type f -name libopts.a -print`
+-  test -f "$d" || die "Cannot locate libopts.a"
+-  LIBS="$d ${LIBS}"
++  d=`find ${top_builddir}/autoopts -type f -name libopts.a -o -name libopts.so | head -n 1`
++  LIBS="-L`dirname \"$d\"` -lopts ${LIBS}"
++  LD_LIBRARY_PATH="`dirname \"$d\"`:$LD_LIBRARY_PATH"
+ 
+   eval `egrep '^AG_[A-Z_]*' ${top_srcdir}/VERSION`
+ 
+@@ -222,7 +222,7 @@ setup_exports
+ sanity_check
+ run_getdefs
+ 
+-env >&2
++${VERBOSE} && env | sort >&2
+ exec 3> ${tmp_dir}/ag.ini
+ cat >&3 <<- _EOF_
+ 	timeout     ${timer}
+Index: autoopts/Makefile.am
+===================================================================
+--- autoopts/Makefile.am.orig	2011-03-08 01:35:12.000000000 +0100
++++ autoopts/Makefile.am	2011-03-09 14:50:16.858878038 +0100
+@@ -120,7 +120,7 @@ INST_SH                   = autoopts-con
+ 
+ man_MANS                  = $(INST_MANS)
+ m4data_DATA               = autoopts.m4
+-nobase_data_DATA          = $(INST_PKGCFG)
++pkgconfig_DATA          = $(INST_PKGCFG)
+ lib_LTLIBRARIES           = $(INST_LIBS)
+ nobase_include_HEADERS    = $(INST_HDRS)
+ bin_SCRIPTS               = $(INST_SH)

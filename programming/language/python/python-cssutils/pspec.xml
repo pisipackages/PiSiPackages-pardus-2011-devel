@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-cssutils</Name>
+        <Homepage>http://code.google.com/p/cssutils/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <License>LGPLv3</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>CSS Cascading Style Sheets library for Python</Summary>
+        <Description>python-cssutils is a Python package to parse and build CSS Cascading Style Sheets. DOM only, not any rendering facilities!</Description>
+        <Archive sha1sum="95a25352ab067c7b13aa82c5f6a5408cf82a2678" type="zip">http://cssutils.googlecode.com/files/cssutils-0.9.7.zip</Archive>
+    </Source>
+
+    <Package>
+        <Name>python-cssutils</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2010-12-10</Date>
+            <Version>0.9.7</Version>
+            <Comment>Version bump:
+                API Change: Changed parameters of script/utility function "csscombine"
+                CSS function values using "calc(...)" should be partly parsable
+                "CSSStyleSheet.variables" now contains all available variable values
+            </Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>caglar.kilimci@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-21</Date>
+            <Version>0.9.7_beta3</Version>
+            <Comment>Remove system.devel dependency python-setuptools, Make the package ready for 2011.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-07-15</Date>
+            <Version>0.9.7_beta3</Version>
+            <Comment>Version bump with drastic changes.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-13</Date>
+            <Version>0.9.7_alpha4</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

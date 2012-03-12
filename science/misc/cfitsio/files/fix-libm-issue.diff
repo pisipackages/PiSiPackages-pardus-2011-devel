@@ -1,0 +1,29 @@
+Index: cfitsio/Makefile.in
+===================================================================
+--- cfitsio.orig/Makefile.in
++++ cfitsio/Makefile.in
+@@ -90,7 +90,7 @@ libcfitsio.a:	${OBJECTS}
+ shared: libcfitsio${SHLIB_SUFFIX}
+ 
+ libcfitsio${SHLIB_SUFFIX}: ${OBJECTS}
+-		${SHLIB_LD} ${LDFLAGS} -o $@ ${OBJECTS}
++		${SHLIB_LD} ${LDFLAGS} -o $@ ${OBJECTS} -lm
+ 
+ install:	libcfitsio.a $(INSTALL_DIRS)
+ 		@if [ -f libcfitsio.a ]; then \
+@@ -115,16 +115,16 @@ funpack:	funpack.o fpackutil.o libcfitsi
+ 		${CC} $(CFLAGS) $(DEFS) -o funpack funpack.o fpackutil.o libcfitsio.a -lm ${LIBS}
+ 
+ fitscopy:	fitscopy.o libcfitsio.a ${OBJECTS}
+-		${CC} $(CFLAGS) $(DEFS) -o fitscopy fitscopy.o -L. -lcfitsio -lm ${LIBS}
++		${CC} $(CFLAGS) $(DEFS) -o fitscopy fitscopy.o -L. -lcfitsio ${LIBS}
+ 
+ speed:		speed.o libcfitsio.a ${OBJECTS}
+ 		${CC} $(CFLAGS) $(DEFS) -o speed speed.o -L. -lcfitsio -lm ${LIBS}
+ 
+ imcopy:		imcopy.o libcfitsio.a ${OBJECTS}
+-		${CC} $(CFLAGS) $(DEFS) -o imcopy imcopy.o -L. -lcfitsio -lm ${LIBS}
++		${CC} $(CFLAGS) $(DEFS) -o imcopy imcopy.o -L. -lcfitsio ${LIBS}
+ 
+ cookbook:	cookbook.o libcfitsio.a ${OBJECTS}
+ 		${CC} $(CFLAGS) $(DEFS) -o cookbook cookbook.o -L. -lcfitsio -lm ${LIBS}

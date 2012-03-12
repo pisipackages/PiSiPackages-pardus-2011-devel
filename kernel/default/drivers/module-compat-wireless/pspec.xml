@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>module-compat-wireless</Name>
+        <Homepage>http://wireless.kernel.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>driver</IsA>
+        <Summary>Linux wireless compatibility drivers</Summary>
+        <Description>module-compat-wireless provides the latest Linux wireless subsystem enhancements for kernels 2.6.25 and above. It also provides bluetooth subsystem enhancements for kernels 2.6.27 and above.</Description>
+        <Archive sha1sum="acad1f59c80459fbfbba9f0591e936ed6b2e94d1" type="tarbz2">http://orbit-lab.org/kernel/compat-wireless-2.6/2011/09/compat-wireless-2011-09-27-p.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency version="2.6.37.6">kernel-module-headers</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">Makefile.patch</Patch>
+            <Patch level="1">0001-b43-ctl1-on-all-new-PHYs.patch</Patch>
+            <Patch level="1">add-pm-runtime-enabled-2.6.38.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>module-compat-wireless</Name>
+        <RuntimeDependencies>
+            <Dependency version="2.6.37.6">kernel</Dependency>
+            <Dependency>module-compat-wireless-userspace</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <!-- There's symbol versioning problem between these packages -->
+            <Package>module-broadcom-wl</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="library">/lib/modules</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>module-compat-wireless-userspace</Name>
+        <Summary>Userspace rules and documentations for compat-wireless kernel module</Summary>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-09-28</Date>
+            <Version>2.6_20110927</Version>
+            <Comment>Version bump to add support for newer Broadcom chipsets.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-09-15</Date>
+            <Version>2.6.39.1</Version>
+            <Comment>Add conflict to wl.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-05-25</Date>
+            <Version>2.6.39.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-03-29</Date>
+            <Version>2.6.38.3</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2011-03-22</Date>
+            <Version>2.6.38.3</Version>
+            <Comment>Initial release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

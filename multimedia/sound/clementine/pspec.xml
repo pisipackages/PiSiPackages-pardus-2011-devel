@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>clementine</Name>
+        <Homepage>http://code.google.com/p/clementine-player</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>GPLv3</License>
+        <Icon>clementine</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A cross-platform music player based on Amarok 1.4</Summary>
+        <Description>Clementine is a modern music player and library organiser. Clementine is a port of Amarok 1.4, with some features rewritten to take advantage of Qt4.</Description>
+        <Archive sha1sum="8b2025b8876f9f3fe33ef5001e0621f3a5d0f142" type="targz">http://clementine-player.googlecode.com/files/clementine-0.7.1.tar.gz</Archive>
+        <!--<Archive sha1sum="50ec2e92621161d069bce3c047d926421004f061" type="tarbz2">http://cekirdek.pardus.org.tr/~ibrahim/dist/clementine-0.6_2988.tar.bz2</Archive>-->
+        <BuildDependencies>
+            <Dependency>qt-devel</Dependency>
+            <Dependency>qtiocompressor-devel</Dependency>
+            <Dependency>libqxt-devel</Dependency>
+            <Dependency>liblastfm-devel</Dependency>
+            <Dependency>libindicate-qt-devel</Dependency>
+            <Dependency>taglib-devel</Dependency>
+            <Dependency>libnotify-devel</Dependency>
+            <Dependency>boost-devel</Dependency>
+            <Dependency>gstreamer-devel</Dependency>
+            <Dependency>gst-plugins-base-devel</Dependency>
+            <Dependency>gst-plugins-bad-devel</Dependency>
+            <Dependency>libprojectM-devel</Dependency>
+            <Dependency versionFrom="0.7.94">libgpod-devel</Dependency>
+            <Dependency>libimobiledevice-devel</Dependency>
+            <Dependency>libplist-devel</Dependency>
+            <Dependency>libmtp-devel</Dependency>
+            <Dependency>libqjson-devel</Dependency>
+            <Dependency>libechonest-devel</Dependency>
+            <Dependency>gnutls-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop.patch</Patch>
+            <Patch level="1">clementine-font-paths.patch</Patch>
+            <Patch level="1">remove-bg-logo.patch</Patch>
+            <Patch level="1">fix-logic-of-title-parsing.patch</Patch>
+            <Patch level="1">change-rainymood-url.patch</Patch>
+            <Patch level="1">disable-basefilename-column-by-default.patch</Patch>
+            <Patch level="1">tr.patch</Patch>
+            <Patch level="0">double-click-on-tab-renames.patch</Patch>
+            <Patch level="0">prevent-double-midclick-on-tab.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>clementine</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>qt-sql-sqlite</Dependency>
+            <Dependency>qtiocompressor</Dependency>
+            <Dependency>libqxt</Dependency>
+            <Dependency>liblastfm</Dependency>
+            <Dependency>libindicate-qt</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>libnotify</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>gst-plugins-bad</Dependency>
+            <Dependency>libprojectM</Dependency>
+            <Dependency versionFrom="0.7.94">libgpod</Dependency>
+            <Dependency>libimobiledevice</Dependency>
+            <Dependency>libplist</Dependency>
+            <Dependency>libmtp</Dependency>
+            <Dependency>libqjson</Dependency>
+            <Dependency>libechonest</Dependency>
+            <Dependency>dejavu-fonts</Dependency>
+            <Dependency>gnutls</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/clementine</Path>
+            <Path fileType="localedata">/usr/share/clementine/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="19">
+            <Date>2011-04-04</Date>
+            <Version>0.7.1</Version>
+            <Comment>
+                Version bump to latest bugfix release:
+                * Add a patch to rename the tabs with double clicking on them.
+                * Fix a regression that broke gapless playback between certain songs.
+                * Fix the behaviour of --seek-by and --seek-to commandline options.
+                * Fix a crash when the visualisation window was resized to 0x0 pixels.
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2011-03-27</Date>
+            <Version>0.7</Version>
+            <Comment>
+                Version bump. There are tons of new features and bugfixes. These are the major features:
+                * Automatic tag fetching via MusicBrainz
+                * CUE sheet support
+                * Duplicate and untagged songs finder to help correcting badly tagged musics
+                * Full library rescan option apart from the scaning only changed folders
+                * Support for network proxies. Clementine will use the system proxy settings by default if not configured explicitly in Preferences dialog
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2011-03-15</Date>
+            <Version>0.6_2988</Version>
+            <Comment>
+                * Version bump to the latest revision
+                * Update Turkish translation
+                * Disable Python scripting since it is experimental and has serious issues like enabling a very basic script will cause a segfault
+                * Disable Android remote control as it is experimental too
+                * Fix the long standing locale problem in id3 tags
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2011-02-09</Date>
+            <Version>0.6_2629</Version>
+            <Comment>Change rainymood stream URL (#16744).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2011-02-03</Date>
+            <Version>0.6_2629</Version>
+            <Comment>Fix a typo in Turkish translation, disable basefilename column in playlistview by default.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2011-02-02</Date>
+            <Version>0.6_2629</Version>
+            <Comment>Depend new libimobiledevice</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="13">
+            <Date>2011-01-19</Date>
+            <Version>0.6_2629</Version>
+            <Comment>Change rainymood URL since clementine-player.org is not accessible for some reason i dont know why (#16282).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2011-01-19</Date>
+            <Version>0.6_2629</Version>
+            <Comment>Change StartupNotify as true to make application execution noticeable.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2011-01-18</Date>
+            <Version>0.6_2629</Version>
+            <Comment>
+                Bump to latest revision which has new features:
+                * Mass tagging
+                * Python scripting support (no scripts yet)
+                * Zeroconf support via Avahi
+                And bugfixes:
+                * Double clicking a song whose path has Turkish characters cant be played (#16281)
+                * Fix logic of title parsing when an internet radio has no artist information (#16283)
+                * Improve Turkish translation
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2011-01-17</Date>
+            <Version>0.6</Version>
+            <Comment>Set a higher initialpreference to prefer that in music files by default.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-01-05</Date>
+            <Version>0.6</Version>
+            <Comment>Remove background image.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-12-13</Date>
+            <Version>0.6</Version>
+            <Comment>Fix icon tag in desktop file.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-12-13</Date>
+            <Version>0.6</Version>
+            <Comment>Version bump to 0.6 major release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-12-08</Date>
+            <Version>0.5.3</Version>
+            <Comment>Add missing dependencies to play nicely with pls streams (#15527).</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-12</Date>
+            <Version>0.5.3</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-01</Date>
+            <Version>0.5.3</Version>
+            <Comment>Disable parallel build.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-09-30</Date>
+            <Version>0.5.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-09-24</Date>
+            <Version>0.5.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-07-01</Date>
+            <Version>0.4.2</Version>
+            <Comment>First release</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

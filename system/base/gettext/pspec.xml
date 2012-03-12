@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gettext</Name>
+        <Homepage>http://www.gnu.org/software/gettext/gettext.html</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3+</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>GNU libraries and utilities for producing multi-lingual messages</Summary>
+        <Description>The GNU gettext package provides a set of tools and documentation for producing multi-lingual messages in programs. Tools include a set of conventions about how programs should be written to support message catalogs, a directory and file naming organization for the message catalogs, a runtime library which supports the retrieval of translated messages, and stand-alone programs for handling the translatable and the already translated strings. Gettext provides an easy to use library and tools for creating, using, and modifying natural language catalogs and is a powerful and simple method for internationalizing programs.</Description>
+        <Archive sha1sum="5009deb02f67fc3c59c8ce6b82408d1d35d4e38f" type="targz">mirrors://gnu/gettext/gettext-0.18.1.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>acl-devel</Dependency>
+            <Dependency>glib2-devel</Dependency>
+            <Dependency>ncurses</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!--
+            <Patch>sigfpe.patch</Patch>
+            <Patch>gettextize.patch</Patch>
+            <Patch>codecleanup.patch</Patch>
+            <Patch>initialize-vars.patch</Patch>
+            <Patch>autotools.patch</Patch>
+            <Patch>gcc-lint.patch</Patch>
+            <Patch level="1">docdir.patch</Patch>
+            -->
+            <!-- disable dlopen patch as it seems to cause segfaults 
+            <Patch level="1">gettext-0.15-expat-no-dlopen.patch</Patch>
+            -->
+            <Patch level="1">gettext-0.18.1.1-linkage.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gettext-docs</Name>
+        <PartOf>system.doc</PartOf>
+        <RuntimeDependencies>
+            <Dependency>gettext</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc/gettext/html</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gettext</Name>
+        <RuntimeDependencies>
+            <Dependency>acl</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>ncurses</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/gettext</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gettext-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development files for gettext</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">gettext</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="header">/usr/include</Path>
+            <!-- FIXME: Remove this if not necessary -->
+            <Path fileType="man">/usr/share/man/man3</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="14">
+            <Date>2010-10-11</Date>
+            <Version>0.18.1.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2010-09-01</Date>
+            <Version>0.18.1.1</Version>
+            <Comment>Split devel package</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-08-02</Date>
+            <Version>0.18.1.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-06-08</Date>
+            <Version>0.17</Version>
+            <Comment>Add ncurses dependency.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2009-04-30</Date>
+            <Version>0.17</Version>
+            <Comment>Fix docdir and split docs</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-04-14</Date>
+            <Version>0.17</Version>
+            <Comment>Disable expat dlopen preventer patch, seems to cause segfaults</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-04-09</Date>
+            <Version>0.17</Version>
+            <Comment>
+                - Avoid msgmerge from linking to libgomp by disabling openMP,
+                - Link directly to libexpat instead of using dlopen().
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-02-15</Date>
+            <Version>0.17</Version>
+            <Comment>Add fedora fixes</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-01-30</Date>
+            <Version>0.17</Version>
+            <Comment>Fix broken info file, fix actions.py, split docs</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-12-29</Date>
+            <Version>0.17</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-01-05</Date>
+            <Version>0.16.1</Version>
+            <Comment>Disable static libraries</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-01-04</Date>
+            <Version>0.16.1</Version>
+            <Comment>Update to version 0.16.1</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-11-06</Date>
+            <Version>0.14.5</Version>
+            <Comment>Update to version 0.14.5</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-22</Date>
+            <Version>0.14.1</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

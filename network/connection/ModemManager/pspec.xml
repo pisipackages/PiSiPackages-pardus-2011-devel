@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ModemManager</Name>
+        <Homepage>http://projects.gnome.org/NetworkManager</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>app:console</IsA>
+        <IsA>service</IsA>
+        <Summary>A manager framework for mobile broadband modems</Summary>
+        <Description>ModemManager provides a unified high level API for communicating with mobile broadband modems.</Description>
+        <Archive sha1sum="6fbfba6bd572fc44d890a22924df7fc6a97ab6a5" type="tarbz2">http://ftp.acc.umu.se/pub/GNOME/sources/ModemManager/0.5/ModemManager-0.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.5">ppp-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ModemManager</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4.5">ppp</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="library">/usr/lib/ModemManager</Path>
+            <Path fileType="data">/lib/udev/rules.d</Path>
+            <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="data">/usr/share/polkit-1/actions</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/etc/dbus-1</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib/pppd/*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>ModemManager-devel</Name>
+        <Summary>Development files for ModemManager</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">ModemManager</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="15">
+            <Date>2011-08-03</Date>
+            <Version>0.5</Version>
+            <Comment>
+                - Improvements for Samsung modems
+                - Support access technology reporting for Qualcomm Gobi modems
+                - Fix communication with Nokia N900 devices
+                - Support multiple CDMA Rm protocols
+                - Fix handling of Option access technology reporting
+                - Fix handling of CDMA EVDO registration states
+                - Fix problems reconnecting Ericsson F5521gw modems
+                - Better handling of some Android handset modem
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2011-05-02</Date>
+            <Version>0.4_20110428</Version>
+            <Comment>
+                - samsung: add support for Samsung Y3300 GSM modem
+                - huawei: fixes for probing and handling various Huawei devices
+                - wavecom: add support for some Wavecom modems
+                - zte: fix crashes with Icera-based devices
+                - mbm: add support for Lenovo F5521gw module
+                - core: add support for basic SMS reception
+                - core: faster probing for devices that support it (option, samsung)
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2011-01-24</Date>
+            <Version>0.4_20110124</Version>
+            <Comment>Bump to snapshot</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-10-13</Date>
+            <Version>0.4</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-07-02</Date>
+            <Version>0.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-06-15</Date>
+            <Version>0.3.997</Version>
+            <Comment>disable 3g backend</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-05-24</Date>
+            <Version>0.3.997</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-04-29</Date>
+            <Version>0.3_20100429</Version>
+            <Comment>Sync with GIT.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-02-21</Date>
+            <Version>0.3_20100221</Version>
+            <Comment>Sync with GIT.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-01-21</Date>
+            <Version>0.3</Version>
+            <Comment>Bump to the first stable version</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-01-11</Date>
+            <Version>0.2.997_20100111</Version>
+            <Comment>Bump to the latest stable</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-12-16</Date>
+            <Version>0.2.997_20091216</Version>
+            <Comment>Bump to the latest snapshot</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-09-25</Date>
+            <Version>0.0_20090923</Version>
+            <Comment>Sync with current GIT.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-09-11</Date>
+            <Version>0.0_20090909</Version>
+            <Comment>Sync with current GIT.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-08-26</Date>
+            <Version>0.0_20090826</Version>
+            <Comment>Initial release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xorg-video-openchrome</Name>
+        <Homepage>http://www.x.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>driver</IsA>
+        <Summary>X.Org openchrome video driver</Summary>
+        <Description>xorg-video-openchrome contains the X.Org driver for VIA video chipsets.</Description>
+        <Archive sha1sum="a90132885f106c8a55edbad8dd817063fe95f571" type="tarbz2">http://cekirdek.pardus.org.tr/~fatih/dist/xorg/xf86-video-openchrome-0.2.904_860.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libdrm-devel</Dependency>
+            <Dependency>libXext-devel</Dependency>
+            <Dependency>libXv-devel</Dependency>
+            <Dependency>libXvMC-devel</Dependency>
+            <Dependency versionFrom="1.8.99">xorg-server-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>openchrome-0.2.904-fix_tvout_flickering.patch</Patch>
+            <Patch level="1">openchrome-0.2.904-I420_Xv_surface_for_CME.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xorg-video-openchrome</Name>
+        <RuntimeDependencies>
+            <Dependency>libdrm</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXv</Dependency>
+            <Dependency>libXvMC</Dependency>
+            <Dependency versionFrom="1.8.99">xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2010-10-25</Date>
+            <Version>0.2.904_860</Version>
+            <Comment>Sync with upstream trunk and add some experimental Fedora patches</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-12</Date>
+            <Version>0.2.904</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-10-21</Date>
+            <Version>0.2.904</Version>
+            <Comment>New release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-07-13</Date>
+            <Version>0.2.903_755</Version>
+            <Comment>Sync with upstream trunk</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-06-29</Date>
+            <Version>0.2.903</Version>
+            <Comment>Grab Fedora patches</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-04-30</Date>
+            <Version>0.2.903</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

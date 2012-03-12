@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>texlive-bin</Name>
+        <Homepage>http://www.tug.org/texlive</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>data:doc</IsA>
+        <Summary>Tex Live binaries</Summary>
+        <Description>Texlive binaries that are an essential part of TeXLive component.</Description>
+        <Archive sha1sum="41dc4a5958a415cad24d3da771439b572eb33a27" type="tarxz">http://cekirdek.pardus.org.tr/~farslan/dist/texlive-bin/texlive-bin-texmf-20110121.tar.xz</Archive>
+        <Archive sha1sum="21ded88efa1c8aa4c9ea669af6f72c3027e2f647" type="tarxz">http://cekirdek.pardus.org.tr/~farslan/dist/texlive-bin/texlive-bin-source-20110121.tar.xz</Archive>
+        <AdditionalFiles>
+            <AdditionalFile permission="0644" target="texmf.cnf">texmf.cnf</AdditionalFile>
+            <AdditionalFile permission="0644" target="09-texlive-fonts.conf">09-texlive-fonts.conf</AdditionalFile>
+        </AdditionalFiles>
+        <BuildDependencies>
+            <Dependency>clisp-devel</Dependency>
+            <Dependency>gd-devel</Dependency>
+            <Dependency>libsigsegv</Dependency>
+            <Dependency>libXaw-devel</Dependency>
+            <Dependency versionFrom="0.16.3">poppler-devel</Dependency>
+<!--            <Dependency>silgraphite-devel</Dependency>-->
+            <Dependency>t1lib-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="0">fix-fontforge-encoding.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>texlive-bin</Name>
+        <RuntimeDependencies>
+            <Dependency>clisp</Dependency>
+            <Dependency>gd</Dependency>
+            <Dependency>libsigsegv</Dependency>
+            <Dependency>libXaw</Dependency>
+            <Dependency versionFrom="0.16.3">poppler</Dependency>
+<!--            <Dependency>silgraphite</Dependency>-->
+            <Dependency>t1lib</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package releaseTo="16">texlive-core</Package>
+            <Package releaseTo="3">texlive-formatsextra</Package>
+            <Package releaseTo="4">texlive-mathextra</Package>
+            <Package releaseTo="6">texlive-xetex</Package>
+            <Package releaseTo="9">texlive-latex</Package>
+            <Package releaseTo="8">texlive-basic</Package>
+            <Package releaseTo="3">texlive-lang-german</Package>
+            <Package releaseTo="3">texlive-lang-greek</Package>
+            <Package releaseTo="3">texlive-lang-other</Package>
+            <Package releaseTo="4">texlive-lang-polish</Package>
+            <Package releaseTo="4">texlive-lang-czechslovak</Package>
+        </Conflicts>
+        <Replaces>
+            <Package>teckit</Package>
+            <Package>latex-xmltex</Package>
+        </Replaces>
+        <Files>
+            <!--Change this after after next upgrade to config-->
+            <Path fileType="data">/etc</Path>
+
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="library">/var/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/var/cache/fonts</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>texlive-bin-devel</Name>
+        <Summary>Development files for texlive-bin</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">texlive-bin</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package releaseTo="16">texlive-core-devel</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2011-11-18</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>Fix broken symlinks (#pb19514). Kudos to Gökçen</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-03-26</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>Remove man files from ps2eps</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-03-25</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>New release, merge from devel</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-03-20</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>Add more packages that causes conflicts</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-03-18</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>Add another file for the package dvipdfm</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-03-18</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>Add conflict with texlive-core up to release 5</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2011-01-24</Date>
+            <Version>0.0_20110121</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

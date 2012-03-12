@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Number-Compare</Name>
+        <Homepage>http://search.cpan.org/dist/Number-Compare</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>library</IsA>
+        <Summary>Perl library for numeric comparisons</Summary>
+        <Description>Number::Compare compiles a simple comparison to an anonymous subroutine, which you can call with a value to be tested again.</Description>
+        <Archive sha1sum="d768ceab714b50fe1fa8e7d9133de736f58fb7b7" type="targz">mirrors://cpan/authors/id/R/RC/RCLAMP/Number-Compare-0.01.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Number-Compare</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2010-10-13</Date>
+            <Version>0.01</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-08-21</Date>
+            <Version>0.01</Version>
+            <Comment>Strictly depend on perl 5.12.1.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-12-04</Date>
+            <Version>0.01</Version>
+            <Comment>Depend on new perl</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-12-03</Date>
+            <Version>0.01</Version>
+            <Comment>Add perl dependency</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-08-01</Date>
+            <Version>0.01</Version>
+            <Comment>First release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

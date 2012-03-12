@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Locale-Codes</Name>
+        <Homepage>http://search.cpan.org/dist/Locale-Codes/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A Perl module that is a distribution of modules to handle locale codes</Summary>
+        <Description>perl-Locale-Codes is a Perl module that handle locale codes. It's a distribution of modules.</Description>
+        <Archive sha1sum="5eeffca9726aa560426cf7d41595bb168d258df8" type="targz">mirrors://cpan/authors/id/S/SB/SBECK/Locale-Codes-3.16.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Test-Pod</Dependency>
+            <Dependency>perl-Test-Pod-Coverage</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Locale-Codes</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-06-08</Date>
+            <Version>3.16</Version>
+            <Comment>New stable version. Look for the included ChangeLog file for more information</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-13</Date>
+            <Version>3.14</Version>
+            <Comment>Using curPERL() for perl version</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-13</Date>
+            <Version>3.14</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-10-04</Date>
+            <Version>3.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

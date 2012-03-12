@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>publican</Name>
+        <Homepage>https://fedorahosted.org/publican/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <License>Artistic</License>
+        <IsA>app:console</IsA>
+        <Summary>A tool for publishing material authored in DocBook XML</Summary>
+        <Description>Publican is a tool for publishing material authored in DocBook XML. Publican takes DocBook XML input and outputs HTML, plain Unicode text and PDF</Description>
+        <Archive sha1sum="800f5821af9b2d3a51a0691a6a405818acaae575" type="targz">http://fedorahosted.org/released/publican/Publican-2.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Devel-Cover</Dependency>
+            <Dependency>perl-Test-Exception</Dependency>
+            <Dependency>perl-Test-Pod</Dependency>
+            <Dependency>perl-Test-Pod-Coverage</Dependency>
+            <Dependency>perl-Test-Perl-Critic</Dependency>
+            <Dependency>perl-Archive-Zip</Dependency>
+            <Dependency>perl-Config-Simple</Dependency>
+            <Dependency>perl-DateTime</Dependency>
+            <Dependency>perl-DateTime-Format-DateParse</Dependency>
+            <Dependency>perl-DBD-SQLite</Dependency>
+            <Dependency>perl-File-Copy-Recursive</Dependency>
+            <Dependency>perl-File-Find-Rule</Dependency>
+            <Dependency>perl-File-pushd</Dependency>
+            <Dependency>perl-HTML-Tree</Dependency>
+            <Dependency>perl-HTML-Format</Dependency>
+            <Dependency>perl-Image-Size</Dependency>
+            <Dependency>perl-Locale-Maketext-Gettext</Dependency>
+            <Dependency>perl-Locale-PO</Dependency>
+            <Dependency>perl-IO-String</Dependency>
+            <Dependency>perl-Makefile-Parser</Dependency>
+            <Dependency>perl-Syntax-Highlight-Engine-Kate</Dependency>
+            <Dependency>perl-XML-LibXML</Dependency>
+            <Dependency>perl-XML-LibXSLT</Dependency>
+            <Dependency>perl-XML-TreeBuilder</Dependency>
+            <Dependency>perl-XML-Simple</Dependency>
+            <Dependency>perl-Text-Template</Dependency>
+            <Dependency>imagemagick-devel</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <!-- needed requirements for creating pdf format:
+                    fop
+                    batik
+            -->
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>publican</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+            <Dependency>perl-Devel-Cover</Dependency>
+            <Dependency>perl-Test-Exception</Dependency>
+            <Dependency>perl-Test-Pod</Dependency>
+            <Dependency>perl-Test-Pod-Coverage</Dependency>
+            <Dependency>perl-Test-Perl-Critic</Dependency>
+            <Dependency>perl-Archive-Zip</Dependency>
+            <Dependency>perl-Config-Simple</Dependency>
+            <Dependency>perl-DateTime</Dependency>
+            <Dependency>perl-DateTime-Format-DateParse</Dependency>
+            <Dependency>perl-DBD-SQLite</Dependency>
+            <Dependency>perl-File-Copy-Recursive</Dependency>
+            <Dependency>perl-File-Find-Rule</Dependency>
+            <Dependency>perl-File-pushd</Dependency>
+            <Dependency>perl-HTML-Tree</Dependency>
+            <Dependency>perl-HTML-Format</Dependency>
+            <Dependency>perl-Image-Size</Dependency>
+            <Dependency>perl-Locale-Maketext-Gettext</Dependency>
+            <Dependency>perl-Locale-PO</Dependency>
+            <Dependency>perl-IO-String</Dependency>
+            <Dependency>perl-Makefile-Parser</Dependency>
+            <Dependency>perl-Syntax-Highlight-Engine-Kate</Dependency>
+            <Dependency>perl-XML-LibXML</Dependency>
+            <Dependency>perl-XML-LibXSLT</Dependency>
+            <Dependency>perl-XML-TreeBuilder</Dependency>
+            <Dependency>perl-Text-Template</Dependency>
+            <Dependency>perl-XML-Simple</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2011-01-27</Date>
+            <Version>2.5</Version>
+            <Comment>
+                * New stable release, changes up to 2.5 are:
+                    * Add de.po to MANIFEST
+                    * Add menu hide option.
+                    * Only set title attribute in HTMl if alt text is set.
+                    * Changed tabs to spaces in the specfile xsl
+                    * Fix broken version splash page icon.
+                    * Add web_formats option.
+                    * Add Lohit Devanagari to Marathi font list.
+                    * Stop publican setting imagedata format.
+                    * Fix DocBook 5 DTD string format change.
+                    * Add dt_requires and menu_category options.
+                    * Remove web PDF from Indic + ar-SA,fa-IR,he-IL.
+                    * Fix publish breaking UTF8 file names.
+                    * Fix non-en lang breaking website strings.
+                    * Fix IE8 javascript and layout issues.
+                    * Remove Red elements from interactive.css.
+                    * Added support for home page site_overrides.css file.
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-10-25</Date>
+            <Version>2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

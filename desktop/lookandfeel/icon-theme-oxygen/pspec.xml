@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>icon-theme-oxygen</Name>
+        <Homepage>http://www.oxygen-icons.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv3+</License>
+        <IsA>data</IsA>
+        <Summary>Oxygen icon theme</Summary>
+        <Description>oxygen-icon-theme is a high quality, photo-realistic icon theme (including both SVG and raster icons) initially created for KDE4.</Description>
+        <Archive type="tarbz2" sha1sum="dc97ca3e52bd00f93fb8438e8f368aa3c1567d9f">mirrors://kde/stable/4.6.2/src/oxygen-icons-4.6.2.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>icon-theme-oxygen-png</Name>
+        <Summary>Oxygen icon theme in PNG format</Summary>
+        <Description>icon-theme-oxygen-png package contains Oxygen icon theme which is designed as default icon theme of KDE4 in PNG format.</Description>
+        <RuntimeDependencies>
+            <Dependency>icon-theme-oxygen-index</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package versionTo="4.2.4">kdepim</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="data">/usr/share/icons/oxygen/8x8</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/16x16</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/22x22</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/32x32</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/48x48</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/64x64</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/128x128</Path>
+            <Path fileType="data">/usr/share/icons/oxygen/256x256</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>icon-theme-oxygen-svg</Name>
+        <Summary>Oxygen icon theme in SVG format</Summary>
+        <Description>icon-theme-oxygen-svg package contains Oxygen icon theme which is designed as default icon theme of KDE4 in SVG format.</Description>
+        <RuntimeDependencies>
+            <Dependency>icon-theme-oxygen-index</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/icons/oxygen/scalable</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>icon-theme-oxygen-index</Name>
+        <Summary>Index file for Oxygen icon theme</Summary>
+        <Description>icon-theme-oxygen-index package contains index.theme file for Oxygen icon theme which is a metadata file.</Description>
+        <Files>
+            <Path fileType="data">/usr/share/icons/oxygen/index.theme</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <!-- Wait for now, 4.6.3 tarball includes weird icons from 4.7
+        <Update release="19">
+            <Date>2011-05-20</Date>
+            <Version>4.6.3</Version>
+            <Comment>Version bump to 4.6.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        -->
+        <Update release="18">
+            <Date>2011-04-11</Date>
+            <Version>4.6.2</Version>
+            <Comment>Version bump to 4.6.2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2011-03-25</Date>
+            <Version>4.6.1</Version>
+            <Comment>Version bump to 4.6.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2011-01-26</Date>
+            <Version>4.6.0</Version>
+            <Comment>Version bump to 4.6.0</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2011-01-06</Date>
+            <Version>4.5.95</Version>
+            <Comment>Version bump to 4.5.95</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2010-12-23</Date>
+            <Version>4.5.90</Version>
+            <Comment>Version bump to 4.5.90</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2010-12-12</Date>
+            <Version>4.5.85</Version>
+            <Comment>Version bump to 4.5.85</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2010-11-02</Date>
+            <Version>4.5.3</Version>
+            <Comment>Version bump to 4.5.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-10-12</Date>
+            <Version>4.5.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-10-05</Date>
+            <Version>4.5.2</Version>
+            <Comment>Version bump to 4.5.2</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-09-07</Date>
+            <Version>4.5.1</Version>
+            <Comment>Version bump to 4.5.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-08-18</Date>
+            <Version>4.5.0</Version>
+            <Comment>Version bump to 4.5.0</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-07-01</Date>
+            <Version>4.4.90</Version>
+            <Comment>Version bump to 4.4.90</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-06-07</Date>
+            <Version>4.4.4</Version>
+            <Comment>Version bump to 4.4.4</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-05-04</Date>
+            <Version>4.4.3</Version>
+            <Comment>Version bump to 4.4.3</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-01-26</Date>
+            <Version>4.3.5</Version>
+            <Comment>Version bump to 4.3.5</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-12-02</Date>
+            <Version>4.3.4</Version>
+            <Comment>Version bump to 4.3.4 and fix .png.svg typos.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-11-04</Date>
+            <Version>4.3.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-10-06</Date>
+            <Version>4.3.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

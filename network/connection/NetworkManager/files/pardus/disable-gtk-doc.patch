@@ -1,0 +1,35 @@
+Index: NetworkManager-0.8.2/configure.ac
+===================================================================
+--- NetworkManager-0.8.2.orig/configure.ac
++++ NetworkManager-0.8.2/configure.ac
+@@ -471,8 +471,6 @@ AC_SUBST(KERNEL_FIRMWARE_DIR)
+ 
+ NM_COMPILER_WARNINGS
+ 
+-GTK_DOC_CHECK(1.0)
+-
+ dnl
+ dnl Tests
+ dnl
+@@ -562,9 +560,6 @@ man/nmcli.1
+ po/Makefile.in
+ policy/Makefile
+ data/Makefile
+-docs/Makefile
+-docs/libnm-glib/Makefile
+-docs/libnm-util/Makefile
+ NetworkManager.pc
+ examples/Makefile
+ examples/python/Makefile
+Index: NetworkManager-0.8.2/Makefile.am
+===================================================================
+--- NetworkManager-0.8.2.orig/Makefile.am
++++ NetworkManager-0.8.2/Makefile.am
+@@ -15,7 +15,6 @@ SUBDIRS = \
+ 	test \
+ 	po \
+ 	man \
+-	docs \
+ 	examples
+ 
+ EXTRA_DIST = \

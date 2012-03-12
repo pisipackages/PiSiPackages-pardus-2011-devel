@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gaupol</Name>
+        <Homepage>http://home.gna.org/gaupol/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>gaupol</Icon>
+        <IsA>library</IsA>
+        <IsA>app:gui</IsA>
+        <Summary>Editor for text-based subtitle files</Summary>
+        <Description>Gaupol is an editor for text-based subtitle files. It supports multiple subtitle file formats and provides means of correcting texts and timing subtitles to match video.</Description>
+        <Archive sha1sum="2f3a5fbf9e6eb6f4358085677622ee25428c2f6f" type="targz">http://download.gna.org/gaupol/0.19/gaupol-0.19.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-gtk-devel</Dependency>
+            <Dependency>gst-python-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>tr-translation.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gaupol</Name>
+        <RuntimeDependencies>
+            <Dependency>python-enchant</Dependency>
+            <Dependency>iso-codes</Dependency>
+            <Dependency>python-chardet</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>aeidon</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/python2.7/site-packages/gaupol</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>aeidon</Name>
+        <Files>
+            <Path fileType="library">/usr/lib/python2.7/site-packages/aeidon</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-08-01</Date>
+            <Version>0.19</Version>
+            <Comment>Version bump:
+                * Add speech recognition to allow generating subtitles from video
+                    http://live.gnome.org/Gaupol/SpeechRecognition
+                * Fix installation of custom-framerates extension
+                * Add optional dependency on gst-python (this also implies a
+                    dependency on one or more of gst-plugins-base, gst-plugins-good,
+                    gst-plugins-ugly, gst-plugins-bad, gst-ffmpeg depending on what
+                    video and audio formats are being used)
+                * Add extension that allows use of custom framerates (#637503)
+                * Add "Get more extensions" button to the preferences dialog
+                * Relax SubRip file parsing in unambiguous cases (#634129)
+                * Fix saving of last used directory in file dialogs with "paths that
+                    cannot be represented as a local filename" (#649347)
+            </Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>ckilimci@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-04-10</Date>
+            <Version>0.17.2</Version>
+            <Comment>Version bump:
+                * Add fremerate 24.0 fps for Blu-rays and use three decimals for all frames.
+                * Fixed some bugs.
+                * Added Turkish translation.
+            </Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>ckilimci@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-01-19</Date>
+            <Version>0.17.1</Version>
+            <Comment>Turkish translation added</Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>ckilimci@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-01-13</Date>
+            <Version>0.17.1</Version>
+            <Comment>Split aeidon library</Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>ckilimci@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2011-01-06</Date>
+            <Version>0.17.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Çağlar Kilimci</Name>
+            <Email>ckilimci@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

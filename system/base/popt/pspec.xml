@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>popt</Name>
+        <Homepage>http://www.rpm5.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>Popt command line option parser</Summary>
+        <Description>The popt library exists essentially for parsing command line options with advantages such as there are no global variables, ability to parse an arbitrary array of argv-style elements, to exec external option filters, and automatic generation of help and usage messages, a standard method of option aliasing.</Description>
+        <Archive sha1sum="cfe94a15a2404db85858a81ff8de27c8ff3e235e" type="targz">http://rpm5.org/files/popt/popt-1.16.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>popt</Name>
+        <RuntimeDependencies>
+            <Dependency>gettext</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>popt-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development files for popt</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">popt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/popt.h</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2010-10-11</Date>
+            <Version>1.16</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-09-01</Date>
+            <Version>1.16</Version>
+            <Comment>
+                Version bump
+                Disable rpath
+                Split devel package
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-09-24</Date>
+            <Version>1.15</Version>
+            <Comment>Bug fixes, code refactorings and more test coverage</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-08-18</Date>
+            <Version>1.14</Version>
+            <Comment>Version bump</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-01-13</Date>
+            <Version>1.7</Version>
+            <Comment>Package owner change</Comment>
+            <Name>Koray Löker</Name>
+            <Email>loker@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-06-14</Date>
+            <Version>1.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Kırmızı kafalar</Name>
+            <Email>hotmail@redhat.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,44 @@
+Index: kde4libs-4.3.85/plasma/applet.cpp
+===================================================================
+--- kde4libs-4.3.85.orig/plasma/applet.cpp	2009-12-18 09:25:19.000000000 -0500
++++ kde4libs-4.3.85/plasma/applet.cpp	2009-12-18 09:25:25.000000000 -0500
+@@ -55,6 +55,7 @@
+ #include <kicon.h>
+ #include <kiconloader.h>
+ #include <kkeysequencewidget.h>
++#include <kmessagebox.h>
+ #include <kplugininfo.h>
+ #include <kstandarddirs.h>
+ #include <kservice.h>
+@@ -448,16 +449,25 @@
+         return; //don't double delete
+     }
+ 
+-    d->transient = true;
+ 
+     if (isContainment()) {
++        d->transient = true;
+         d->cleanUpAndDelete();
+     } else {
+-        Animation *zoomAnim =
+-        Plasma::Animator::create(Plasma::Animator::ZoomAnimation);
+-        connect(zoomAnim, SIGNAL(finished()), this, SLOT(appletAnimationComplete()));
+-        zoomAnim->setWidgetToAnimate(this);
+-        zoomAnim->start();
++        //HACK: Don't ask for confirmation if we're not in a panel, as it triggers a crash in the applethandle
++        if (containment()->containmentType() != Containment::PanelContainment ||
++            !globalConfig().readEntry("askBeforeRemoval", false) ||
++            KMessageBox::warningContinueCancel(
++                view(),
++                i18nc("%1 is the name of the applet", "Do you really want to remove this %1?", name()),
++                i18nc("@title:window %1 is the name of the applet", "Remove %1", name()), KStandardGuiItem::remove()) == KMessageBox::Continue) {
++            d->transient = true;
++            Animation *zoomAnim =
++            Plasma::Animator::create(Plasma::Animator::ZoomAnimation);
++            connect(zoomAnim, SIGNAL(finished()), this, SLOT(appletAnimationComplete()));
++            zoomAnim->setWidgetToAnimate(this);
++            zoomAnim->start();
++        }
+     }
+ }
+ 

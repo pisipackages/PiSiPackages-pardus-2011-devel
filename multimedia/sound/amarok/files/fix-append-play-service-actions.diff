@@ -1,0 +1,10 @@
+Index: src/amarok_append.desktop
+===================================================================
+--- src/amarok_append.desktop.orig
++++ src/amarok_append.desktop
+@@ -240,4 +240,4 @@ Name[x-test]=xxQueue Trackxx
+ Name[zh_CN]=音轨排队
+ Name[zh_TW]=佇列曲目
+ Icon=amarok
+-Exec=amarok --queue %U
++Exec=amarok --queue -a -p %U

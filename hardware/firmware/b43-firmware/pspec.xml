@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>b43-firmware</Name>
+        <Homepage>http://www.linuxwireless.org/en/users/Drivers/b43</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>freedist</License>
+        <IsA>data</IsA>
+        <Summary>Firmware for Broadcom B43 wireless network chips</Summary>
+        <Description>Firmware for Broadcom wireless network chips</Description>
+        <Archive sha1sum="b1f61d283bd7d05ade313da522cb0d0ad4033652" type="binary">http://mirror2.openwrt.org/sources/wl_apsta-3.130.20.0.o</Archive>
+        <Archive sha1sum="ad5b3170cb9c72636e84392aefcdacf306270938" type="tarbz2">http://mirror2.openwrt.org/sources/broadcom-wl-4.178.10.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="013">b43-fwcutter</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>b43-firmware</Name>
+        <Replaces>
+            <Package>bcm43xx-firmware</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="data">/lib/firmware</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-01-11</Date>
+            <Version>4.178.10.4</Version>
+            <Comment>Add firmware files for b43legacy</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-01-11</Date>
+            <Version>4.178.10.4</Version>
+            <Comment>New release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-13</Date>
+            <Version>4.150.10.5</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-06-22</Date>
+            <Version>4.150.10.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Devel-Symdump</Name>
+        <Homepage>http://search.cpan.org/dist/Devel-Symdump/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Dump symbol names or the symbol table</Summary>
+        <Description>perl-Devel-Symdump is a Perl module that dumps symbol names or the symbol table.</Description>
+        <Archive sha1sum="0530224fd3d082a4a6b4f5b6dea333423a29c66d" type="targz">mirrors://cpan/authors/id/A/AN/ANDK/Devel-Symdump-2.08.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>perl-Devel-Symdump</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2010-10-13</Date>
+            <Version>2.08</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-08-21</Date>
+            <Version>2.08</Version>
+            <Comment>Strictly depend on perl 5.12.1 and remove useless pisitools.removeDir func. in actions.py</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-18</Date>
+            <Version>2.08</Version>
+            <Comment>First release.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

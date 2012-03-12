@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cakephp</Name>
+        <Homepage>http://cakephp.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>A PHP framework</Summary>
+        <Description>CakePHP enables PHP users at all levels to rapidly develop robust web applications.</Description>
+        <Archive sha1sum="07911b2895376952c0bb8f379a62a6e45760dfd3" type="targz">http://cekirdek.pardus.org.tr/~gozbulak/dist/cakephp/cakephp-1.3.13.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">console-libdir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cakephp</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.2">mod_php</Dependency>
+            <Dependency versionFrom="5.2">php-cli</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/share/php5/cakephp</Path>
+            <Path fileType="library">/usr/share/php5/cakephp/cake/libs/*</Path>
+            <Path fileType="data">/var/log/cakephp</Path>
+            <Path fileType="data">/var/tmp/cakephp</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="config">/etc/apache2/conf.d/cakephp.conf</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/apache2/conf.d/cakephp.conf" owner="root" permission="0644">cakephp.conf</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-10-31</Date>
+            <Version>1.3.13</Version>
+            <Comment>Version bump. Some changes in this release:
+                * Add resolution of symbolic links in cake CLI bash script. Removing newlines from end of file
+                * Interpret symlinks correctly
+                * Set umask when creating cache file
+                * Add Opera mobi to mobile browser list
+                * Fix issues with using 0 as an option for a shell command
+                * Add support for NULL values in Set::format()
+                * Update the doc block for Datasource::delete()
+                * Fix precision issues where numbers would get truncated
+                * Re-add DISABLE_DEFAULT_ERROR_HANDLING to Configure
+                * Fix Model.field.1 style fields when used with SecurityComponent
+                * Fix Validation::time so it accepts spaces
+                * Additional inflection rules provided through Inflector::rules() now take precedence over the core ones as expected
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-10-03</Date>
+            <Version>1.3.12</Version>
+            <Comment>Version bump. Some changes in this release:
+                * Fix incorrect formation of query string removed on ALTER COLUMN xx TYPE xxx for postgres
+                * Removing AFTER in Postgres add column. It causes SQL errors on Postgres 8.4
+                * Fix SQL when using operator SIMILAR TO
+                * Updating doc comment about find(list)
+                * Fix bug where scientific notations were not passed to mysql in their original form which resulted in loss of precision
+                * Fix issue with boolean columns not correctly inserting data in MySQL
+                * Add missing import in EmailComponent
+                * Fix Accept header parsing so content types with leading/trailing spaces are treated as spaceless
+                * Prepare utf8 database connection option
+                * Add better file locking in write() for better file locking and unserialization
+                * Change Postgresql to use DELETE FROM instead of TRUNCATE
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-08-09</Date>
+            <Version>1.3.11</Version>
+            <Comment>
+                * Fix access problem to tmp dir for caching and logging (pb#17538)
+                * Version bump including changes:
+                    - Fixtures are now truncated in reverse order, this can help some applications with constraints in database to run tests more smoothly
+                    - Database credentials will now be hidden from debug output to protect users that forgot to set debug = 0 in their production servers
+                    - Bug fix for detecting correct setup for mod_rewrite
+                    - Datasource will now return false instead of raising an error if unable to connect to Mysql or Mysqli
+                    - Added a banner to the default home.ctp to show important CakePHP announcements
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-03-28</Date>
+            <Version>1.3.8</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2011-01-04</Date>
+            <Version>1.3.6</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Güzel</Name>
+            <Email>guzelmu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

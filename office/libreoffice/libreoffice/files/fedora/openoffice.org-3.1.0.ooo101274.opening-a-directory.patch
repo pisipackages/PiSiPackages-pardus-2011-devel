@@ -1,0 +1,174 @@
+Index: ucbhelper/source/client/content.cxx
+===================================================================
+--- ucbhelper/source/client/content.cxx.orig
++++ ucbhelper/source/client/content.cxx
+@@ -40,6 +40,7 @@
+ #include <cppuhelper/weak.hxx>
+ 
+ #include <cppuhelper/implbase1.hxx>
++#include <com/sun/star/beans/PropertyValue.hpp>
+ #include <com/sun/star/ucb/ContentCreationError.hpp>
+ #include <com/sun/star/ucb/XCommandEnvironment.hpp>
+ #include <com/sun/star/ucb/XCommandInfo.hpp>
+@@ -49,6 +50,8 @@
+ #include <com/sun/star/ucb/ContentAction.hpp>
+ #include <com/sun/star/ucb/OpenCommandArgument2.hpp>
+ #include <com/sun/star/ucb/InsertCommandArgument.hpp>
++#include <com/sun/star/ucb/IOErrorCode.hpp>
++#include <com/sun/star/ucb/InteractiveAugmentedIOException.hpp>
+ #include <com/sun/star/ucb/GlobalTransferCommandArgument.hpp>
+ #include <com/sun/star/ucb/NameClash.hpp>
+ #include <com/sun/star/ucb/OpenMode.hpp>
+@@ -66,6 +69,8 @@
+ #include <com/sun/star/sdbc/XRow.hpp>
+ #include <com/sun/star/lang/IllegalArgumentException.hpp>
+ #include <com/sun/star/beans/UnknownPropertyException.hpp>
++#include <com/sun/star/task/XInteractionRequest.hpp>
++
+ #include <ucbhelper/macros.hxx>
+ #include <ucbhelper/content.hxx>
+ #include <ucbhelper/contentbroker.hxx>
+@@ -73,6 +78,10 @@
+ #include <ucbhelper/activedatastreamer.hxx>
+ #include <ucbhelper/interactionrequest.hxx>
+ #include <ucbhelper/cancelcommandexecution.hxx>
++#include <ucbhelper/fileidentifierconverter.hxx>
++#include <ucbhelper/simpleinteractionrequest.hxx>
++
++#include <memory>
+ 
+ using namespace com::sun::star::container;
+ using namespace com::sun::star::beans;
+@@ -376,6 +385,54 @@ static Reference< XContent > getContent(
+     return Reference< XContent >();
+ }
+ 
++namespace
++{
++
++void
++lcl_displayMessage(
++        const Reference<XCommandEnvironment>& rEnvironment,
++        const rtl::OUString& rUri)
++{
++    // Create exception
++    const Reference<XContentProviderManager> xCPM(
++            getContentBroker(true)->getContentProviderManagerInterface());
++    const PropertyValue aUriProperty(
++            rtl::OUString::createFromAscii("Uri"),
++            -1,
++            makeAny(getSystemPathFromFileURL(xCPM, rUri)),
++            PropertyState_DIRECT_VALUE)
++        ;
++    Sequence<Any> lArguments(1);
++    lArguments[0] <<= aUriProperty;
++    const InteractiveAugmentedIOException xError(
++            rtl::OUString(),
++            0,
++            InteractionClassification_ERROR,
++            IOErrorCode_NO_FILE,
++            lArguments)
++        ;
++
++    // Create interaction request
++    std::auto_ptr<ucbhelper::SimpleInteractionRequest> aRequest(
++            new ucbhelper::SimpleInteractionRequest(makeAny(xError), CONTINUATION_APPROVE));
++    {
++        Reference<XInteractionContinuation> xContinuation(
++                new ::ucbhelper::InteractionApprove(aRequest.get()));
++        Sequence<Reference<XInteractionContinuation> > lContinuations(1);
++        lContinuations[0].set(xContinuation);
++        aRequest->setContinuations(lContinuations);
++    }
++
++    Reference<XInteractionHandler> xInteraction(rEnvironment->getInteractionHandler());
++    if (xInteraction.is())
++    {
++        Reference<XInteractionRequest> xRequest(aRequest.release());
++        xInteraction->handle(xRequest);
++    }
++}
++    
++}
++
+ //=========================================================================
+ //=========================================================================
+ //
+@@ -1187,7 +1244,10 @@ Reference< XInputStream > Content::openS
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return Reference< XInputStream >();
++    }
+ 
+     Reference< XActiveDataSink > xSink = new ActiveDataSink;
+ 
+@@ -1212,7 +1272,10 @@ Reference< XInputStream > Content::openS
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return Reference< XInputStream >();
++    }
+ 
+     Reference< XActiveDataSink > xSink = new ActiveDataSink;
+ 
+@@ -1237,7 +1300,10 @@ Reference< XStream > Content::openWritea
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return Reference< XStream >();
++    }
+ 
+     Reference< XActiveDataStreamer > xStreamer = new ActiveDataStreamer;
+ 
+@@ -1262,7 +1328,10 @@ Reference< XStream > Content::openWritea
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return Reference< XStream >();
++    }
+ 
+     Reference< XActiveDataStreamer > xStreamer = new ActiveDataStreamer;
+ 
+@@ -1287,7 +1356,10 @@ sal_Bool Content::openStream( const Refe
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return sal_False;
++    }
+ 
+     OpenCommandArgument2 aArg;
+     aArg.Mode       = OpenMode::DOCUMENT;
+@@ -1310,7 +1382,10 @@ sal_Bool Content::openStream( const Refe
+     throw( CommandAbortedException, RuntimeException, Exception )
+ {
+     if ( !isDocument() )
++    {
++        lcl_displayMessage(m_xImpl->getEnvironment(), getURL());
+         return sal_False;
++    }
+ 
+     OpenCommandArgument2 aArg;
+     aArg.Mode       = OpenMode::DOCUMENT;
+Index: comphelper/source/misc/stillreadwriteinteraction.cxx
+===================================================================
+--- comphelper/source/misc/stillreadwriteinteraction.cxx.orig
++++ comphelper/source/misc/stillreadwriteinteraction.cxx
+@@ -98,6 +98,7 @@ ucbhelper::InterceptedInteraction::EInte
+             bAbort = (
+                 (exIO.Code == css::ucb::IOErrorCode_ACCESS_DENIED     )
+                 || (exIO.Code == css::ucb::IOErrorCode_LOCKING_VIOLATION )
++                || (exIO.Code == css::ucb::IOErrorCode_NO_FILE )
+                 || (exIO.Code == css::ucb::IOErrorCode_NOT_EXISTING )
+ #ifdef MACOSX
+                 // this is a workaround for MAC, on this platform if the file is locked

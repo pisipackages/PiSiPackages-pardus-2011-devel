@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-pycrypto</Name>
+        <Homepage>https://www.dlitz.net/software/pycrypto</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>PYTHON</License>
+        <IsA>library</IsA>
+        <Summary>Python Cryptography Toolkit</Summary>
+        <Description>Python Cryptography Toolkit is a collection of cryptographic algorithms and protocols, implemented for use from Python.</Description>
+        <Archive sha1sum="96b33b77e729893bd0837a09a6aa7a12b5070037" type="targz">http://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gmp-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-pycrypto</Name>
+        <RuntimeDependencies>
+            <Dependency>gmp</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>pycrypto</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-08-03</Date>
+            <Version>2.3</Version>
+            <Comment>Bump to version 2.3</Comment>
+            <Name>Renan Çakırerk</Name>
+            <Email>renan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3" type="security">
+            <Date>2009-02-07</Date>
+            <Version>2.0.1</Version>
+            <Comment>Fix a buffer overflow in pycrypto ARC2 module (bug#9189).</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-05-30</Date>
+            <Version>2.0.1</Version>
+            <Comment>Add a few fixes</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-02-04</Date>
+            <Version>2.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

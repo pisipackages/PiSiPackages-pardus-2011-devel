@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>libnotify</Name>
+        <Homepage>http://www.galago-project.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Desktop notification library</Summary>
+        <Description>libnotify sends desktop notifications to a notification daemon.</Description>
+        <Archive sha1sum="bb088a318cfccb4261674065838860fa940fc04a" type="tarbz2">http://ftp.acc.umu.se/pub/GNOME/sources/libnotify/0.5/libnotify-0.5.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libnotify</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc/html</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libnotify-devel</Name>
+        <Summary>Development files for libnotify</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libnotify</Dependency>
+            <Dependency>dbus-glib-devel</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2011-05-31</Date>
+            <Version>0.5.2</Version>
+            <Comment>Package takeover, version bump to latest gtk2 compatible version which includes NOTIFY_CHECK_VERSION needed for gyachi package, enable gtk-doc:
+                NEW in 0.5.2:
+                ==============
+                - Fixed #623096, Use correct variable in NULL check
+                - Added a macro NOTIFY_CHECK_VERSION
+                NEW in 0.5.0:
+                ==============
+                - Support for version 1.1 of notification spec (Aurélien Gâteau, A. Walton)
+                - Fixed #608089, Applications aborted at finalizing when the dbus session is being closed. (William Jon McCann)
+                - Fixed #608082, Arabic text is misplaced in bubbles (RTL) (William Jon McCann)
+                - Fixed #608086, wrong return value of notify_init() (William Jon McCann)
+                - Fixed #612720, Does not compile with -DGSEAL_ENABLE (William Jon McCann)
+                - Fixed #613999, Use g_strcompress in notify-send to parse \n from command line (William Jon McCann)
+                - Fixed #610880, lazily initialize the daemon (Martin Pitt)
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-10-12</Date>
+            <Version>0.4.5</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-08-23</Date>
+            <Version>0.4.5</Version>
+            <Comment>Split devel package.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-05-11</Date>
+            <Version>0.4.5</Version>
+            <Comment>Disable gtk-docs ase it fails during autoreconf.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-04-24</Date>
+            <Version>0.4.5</Version>
+            <Comment>
+                * Fixed URL,
+                * Version bump,
+                * Removed system.base deps and subdependencies,
+                * Disabled static libraries,
+                * Fixed description tags,
+                * Parsed package for docs.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-03-15</Date>
+            <Version>0.4.4</Version>
+            <Comment>Add missing notification-daemon dependency</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-02-28</Date>
+            <Version>0.4.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-27</Date>
+            <Version>0.4.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-20</Date>
+            <Version>0.4.2</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

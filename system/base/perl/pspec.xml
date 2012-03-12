@@ -1,0 +1,464 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl</Name>
+        <Homepage>http://www.perl.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Larry Wall's Practical Extraction and Reporting Language</Summary>
+        <Description>Perl is a high-level programming language with roots in C, sed, awk and shell scripting. Perl is good at handling processes and files, and is especially good at handling text. Perl's hallmarks are practicality and efficiency. While it is used to do a lot of different things, Perl's most common applications are system administration utilities and web programming. A large proportion of the CGI scripts on the web are written in Perl. You need the perl package installed on your system so that your system can handle Perl scripts.</Description>
+        <Archive sha1sum="c157f214a93ce20fc06dc9d9c902c05ad1327cb1" type="targz">mirrors://cpan/authors/id/J/JE/JESSE/perl-5.12.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>groff</Dependency>
+            <Dependency>db4-devel</Dependency>
+            <Dependency>gdbm-devel</Dependency>
+            <Dependency>bzip2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- disable for Sandbox -->
+          <Patch level="1">perl-5.12.1-disable-syslog-test.patch</Patch>
+          <Patch level="1">perl-5.12.1-skip-compat-test.patch</Patch>
+
+          <Patch level="1">perl-5.12.1-gracefull-net-ftp.diff</Patch>
+          <Patch>perl-5.8.5-prelink-lpthread.patch</Patch>
+          <Patch>pod-disable-locale.patch</Patch>
+          <Patch>perl-fix_dbmclose_call.patch</Patch>
+          <Patch>perl-regexp-refoverflow.diff</Patch>
+          <Patch level="1">perl-5.12.1-netcmdutf8.diff</Patch>
+          <Patch>perl-5.12.1-nroff.diff</Patch>
+
+          <!-- Use system zlib library-->
+          <Patch level="1">disable-zlib-bundling.diff</Patch>
+
+          <!-- When missing packages are ready, this patch should be applied!
+          <Patch>deprecate-with-pisi.patch</Patch>
+          -->
+          <!-- Don't install .packlist or perllocal.pod for perl or vendor -->
+          <Patch level="1">gentoo/0006-gentoo_MakeMaker-delete__packlist.diff</Patch>
+
+          <Patch level="1">do_not_create_packlist_in_Module_Build.patch</Patch>
+
+          <!-- Update Compress-Raw-Bzip2 Module to 2.031 -->
+          <Patch level="1">bump_Compress-Raw-Bzip2_module_to_2.031.patch</Patch>
+
+          <!-- h2ph produces incorrect code in preamble, see [perl #74614] -->
+          <Patch level="1">perl-5.12.2-h2ph.patch</Patch>
+
+          <!-- PL_my_cxt_list was never freed and it leaks, see [perl #77352]-->
+          <Patch level="1">perl-5.12.1-fix_thread_leak.patch</Patch>
+
+          <!-- Apply the taint attribute to the return value upon processing tainted input
+          for lc, lcfirst, uc and ucfirst functions in Perl. CVE-2011-1487, pb #17819. -->
+          <Patch level="1">CVE-2011-1487.patch</Patch>
+
+          <!-- fix regexp crash in reg_numbered_buff_fetch CVE-2010-4777, pb #17573-->
+          <Patch>CVE-2010-4777.patch</Patch>
+
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>perl-docs</Name>
+        <PartOf>programming.language.perl</PartOf>
+        <Summary>Documentation files for perl</Summary>
+        <Conflicts>
+            <Package releaseTo="36">perl</Package>
+        </Conflicts>
+        <Replaces>
+            <Package>perl-doc</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="doc">/usr/share/doc/html</Path>
+            <Path fileType="doc">/usr/share/doc/perl/html</Path>
+            <Path fileType="man">/usr/share/man/</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>perl</Name>
+        <RuntimeDependencies>
+            <Dependency>db4</Dependency>
+            <Dependency>bzip2</Dependency>
+            <Dependency versionFrom="1.8.3">gdbm</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <!-- These modules are included in perl core. -->
+            <Package>perl-Archive-Tar</Package>
+            <Package>perl-Attribute-Handlers</Package>
+            <Package>perl-CGI</Package>
+            <Package>perl-Class-ISA</Package>
+            <Package>perl-Compress-Raw-Zlib</Package>
+            <Package>perl-Compress-Zlib</Package>
+            <Package>perl-Digest-Base</Package>
+            <Package>perl-Digest-MD5</Package>
+            <Package>perl-Exporter</Package>
+            <Package>perl-ExtUtils-CBuilder</Package>
+            <Package>perl-ExtUtils-ParseXS</Package>
+            <Package>perl-File-Temp</Package>
+            <Package>perl-Getopt-Long</Package>
+            <Package>perl-IO-Compress-Base</Package>
+            <Package>perl-IO-Compress-Zlib</Package>
+            <Package>perl-IO-Zlib</Package>
+            <Package>perl-libnet</Package>
+            <Package>perl-Locale-Maketext-Simple</Package>
+            <Package>perl-Math-BigInt</Package>
+            <Package>perl-Math-Complex</Package>
+            <Package>perl-MIME-Base64</Package>
+            <Package>perl-Module-Pluggable</Package>
+            <Package>perl-PathTools</Package>
+            <Package>perl-Pod-Escapes</Package>
+            <Package>perl-Pod-Parser</Package>
+            <Package>perl-Pod-Simple</Package>
+            <Package>perl-Storable</Package>
+            <Package>perl-Sys-Syslog</Package>
+            <Package>perl-Test-Simple</Package>
+            <Package>perl-Text-Tabs+Wrap</Package>
+            <Package>perl-Time-HiRes</Package>
+            <Package>perl-Time-Local</Package>
+            <Package>perl-Time-Piece</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <!-- FIXME: Update perl version in target path  when Perl version changes! -->
+            <AdditionalFile owner="root" permission="0644" target="/usr/lib/perl5/vendor_perl/5.12.2/Turkish.pm">Turkish.pm</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="43">
+            <Date>2011-05-24</Date>
+            <Version>5.12.2</Version>
+            <Comment>Correct the target path of additional Turkish.pm file.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="42">
+            <Date>2011-05-12</Date>
+            <Version>5.12.2</Version>
+            <Comment>fix regexp crash in reg_numbered_buff_fetch CVE-2010-4777, pb #17573.</Comment>
+            <Type package="perl">security</Type>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="41">
+            <Date>2011-04-19</Date>
+            <Version>5.12.2</Version>
+            <Comment>Apply the taint attribute to the return value upon processing tainted input for lc, lcfirst, uc and ucfirst functions in Perl. CVE-2011-1487, pb #17819.</Comment>
+            <Type package="perl">security</Type>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="40">
+            <Date>2010-11-11</Date>
+            <Version>5.12.2</Version>
+            <Comment>perl-Compress-Raw-Zlib, perl-Storable, perl-Sys-Syslog and perl-Time-Piece have been added to the replacement list. More patches added.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2010-10-11</Date>
+            <Version>5.12.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2010-10-08</Date>
+            <Version>5.12.2</Version>
+            <Comment>Version bump, changes from 5.12.1:
+                - No incompatible changes
+                - No new modules and pragmata
+                - Carp, CPANPLUS, File::Glob, File::Copy, File::Spec modules are updated.
+                - Many bugfixes.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2010-10-06</Date>
+            <Version>5.12.1</Version>
+            <Comment>Move /usr/share/doc/perl/html to perl-doc package and add two 2009 perl modules to Replaces list: perl-Class-ISA and perl-Time-Local.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2010-09-29</Date>
+            <Version>5.12.1</Version>
+            <Comment>Use external bzip2.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2010-09-15</Date>
+            <Version>5.12.1</Version>
+            <Comment>Change gdbm -> gdbm-devel in Build deps.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2010-08-22</Date>
+            <Version>5.12.1</Version>
+            <Comment>- Do not create packlist with Module Build patch is added.
+                - Move AUTHORS, Artistic, Changes, Copying and README files to main package
+                - rename perl-doc package to perl-docs
+                - Remove Perl-PathTools as it is a core module of the perl package.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2010-08-20</Date>
+            <Version>5.12.1</Version>
+            <Comment>Remove COMAR Script as it seems to be not fixing our perl bump issues.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2010-08-20</Date>
+            <Version>5.12.1</Version>
+            <Comment>Add a bunch of replaced_by_perl packages. They should not be merged into 2011.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2010-08-18</Date>
+            <Version>5.12.1</Version>
+            <Comment>Version bump, reorganize patches, add Comar script and make the package ready for 2011.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="30" type="security">
+            <Date>2010-06-16</Date>
+            <Version>5.10.1</Version>
+            <Comment>
+                - Update Safe.pm module to 2.27 which fixes CVE-2010-1974, #13080
+            </Comment>
+            <Name>Eren Türkay</Name>
+            <Email>eren@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2010-02-18</Date>
+            <Version>5.10.1</Version>
+            <Comment>Use get.ARCH() in actions.py</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2010-01-22</Date>
+            <Version>5.10.1</Version>
+            <Comment>Keep POD files of perl package. This fixes usage of diagnostics module, usually used in test scripts of Perl modules.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2009-12-17</Date>
+            <Version>5.10.1</Version>
+            <Comment>Fix a typo in perl-doc component</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2009-11-17</Date>
+            <Version>5.10.1</Version>
+            <Comment>Replace perl-Module-Build</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2009-11-16</Date>
+            <Version>5.10.1</Version>
+            <Comment>Fix buildfarm compilation problem</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2009-11-11</Date>
+            <Version>5.10.1</Version>
+            <Comment>
+             * Remove comar script.
+             * Added reverseDependencyUpdate
+            </Comment>
+            <Requires>
+                <Action>reverseDependencyUpdate</Action>
+            </Requires>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2009-11-10</Date>
+            <Version>5.10.1</Version>
+            <Comment>
+             * Version bump to bugfix release 5.10.1
+             * Sync with other distro patches
+             * Add comar package script to move old modules compiled with 5.10.0
+             * Fix for CVE-2009-3626 (eren)
+            </Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2009-05-07</Date>
+            <Version>5.10.0</Version>
+            <Comment>Sync with other distro patches</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="21" type="security">
+            <Date>2008-12-23</Date>
+            <Version>5.10.0</Version>
+            <Comment>Fix multiple symlink attack vulnerabilities (CVE-2008-{5302,5303}), (bug#8773)</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="20" type="security">
+            <Date>2008-06-22</Date>
+            <Version>5.10.0</Version>
+            <Comment>Fix File::Path::Rmtree behaviour. Rmtree sets symlink target to 777.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-04-26</Date>
+            <Version>5.10.0</Version>
+            <Comment>Fix 'debugperl -Dm -e 1' segfaults </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2007-12-18</Date>
+            <Version>5.10.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2007-11-13</Date>
+            <Version>5.8.8</Version>
+            <Comment>Enable threading and merge some changes from Fedora</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="16" type="security">
+            <Date>2007-11-05</Date>
+            <Version>5.8.8</Version>
+            <Comment>Fix CVE-2007-5116</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2007-05-11</Date>
+            <Version>5.8.8</Version>
+            <Comment>Fix Turkish.pm</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2007-01-18</Date>
+            <Version>5.8.8</Version>
+            <Comment>Fix compilation with gcc 4.2</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2006-11-25</Date>
+            <Version>5.8.8</Version>
+            <Comment>Fix #59</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2006-07-01</Date>
+            <Version>5.8.8</Version>
+            <Comment>perldoc doesnt belong to system.base</Comment>
+            <Name>Gürer Özen</Name>
+            <Email>gurer@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2006-06-29</Date>
+            <Version>5.8.8</Version>
+            <Comment>Remove duplicate man pages</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2006-06-12</Date>
+            <Version>5.8.8</Version>
+            <Comment>Fix upstream bugs</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="9" type="security">
+            <Date>2006-04-28</Date>
+            <Version>5.8.8</Version>
+            <Comment>Merge libperl and perl packages, provide suid perl, add some patches</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2006-02-01</Date>
+            <Version>5.8.8</Version>
+            <Comment>New stable release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2005-12-20</Date>
+            <Version>5.8.7</Version>
+            <Comment>Unnecessary .ph file generation at the postInstall removed.</Comment>
+            <Name>Gürer Özen</Name>
+            <Email>gurer@pardus.org.tr</Email>
+        </Update>
+        <Update release="6" type="security">
+            <Date>2005-12-13</Date>
+            <Version>5.8.7</Version>
+            <Comment>Revise fix for CVE-2005-3962 and combine it with a fix for CVE-2005-3912</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5" type="security">
+            <Date>2005-12-02</Date>
+            <Version>5.8.7</Version>
+            <Comment>Fix CVE-2005-3962</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2005-10-30</Date>
+            <Version>5.8.7</Version>
+            <Comment>typo fix</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3" type="security">
+            <Date>2005-10-27</Date>
+            <Version>5.8.7</Version>
+            <Comment>Update to version 5.8.7 and fix CAN-2005-0448</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-10-12</Date>
+            <Version>5.8.5</Version>
+            <Comment>dosed functions in action.py fixed.</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-08-17</Date>
+            <Version>5.8.5</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

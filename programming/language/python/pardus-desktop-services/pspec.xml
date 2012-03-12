@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pardus-desktop-services</Name>
+        <Homepage>http://www.pardus.org.tr</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Pardus Desktop Services</Summary>
+        <Description>pardus-desktop-services is a wrapper python module for integrating various desktop environments using PyQt.</Description>
+        <Archive sha1sum="da7dc2946d191f1f3a49750b681538ba2ea8c643" type="targz">http://cekirdek.pardus.org.tr/~gokmen/files/pds-1.2.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pardus-desktop-services</Name>
+        <RuntimeDependencies>
+            <Dependency>python-qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="10">
+            <Date>2011-07-05</Date>
+            <Version>1.2.6</Version>
+            <Comment>
+                - New version 1.2.6
+                - Added new widget for paging inside QWidgets called QPageWidget
+                - Added environment support for LXDE, Fluxbox, Gnome and Gnome3
+                - Additional SessionType variable added to check KDE 4
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-02-11</Date>
+            <Version>1.2.5</Version>
+            <Comment>
+                - New version 1.2.5
+                - Fixed QuniqueApplication translations
+                - Bug fixed at http://bugs.pardus.org.tr/16767
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-02-03</Date>
+            <Version>1.2.4</Version>
+            <Comment>
+                - New version 1.2.4
+                - Oversize overlay icon issues are fixed
+                - Add option to update available icons list QIconLoader
+                - Make overlay opacity optional
+                - Add global forceCache option to QIconLoader
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-01-15</Date>
+            <Version>1.2.3</Version>
+            <Comment>
+                - A new method added to Pds.gui setOverlayClickMethod
+                - Support multiple config paths
+                - Add .kde as KDE 4 Session config path for 2011
+                - Support to define position of overlay icon in QIconLoader
+                - QNetworkManager, a new widget to show/change_states of network profiles from NetworkManager backend.
+                - Test scripts seperated, under tests directory
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-12-01</Date>
+            <Version>1.2.1</Version>
+            <Comment>
+                - New Version
+                - Shadow support added for Pds.Gui
+                - Fixed garbage collection
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-11-09</Date>
+            <Version>1.1.1</Version>
+            <Comment>
+                - New version
+                - QProgressIndicator added
+                - Container widget added
+            </Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-20</Date>
+            <Version>1.1.0</Version>
+            <Comment>New version</Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-05-27</Date>
+            <Version>1.0.1</Version>
+            <Comment>New version</Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-05-17</Date>
+            <Version>1.0</Version>
+            <Comment>Fixes for i18n support</Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-04-30</Date>
+            <Version>1.0</Version>
+            <Comment>First version</Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

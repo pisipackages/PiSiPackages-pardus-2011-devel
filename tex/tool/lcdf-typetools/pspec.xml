@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lcdf-typetools</Name>
+        <Homepage>http://www.lcdf.org/type/#typetools</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Font utilities for eg manipulating OTF</Summary>
+        <Description>lcdf-typetools contains several command-line programs for manipulating PostScript Type 1 and PostScript-flavored OpenType fonts.</Description>
+        <Archive sha1sum="ac7efb68d3379d9052fa6103035c3f4c95b55854" type="targz">http://www.lcdf.org/type/lcdf-typetools-2.92.tar.gz</Archive>
+         <BuildDependencies>
+             <Dependency>texlive-bin-devel</Dependency>
+             <Dependency>texlive-core</Dependency>
+         </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>lcdf-typetools</Name>
+         <RuntimeDependencies>
+             <Dependency>texlive-core</Dependency>
+         </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2011-09-16</Date>
+            <Version>2.92</Version>
+            <Comment>New upstream release 2.9.2</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-06-28</Date>
+            <Version>2.88</Version>
+            <Comment>New upstream release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-03-18</Date>
+            <Version>2.88</Version>
+            <Comment>Fix rev-dep problem that causes to remove this package from repo</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-03-18</Date>
+            <Version>2.88</Version>
+            <Comment>New stable version. Change dependencies to the new texlive infrastructure</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-02-08</Date>
+            <Version>2.87</Version>
+            <Comment>
+                * New stable release
+                * Add missing dependencies
+                * Change otfinfo to otfinfo-lcdf as it conflicts with openmpi
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-12</Date>
+            <Version>2.83</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-09-03</Date>
+            <Version>2.83</Version>
+            <Comment>Version bump, take over, ready for 2011</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-06-30</Date>
+            <Version>2.75</Version>
+            <Comment>Adding texlive-latexrecommended dependency.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>scirit@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-02-23</Date>
+            <Version>2.75</Version>
+            <Comment>First release.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sed</Name>
+        <Homepage>http://sed.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>GNU Stream Editor</Summary>
+        <Description>Sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline).</Description>
+        <Archive sha1sum="502f5fa9aff891f0383baaeb1958b66dbc4b05c8" type="targz">mirrors://gnu/sed/sed-4.2.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gettext-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">sed-4.1.1-dest_len-0.1.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>sed</Name>
+        <Files>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2010-10-11</Date>
+            <Version>4.2.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-09-02</Date>
+            <Version>4.2.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-02-03</Date>
+            <Version>4.1.5</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-10-12</Date>
+            <Version>4.0.9</Version>
+            <Comment>Archive url fixed in pspec.xml + dodoc funcs fixed in actions.py</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-26</Date>
+            <Version>4.0.9</Version>
+            <Comment>First release.</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,30 @@
+diff -up acpid-2.0.2/Makefile.makefile acpid-2.0.2/Makefile
+diff -up acpid-2.0.2/Makefile.makefile acpid-2.0.2/Makefile
+diff -up acpid-2.0.2/Makefile.makefile acpid-2.0.2/Makefile
+diff -up acpid-2.0.2/Makefile.makefile acpid-2.0.2/Makefile
+diff -up acpid-2.0.2/Makefile.makefile acpid-2.0.2/Makefile
+--- acpid-2.0.2/Makefile.makefile	2010-01-27 00:36:23.000000000 +0100
++++ acpid-2.0.2/Makefile	2010-02-25 16:01:39.641024017 +0100
+@@ -31,8 +31,9 @@ MAN8GZ = $(MAN8:.8=.8.gz)
+ 
+ DOCS = COPYING Changelog README TESTPLAN TODO 
+ 
+-CFLAGS = -W -Wall -Werror -Wundef -Wshadow -D_GNU_SOURCE $(OPT) \
+-	-fno-strict-aliasing -g $(DEFS)
++CFLAGS = -W -Wall -Werror -Wundef -Wshadow -D_GNU_SOURCE -O2 $(OPT) \
++	-fno-strict-aliasing -g $(DEFS) $(RPM_OPT_FLAGS) -fPIE
++LDFLAGS = -pie -Wl,-z,relro
+ DEFS = -DVERSION="\"$(VERSION)\""
+ 
+ all: $(PROGS)
+@@ -46,8 +47,8 @@ man: $(MAN8)
+ 
+ install_docs:
+ 	mkdir -p $(DESTDIR)/$(DOCDIR)
+-	for a in $(DOCS); do install -m 0644 $$a $(DESTDIR)/$(DOCDIR) ; done
+-	cp -a samples $(DESTDIR)/$(DOCDIR)
++	#for a in $(DOCS); do install -m 0644 $$a $(DESTDIR)/$(DOCDIR) ; done
++	#cp -a samples $(DESTDIR)/$(DOCDIR)
+ 
+ install: $(PROGS) man install_docs
+ 	mkdir -p $(DESTDIR)/$(SBINDIR)

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>kdemultimedia</Name>
+        <Summary xml:lang="tr">KDE4 çokluortam uygulamaları</Summary>
+        <Description xml:lang="tr">KDE4 çokluortam uygulamalarını içerir. Pakette; dragonplayer (basit bir görüntü oynatıcısı), juk (müzik yöneticisi ve oynatıcısı), kmix (ses karıştırıcı) ve kscd (Ses CD'si oynatıcı) uygulamaları bulunmaktadır.</Description>
+    </Source>
+
+    <Package>
+        <Name>kdemultimedia-devel</Name>
+        <Summary xml:lang="tr">kdemultimedia için geliştirme dosyaları</Summary>
+    </Package>
+
+    <Package>
+        <Name>kscd</Name>
+        <Summary xml:lang="tr">KSCD: KDE Ses Oynatıcı</Summary>
+    </Package>
+
+    <Package>
+        <Name>kdemultimedia</Name>
+        <Summary xml:lang="tr">Tüm kdemultimedia altpaketlerini kapsayan kdemultimedia paketi</Summary>
+    </Package>
+
+    <Package>
+        <Name>kmix</Name>
+        <Summary xml:lang="tr">KMix: KDE Dijital Karıştırıcı</Summary>
+    </Package>
+
+    <Package>
+        <Name>kde-thumbnailer-ffmpeg</Name>
+        <Summary xml:lang="tr">KDE için ffmpeg tabanlı önizleme aracı</Summary>
+    </Package>
+
+    <Package>
+        <Name>libkcddb</Name>
+        <Summary xml:lang="tr">CDDB KDE kitaplığı (Kompakt Disk Veritabanı)</Summary>
+    </Package>
+
+    <Package>
+        <Name>juk</Name>
+        <Summary xml:lang="tr">Juk: KDE için müzik oynatıcı</Summary>
+    </Package>
+</PISI>

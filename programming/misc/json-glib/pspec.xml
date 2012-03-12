@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>json-glib</Name>
+        <Homepage>http://live.gnome.org/JsonGlib</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2+</License>
+        <IsA>library</IsA>
+        <Summary>Library for JavaScript Object Notation format</Summary>
+        <Description>json-glib is a library providing serialization and deserialization support for the JavaScript Object Notation (JSON) format.</Description>
+        <Archive sha1sum="2295a704d4e45a4e5333ea9eeda9b9c413b118d1" type="tarbz2">mirrors://gnome/json-glib/0.12/json-glib-0.12.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="6">gobject-introspection-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>json-glib</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="6">gobject-introspection</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>json-glib-devel</Name>
+        <Summary>Development files for json-glib</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">json-glib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/share/gir-*</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-04-04</Date>
+            <Version>0.12.0</Version>
+            <Comment>Version bump to 0.12.0:
+                * Support surrogate pairs in JSON strings [Eiichi Sato]
+                * Update the test suite
+                * Add (optional) coverage reports
+                * Improve strictness of JsonParser
+                * Improve error reporting of JsonParser
+                * Add JsonBuilder, a convenience API for programmatic building of JSON trees [Luca Bruno]
+                * Add methods for JsonParser and JsonGenerator to handle Input|OutputStream objects coming from GIO.
+                * Add JsonReader, a convenience API for cursor-based parsing of JSON trees
+                * Depend on GObject-Introspection ≥ 0.9.5
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-12</Date>
+            <Version>0.10.4</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-08-19</Date>
+            <Version>0.10.4</Version>
+            <Comment>Split devel package.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-04-30</Date>
+            <Version>0.10.4</Version>
+            <Comment>Version bump to 0.10.4</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-10-30</Date>
+            <Version>0.8.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>eren@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>autogen</Name>
+        <Homepage>http://www.gnu.org/software/autogen</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>The automated text and program generation tool</Summary>
+        <Description>autogen is a tool designed to simplify the creation and maintenance of programs that contain large amounts of repetitious text.</Description>
+        <Archive sha1sum="252874dadce4bb08eda77d49483eaf5e7ecb47b7" type="tarbz2">mirrors://gnu/autogen/rel5.11.9/autogen-5.11.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.8.1">guile-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>autogen-setfilename.patch</Patch>
+            <Patch>autogen-build_ldpath.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>autogen</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.8.1">guile</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/autogen</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>autogen-devel</Name>
+        <Summary>Development files for autogen</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">autogen</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/autoopts-config</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+            <Path fileType="man">/usr/share/man/man1/autoopts-config.1</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="10">
+            <Date>2011-08-03</Date>
+            <Version>5.11.9</Version>
+            <Comment>Version bump:
+                * New AutoOpts attribute
+                * the --version option default
+                * Changes in the Licenses
+                and various fixes.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-04-25</Date>
+            <Version>5.11.8</Version>
+            <Comment>Move more files to autogen-devel package. Remove system.devel dep, Version bump to latest stable version:
+                - New in 5.11.8 - March 2011
+                * *Really* cope with Guile version number 2.0.
+                * AutoOpts argument types of "time and date" have been added to the current support for time duration.
+                - New in 5.11.6 February 2011
+                * Cope with Guile version number 2.0
+                * XML character encodings are parsed in config files
+                * exit codes are enumerated for auto-opts projects, They will appear in an enumeration in the header file and in generated documentation.
+                * program documentation templates have been improved.  See docs.
+                * packaging information: The PKGDATADIR and --with-packager... information are now compiled into the option structure.
+                - New in 5.11.5 - December 2010
+                * When columns puts a special prefix on the first line, it now tests to see if it is longer than the indentation.
+                * Fixed a fence post bug triggered by creating temporary strings 8160 through 8163 bytes long.
+                * dependency output files should be readable by everyone.
+                - New in 5.11.4 December 2010
+                * various test fixes: accommodate some severe brokenness in Solaris shells
+                * Fix a seg fault on Solaris
+                * Do not install .m4 files used to create configure script
+                - New in 5.11.3 - November 2010
+                * new man page templates were added
+                * usage information on usage errors may be suppressed
+                * asprintf was introduced into libopts, but is not on all platforms.  It has been removed.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-01-07</Date>
+            <Version>5.11.1</Version>
+            <Comment>Version bump and split devel package.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-01-23</Date>
+            <Version>5.10</Version>
+            <Comment>
+                * Version bump:
+                    - Options may now be "deprecated".  They get processed, but do not show
+                    in the usage output.
+                    - Options may be marked "no-command", meaning they are not to appear on
+                    the command line.  Thus, they are recognized in config files only.
+                    - "disable-save" and "disable-load" may be used to prevent the command
+                    line options from loading or saving options from/to a file.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-05-25</Date>
+            <Version>5.9.8</Version>
+            <Comment>
+                * Version bump.
+                * Fixed undefined symbols.
+                * Purged unused direct dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-01-07</Date>
+            <Version>5.9.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-08-19</Date>
+            <Version>5.9.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-12-31</Date>
+            <Version>5.9.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-06</Date>
+            <Version>5.9.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-30</Date>
+            <Version>5.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

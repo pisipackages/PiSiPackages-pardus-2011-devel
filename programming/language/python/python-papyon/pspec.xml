@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-papyon</Name>
+        <Homepage>http://www.freedesktop.org/wiki/Software/papyon</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>library</IsA>
+        <Summary>Python libraries for MSN Messenger network</Summary>
+        <Description>papyon is the library behind the MSN connection manager for Telepathy.</Description>
+        <Archive sha1sum="d164f1c5c3522c5072bd55b43bc09a9f9387839d" type="targz">http://www.freedesktop.org/software/papyon/releases/papyon-0.5.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pyopenssl</Dependency>
+            <Dependency>python-pygobject</Dependency>
+            <Dependency>python-pycrypto</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-papyon</Name>
+        <RuntimeDependencies>
+            <Dependency>pyopenssl</Dependency>
+            <Dependency>python-pygobject</Dependency>
+            <Dependency>python-pycrypto</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>papyon</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2011-08-26</Date>
+            <Version>0.5.5</Version>
+            <Comment>New stable release. New softwares like Emesene depends on this new release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-12-27</Date>
+            <Version>0.5.2</Version>
+            <Comment>python-papyon replaces papyon.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-21</Date>
+            <Version>0.5.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-07-14</Date>
+            <Version>0.4.9</Version>
+            <Comment>
+                Version bump:
+                  Fixes:
+                    * Deal with Location and Friendly being missing from MSNObjects (fd.o#28854)
+                    * ...and more miscellaneous fixes too specific for here.
+                  Enhancements:
+                    * Added file transfer support (switchboard only).
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-06-22</Date>
+            <Version>0.4.8</Version>
+            <Comment>Version bump. Add new pycrypto dependency.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-03-10</Date>
+            <Version>0.4.6</Version>
+            <Comment>First release</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

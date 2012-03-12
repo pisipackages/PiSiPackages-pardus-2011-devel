@@ -1,0 +1,389 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cairo</Name>
+        <Homepage>http://cairographics.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <License>MPL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>2D graphics library with bindings of many programming languages</Summary>
+        <Description>Cairo is a 2D graphics library with support for multiple output devices (and fileformats).</Description>
+        <Archive sha1sum="ccce5ae03f99c505db97c286a0c9a90a926d3c6e" type="targz">http://cairographics.org/releases/cairo-1.10.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>fontconfig-devel</Dependency>
+            <Dependency>freetype-devel</Dependency>
+            <Dependency>glitz-devel</Dependency>
+            <Dependency>libXrender-devel</Dependency>
+            <Dependency>libpng-devel</Dependency>
+            <Dependency>pixman-devel</Dependency>
+            <Dependency>xcb-util-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Mozilla patches from Firefox 3.1 beta 2 -->
+            <Patch level="4">mozilla/buggy-repeat.patch</Patch>
+            <Patch level="4">mozilla/max-font-size.patch</Patch>
+            <Patch level="4">mozilla/nonfatal-assertions.patch</Patch>
+
+            <!-- Debian patches -->
+            <Patch level="1">no-private-symbol-export.patch</Patch>
+
+            <!-- Fixes strange white regions in GTK applications kdebug#259822 -->
+            <Patch>cairo-1.10.0-buggy_gradients.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cairo</Name>
+        <RuntimeDependencies>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libXrender</Dependency>
+            <Dependency>xcb-util</Dependency>
+            <Dependency>pixman</Dependency>
+            <Dependency>glitz</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>freetype</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>cairo-devel</Name>
+        <Summary>Development files for cairo</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">cairo</Dependency>
+            <Dependency>fontconfig-devel</Dependency>
+            <Dependency>freetype-devel</Dependency>
+            <Dependency>glitz-devel</Dependency>
+            <Dependency>libXrender-devel</Dependency>
+            <Dependency>libpng-devel</Dependency>
+            <Dependency>xcb-util-devel</Dependency>
+            <Dependency>pixman-devel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/lib32/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>cairo-32bit</Name>
+        <PartOf>emul32</PartOf>
+        <Summary>32-bit shared libraries for cairo</Summary>
+        <BuildType>emul32</BuildType>
+        <BuildDependencies>
+            <Dependency>fontconfig-32bit</Dependency>
+            <Dependency>freetype-32bit</Dependency>
+            <Dependency>glib2-32bit</Dependency>
+            <Dependency>glitz-32bit</Dependency>
+            <Dependency>libX11-32bit</Dependency>
+            <Dependency>libXrender-32bit</Dependency>
+            <Dependency>libpng-32bit</Dependency>
+            <Dependency>libxcb-32bit</Dependency>
+            <Dependency>pixman-32bit</Dependency>
+            <Dependency>xcb-util-32bit</Dependency>
+            <Dependency>zlib-32bit</Dependency>
+        </BuildDependencies>
+        <RuntimeDependencies>
+            <Dependency release="current">cairo</Dependency>
+            <Dependency>fontconfig-32bit</Dependency>
+            <Dependency>freetype-32bit</Dependency>
+            <Dependency>glib2-32bit</Dependency>
+            <Dependency>glitz-32bit</Dependency>
+            <Dependency>libX11-32bit</Dependency>
+            <Dependency>libXrender-32bit</Dependency>
+            <Dependency>libpng-32bit</Dependency>
+            <Dependency>libxcb-32bit</Dependency>
+            <Dependency>pixman-32bit</Dependency>
+            <Dependency>xcb-util-32bit</Dependency>
+            <Dependency>zlib-32bit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib32/lib*</Path>
+            <Path fileType="library">/usr/lib32/cairo</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="36">
+            <Date>2011-07-07</Date>
+            <Version>1.10.2</Version>
+            <Comment>Add lib32 package for cairo</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
+        <Update release="35">
+            <Date>2011-01-03</Date>
+            <Version>1.10.2</Version>
+            <Comment>Version bump to 1.10.2:
+                  * Fix embedding of grayscale jpegs in PS. https://bugs.freedesktop.org/show_bug.cgi?id=31632
+                  * Fix the reported path of extents containing a curve.
+                  * Fix the compositing of unaligned boxes.
+                  * Reset the clipper in PDF upon finish.
+                  * Fix degenerates arcs to become a degenerate line.
+                  * Build support for autoconf 2.67
+                  * Fix painting of transformed patterns in PS
+                  * Fix the EPS bounding box for PS https://bugs.freedesktop.org/show_bug.cgi?id=24688
+                  * Fix the missing content for EPS https://bugs.freedesktop.org/show_bug.cgi?id=24688
+                  * Fix regression upon changing page size in PS/PDF https://bugs.freedesktop.org/show_bug.cgi?id=24691
+                  * Only use ActualText with PDF-1.5 documents
+                  * Fix the bbox for type1 fallbacks.
+                  * Reset the color after ending the context in PDF https://bugs.freedesktop.org/show_bug.cgi?id=31140
+                  * Fix the advance of subsetted type1 fonts https://bugs.freedesktop.org/show_bug.cgi?id=31062
+                  * Fix handling of EXTEND_NONE gradients for PDF
+                  * Restrict in-place optimisation for a8 image masks with SOURCE
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2010-12-15</Date>
+            <Version>1.10.0</Version>
+            <Comment>Fixes strange white regions in GTK applications kdebug#259822.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2010-10-12</Date>
+            <Version>1.10.0</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2010-09-15</Date>
+            <Version>1.10.0</Version>
+            <Comment>Version bump to 1.10.0</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2010-08-28</Date>
+            <Version>1.8.10</Version>
+            <Comment>Add missing pixman-devel dependency to cairo-devel</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2010-08-17</Date>
+            <Version>1.8.10</Version>
+            <Comment>Add missing dependencies</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2010-08-16</Date>
+            <Version>1.8.10</Version>
+            <Comment>Version bump to 1.8.10 and split devel package.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2009-11-11</Date>
+            <Version>1.8.8</Version>
+            <Comment>Bump to the latest stable release</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2008-12-17</Date>
+            <Version>1.8.6</Version>
+            <Comment>Debian patches added about LCD filter and private symbol export</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2008-12-14</Date>
+            <Version>1.8.6</Version>
+            <Comment>Version bump to 1.8 series as seriously recommended by cairo guys</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2008-09-21</Date>
+            <Version>1.7.4</Version>
+            <Comment>Reenable lcd filter to fix antialiasing regression on LCD monitors, fix ABI breakage, remove gtk-doc dir</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2008-09-18</Date>
+            <Version>1.7.4</Version>
+            <Comment>Version bump to latest snapshot</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2008-04-15</Date>
+            <Version>1.6.4</Version>
+            <Comment>Update to stable release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2008-04-11</Date>
+            <Version>1.6.0</Version>
+            <Comment>Update to stable release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2008-04-08</Date>
+            <Version>1.5.20</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2008-04-02</Date>
+            <Version>1.5.16</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-03-21</Date>
+            <Version>1.5.14</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2008-03-13</Date>
+            <Version>1.5.12</Version>
+            <Comment>Fix PDF printing</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2008-03-10</Date>
+            <Version>1.5.12</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2008-02-01</Date>
+            <Version>1.5.8</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2008-01-27</Date>
+            <Version>1.5.6_20080127</Version>
+            <Comment>Snapshot update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2008-01-17</Date>
+            <Version>1.5.6</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2007-12-08</Date>
+            <Version>1.5.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="12" type="security">
+            <Date>2007-11-30</Date>
+            <Version>1.4.12</Version>
+            <Comment>Stable update to fix CVE-2007-5503</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2007-08-02</Date>
+            <Version>1.4.10</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2007-05-02</Date>
+            <Version>1.4.6</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2007-03-20</Date>
+            <Version>1.4.2</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2007-03-09</Date>
+            <Version>1.4.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2006-12-31</Date>
+            <Version>1.2.6</Version>
+            <Comment>Version bump to fix Firefox performance problems</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2006-12-09</Date>
+            <Version>1.2.4</Version>
+            <Comment>Disable static libs</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-10-25</Date>
+            <Version>1.2.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-05-18</Date>
+            <Version>1.0.4</Version>
+            <Comment>Enable LCD rendering</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-04-10</Date>
+            <Version>1.0.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2" type="security">
+            <Date>2006-03-22</Date>
+            <Version>1.0.2</Version>
+            <Comment>Fix CVE-2006-0528</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-10-30</Date>
+            <Version>1.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

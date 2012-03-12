@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>panda</Name>
+        <Homepage>http://www.pardus.org.tr</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Pardus Alternative Driver Administration</Summary>
+        <Description>PANDA is an alternative driver administration for Pardus.</Description>
+        <Archive sha1sum="4477accaebb5d2a4e782b90ca257e6d2d42b646f" type="targz">http://cekirdek.pardus.org.tr/~farslan/dist/panda/panda-0.1.5.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>panda</Name>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2011-02-10</Date>
+            <Version>0.1.5</Version>
+            <Comment>Fixes the return type of an internal function that causes to return a nondefined variable</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-01-31</Date>
+            <Version>0.1.4</Version>
+            <Comment>Add a new option that returns available driver types</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-01-13</Date>
+            <Version>0.1.3</Version>
+            <Comment>Support for generic drivers</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-01-10</Date>
+            <Version>0.1.2</Version>
+            <Comment>Simplfy and add file check procedure</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-01-07</Date>
+            <Version>0.1.1</Version>
+            <Comment>Fix a problem if a graphic card didn't be find in driversDB</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-01-04</Date>
+            <Version>0.1.1</Version>
+            <Comment>Fix that new Nvidia cards are tagged as nvidia-current</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-12-29</Date>
+            <Version>0.1.1</Version>
+            <Comment>
+                * Latest rev (34506)
+                * Add nvidia-xconfig to packages list
+                * Change function name again
+                * Make functions public and returnable
+                * Remove unused module
+                * Change behaviour of get_all_needed_packages functions. It returns a list instead of dict
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-12-24</Date>
+            <Version>0.1</Version>
+            <Comment>First Release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-XML-Parser</Name>
+        <Homepage>http://search.cpan.org/dist/XML-Parser/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>library</IsA>
+        <Summary>A Perl extension interface to James Clark's XML parser, expat</Summary>
+        <Description>This module provides an interface to James Clark's XML parser, expat. As in expat, a single instance of the parser can only parse one document. Calls to parsestring after the first for a given instance will die.</Description>
+        <Archive sha1sum="d9430d12a6382ad11e0d53a49cecc4f03cc32187" type="targz">mirrors://cpan/authors/id/C/CH/CHORNY/XML-Parser-2.40.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.0.1">expat</Dependency>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-XML-Parser</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.0.1">expat</Dependency>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2010-10-11</Date>
+            <Version>2.40</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-09-21</Date>
+            <Version>2.40</Version>
+            <Comment>Version bump:
+                - Add windows-1251.enc, ibm866.enc, koi8-r.enc (Russian)
+                - Add windows-1255.enc (Hebrew)
+                - Update iso-8859-7.enc (RT#40712)
+                - Use Devel::CheckLib
+                - Better description of expat packages
+                - Better Perl style in both code and docs
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-08-22</Date>
+            <Version>2.36</Version>
+            <Comment>Strictly depend on perl 5.12.1.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-12-02</Date>
+            <Version>2.36</Version>
+            <Comment>Add perl dependency</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-09-04</Date>
+            <Version>2.36</Version>
+            <Comment>Version bump</Comment>
+            <Name>Faik Uygur</Name>
+            <Email>faik@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-11-20</Date>
+            <Version>2.34</Version>
+            <Comment>Don't hardcode perl paths</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-10-02</Date>
+            <Version>2.34</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

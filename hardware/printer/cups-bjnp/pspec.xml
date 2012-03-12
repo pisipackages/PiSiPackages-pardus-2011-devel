@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cups-bjnp</Name>
+        <Homepage>https://sourceforge.net/projects/cups-bjnp</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>driver</IsA>
+        <Summary>CUPS backend for the Canon BJNP network printers</Summary>
+        <Description>cups-bjnp contains a backend for CUPS for Canon printers using the proprietary BJNP network protocol.</Description>
+        <Archive sha1sum="ee92a655ef6fc1f2f8488f1ac6e9df778897c53f" type="targz">mirrors://sourceforge/project/cups-bjnp/cups-bjnp/0.5.5/cups-bjnp-0.5.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>cups-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>cups-bjnp</Name>
+        <RuntimeDependencies>
+            <Dependency>cups</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/lib/cups/backend</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2010-12-27</Date>
+            <Version>0.5.5</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-13</Date>
+            <Version>0.5.4</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-03-30</Date>
+            <Version>0.5.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

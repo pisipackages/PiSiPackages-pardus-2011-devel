@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Text-Glob</Name>
+        <Homepage>http://search.cpan.org/dist/Text-Glob</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>library</IsA>
+        <Summary>Perl library to match globbing patterns against text</Summary>
+        <Description>Text::Glob implements glob(3) style matching that can be used to match against text, rather than fetching names from a filesystem.</Description>
+        <Archive sha1sum="86b6a5e4cff2589d733975277b6f101b949ee975" type="targz">mirrors://cpan/authors/id/R/RC/RCLAMP/Text-Glob-0.08.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Text-Glob</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2010-10-13</Date>
+            <Version>0.08</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-08-21</Date>
+            <Version>0.08</Version>
+            <Comment>Strictly depend on perl 5.12.1.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-12-04</Date>
+            <Version>0.08</Version>
+            <Comment>Depend on new perl</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-12-02</Date>
+            <Version>0.08</Version>
+            <Comment>Add perl dependency</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-08-01</Date>
+            <Version>0.08</Version>
+            <Comment>First release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>acpica</Name>
+        <Homepage>http://www.acpica.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>ACPI debugging tools written by Intel</Summary>
+        <Description>acpica contains an AML interpreter and debugger, ACPI namespace support, ACPI hardware and event support and a full ASL compiler and disassembler.</Description>
+        <Archive sha1sum="d15e7f4b6c35c6d5d0b178690456f03bc8fb0fe5" type="targz">http://www.acpica.org/download/acpica-unix-20101209.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">iasl-locale.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>acpica</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/iasl.1">iasl.1</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="9">
+            <Date>2010-12-22</Date>
+            <Version>0.0_20101209</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-10-13</Date>
+            <Version>0.0_20100528</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-09-01</Date>
+            <Version>0.0_20100528</Version>
+            <Comment>
+                Version bump
+                Fix parallel build
+                Disable strict aliasing
+                Disable debug
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-11-14</Date>
+            <Version>0.0_20090422</Version>
+            <Comment>Fix wrong building of iasl when LC_CTYPE is tr_TR.UTF-8. This prevents compilation of Virtualbox, see: http://bugs.gentoo.org/286499</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-05-04</Date>
+            <Version>0.0_20090422</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+       <Update release="4">
+            <Date>2009-04-05</Date>
+            <Version>0.0_20090320</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+       <Update release="3">
+            <Date>2007-11-07</Date>
+            <Version>0.0_20071019</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+       <Update release="2">
+            <Date>2007-01-16</Date>
+            <Version>0.0_20061109</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-19</Date>
+            <Version>20060707</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

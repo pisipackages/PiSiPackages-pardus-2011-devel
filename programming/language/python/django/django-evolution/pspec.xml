@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>django-evolution</Name>
+    <Homepage>http://code.google.com/p/django-evolution/</Homepage>
+    <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+    </Packager>
+    <License>BSD-3</License>
+    <IsA>library</IsA>
+    <Summary>A database schema evolution tool for the Django web framework</Summary>
+    <Description>django-evolution is an extension to Django that allows you to track changes in your models over time, and to update the database to reflect those changes.</Description>
+    <Archive sha1sum="0d305d38212f06d653f044e73e7166531f2c6f1d" type="targz">http://pypi.python.org/packages/source/d/django_evolution/django_evolution-0.6.3.tar.gz</Archive>
+</Source>
+
+<Package>
+    <Name>django-evolution</Name>
+    <RuntimeDependencies>
+        <Dependency>Django</Dependency>
+    </RuntimeDependencies>
+    <Files>
+        <Path fileType="library">/usr/lib</Path>
+        <Path fileType="doc">/usr/share/doc</Path>
+    </Files>
+</Package>
+
+<History>
+    <Update release="2">
+        <Date>2011-05-30</Date>
+        <Version>0.6.3</Version>
+        <Comment>Version bump</Comment>
+        <Name>Gökhan Özbulak</Name>
+        <Email>gozbulak@pardus.org.tr</Email>
+    </Update>
+    <Update release="1">
+        <Date>2010-12-29</Date>
+        <Version>0.6.2</Version>
+        <Comment>Initial release.</Comment>
+        <Name>İlker Kesen</Name>
+        <Email>ikesen92@gmail.com</Email>
+    </Update>
+</History>
+</PISI>

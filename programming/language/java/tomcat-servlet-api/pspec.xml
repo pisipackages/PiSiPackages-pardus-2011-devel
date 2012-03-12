@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tomcat-servlet-api</Name>
+        <Homepage>http://tomcat.apache.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Apache-2.0</License>
+        <IsA>library</IsA>
+        <Summary>Java Servlet API Reference Implementation</Summary>
+        <Description>tomcat-servlet-api contains Tomcat's Servlet API 2.5/JSP API 2.1 implementation.</Description>
+        <Archive sha1sum="617b0a6ae139649402bd6afb6420c6968206d1a6" type="targz">mirrors://apache/tomcat/tomcat-5/v5.5.33/src/apache-tomcat-5.5.33-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tomcat-servlet-api</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2011-05-26</Date>
+            <Version>5.5.33</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-02-07</Date>
+            <Version>5.5.32</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-10-13</Date>
+            <Version>5.5.31</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-07</Date>
+            <Version>5.5.31</Version>
+            <Comment>Add description.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-09-17</Date>
+            <Version>5.5.31</Version>
+            <Comment>Version upgrade</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-12-11</Date>
+            <Version>5.5.28</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-03-01</Date>
+            <Version>5.5.27</Version>
+            <Comment>Version bump to fix multiple vulnerabilities (bug#9328).</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-01-19</Date>
+            <Version>5.5.25</Version>
+            <Comment>First release</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

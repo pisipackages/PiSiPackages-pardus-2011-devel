@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>slang</Name>
+        <Homepage>http://www.jedsoft.org/slang/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>Artistic</License>
+        <IsA>app:console</IsA>
+        <Summary>Console display library used by most text viewer</Summary>
+        <Description>S-Lang is a multi-platform programmer's library designed to allow a developer to create robust multi-platform software. It provides facilities required by interactive applications such as display/screen management, keyboard input, keymaps, and so on. The most exciting feature of the library is the slang interpreter that may be easily embedded into a program to make it extensible.</Description>
+        <Archive sha1sum="13bb6344f71779cad8c05e1b6b1ef2d073888d58" type="tarbz2">ftp://ftp.ntua.gr/pub/lang/slang/slang/v2.2/slang-2.2.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libpng-devel</Dependency>
+            <Dependency>libpcre-devel</Dependency>
+            <Dependency>ncurses-devel</Dependency>
+            <Dependency>readline-devel</Dependency>
+            <Dependency>zlib-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">slang-2.1.2-slsh-libs.patch</Patch>
+            <Patch level="1">slang-2.1.3-uclibc.patch</Patch>
+
+            <Patch level="1">termcap-emulation.patch</Patch>
+            <Patch level="1">install-prefix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>slang</Name>
+        <RuntimeDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>ncurses</Dependency>
+            <Dependency>libpcre</Dependency>
+            <Dependency>readline</Dependency>
+            <Dependency>zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/slsh</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc/slang</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>slang-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development files for slang</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">slang</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc/slang/html</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2010-10-11</Date>
+            <Version>2.2.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-09-04</Date>
+            <Version>2.2.2</Version>
+            <Comment>
+                Version bump
+                Split devel package
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-08-30</Date>
+            <Version>2.1.4</Version>
+            <Comment>Depend on -devel packages, run tests.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-06-08</Date>
+            <Version>2.1.4</Version>
+            <Comment>Add missing dependencies.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-02-02</Date>
+            <Version>2.1.4</Version>
+            <Comment>Version bump, make as-needed friendly, add man page</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-01-25</Date>
+            <Version>2.1.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-13</Date>
+            <Version>1.4.9</Version>
+            <Comment>Fix possible segfaults and bugs on utf-8 mode</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-01-05</Date>
+            <Version>1.4.9</Version>
+            <Comment>Disable static libraries</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-07</Date>
+            <Version>1.4.9</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

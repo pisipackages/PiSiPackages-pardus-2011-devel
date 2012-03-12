@@ -1,0 +1,855 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>grub</Name>
+        <Homepage>http://www.gnu.org/software/grub/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>GNU GRUB boot loader</Summary>
+        <Description>GNU GRUB is a Multiboot boot loader. It was derived from GRUB, GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn. Briefly, boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd,Windows or the Linux). The kernel, in turn, initializes the rest of the operating system.</Description>
+        <Archive sha1sum="2580626c4579bd99336d3af4482c346c95dac4fb" type="targz">ftp://alpha.gnu.org/gnu/grub/grub-0.97.tar.gz</Archive>
+        <Archive sha1sum="cf1ce3a7b53af485b289d53b67e99cb19263d220" target="grub-0.97" type="targz">http://cekirdek.pardus.org.tr/~onur/distfiles/grub-0.97-compiled-static-80.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ncurses</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- From Mandriva, they took some from Fedora and Debian -->
+            <Patch level="1">mandriva/grub-ext3-256byte-inode.patch</Patch>
+            <Patch level="1">mandriva/grub-0.94-addsyncs.patch</Patch>
+            <Patch level="1">mandriva/0002-Add-strspn-strcspn-and-strtok_r.patch</Patch>
+            <Patch level="1">mandriva/0003-Allow-passing-multiple-image-files-to-the-initrd-com.patch</Patch>
+            <Patch level="1">mandriva/grub-ext4-support.patch</Patch>
+            <!-- we will use Suse way
+            <Patch level="1">mandriva/grub-0.97-once.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-once-info-doc.patch</Patch>
+            -->
+            <Patch level="1">mandriva/grub-0.93-special-device-names.patch</Patch>
+            <Patch level="1">mandriva/grub-0.94-i2o.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-moreraid.patch</Patch>
+            <Patch level="1">mandriva/grub-0.94-initrdmax.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-odirect.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-geometry-26kernel.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-md.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-md-rework--mdv-adapted.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-nxstack.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-nx-multiinstall.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-mdadm-path.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-md-mbr.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-nonmbr.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-recheck-bad.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-prototypes.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-dmraid.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-dmraid-recheck-bad--mdv-adapted.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-dmraid-partition-names.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-mactel-kbd.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-mpath.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-virtio-support.patch</Patch>
+            <!-- ours is better especially for std handling with objcopy
+            <Patch level="1">mandriva/grub-varargs.diff</Patch>
+            -->
+            <Patch level="1">mandriva/grub-gpt.diff</Patch>
+            <Patch level="1">mandriva/grub-0.5.96.1-ezd.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-gcc4_warnings.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-eltorito.patch</Patch>
+            <Patch level="1">mandriva/grub-0.91-nice-magic.patch</Patch>
+            <Patch level="1">mandriva/grub-0.95-mem_lower.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-install_sh.patch</Patch>
+            <Patch level="1">mandriva/grub-0.97-please-automake--add-AM_PROG_AS.patch</Patch>
+            <!-- we will use Suse way
+            <Patch level="1">mandriva/grub-uuid.diff</Patch>
+            -->
+            <Patch>mandriva/grub-gfxmenu-v8.diff</Patch>
+            <!-- not needed, buggy, etc.
+            <Patch level="1">mandriva/grub-0.97-reiser4.patch</Patch>
+            -->
+
+            <Patch level="1">misc/grub-silent.patch</Patch>
+            <Patch level="1">misc/grub-0.96-pardus.patch</Patch>
+            <Patch level="1">misc/build-id.patch</Patch>
+            <Patch level="1">misc/varargs.patch</Patch>
+            <Patch level="1">misc/grub-0.96-bounced-checks.patch</Patch>
+            <Patch>misc/use_ferror.diff</Patch>
+            <Patch level="1">misc/e100-newids.patch</Patch>
+            <Patch level="1">misc/bad-assert-sideeffect.patch</Patch>
+            <Patch level="1">misc/grub-0.97-16-disks.patch</Patch>
+            <Patch level="1">misc/ptable-fix.patch</Patch>
+            <Patch level="1">misc/fix-uninitialized-shmem.patch</Patch>
+            <Patch level="1">misc/string-ops-fix.patch</Patch>
+            <Patch level="1">misc/long-commandline.patch</Patch>
+            <Patch level="1">misc/grubonce-nowait.patch</Patch>
+            <Patch level="1">misc/reiser-unpack.patch</Patch>
+            <Patch level="1">misc/128gb_disk_limit.patch</Patch>
+
+            <!-- FIXME: should not be needed
+            <Patch level="1">misc/grub-linux-setup-fix.patch</Patch>
+            <Patch level="1">misc/grub-0.96-PIC.patch</Patch>
+            <Patch level="1">misc/chainloader-devicefix.patch</Patch>
+            <Patch level="1">misc/noemul.patch</Patch>
+            -->
+
+            <!-- Add virtio support -->
+            <Patch level="1">misc/prepend_virtio_devices.diff</Patch>
+            <Patch level="1">misc/grub-install-fix-UUID_LABEL.patch</Patch>
+
+            <!-- https://bugzilla.redhat.com/show_bug.cgi?id=250299 -->
+            <Patch level="1">misc/e820_memory_map.patch</Patch>
+
+            <!-- these may be better, or not
+            <Patch level="1">misc/ext2-support-256byte-inodes.patch</Patch>
+            <Patch level="1">misc/ext4_support.patch</Patch>
+            -->
+
+            <!-- Get device names from edd -->
+            <!-- FIXME: EDD detection borks on 3 disk where hd0,hd1,hd2 is sdh,sdb,sda
+                 where sd[e-g] nodes are available but there is no device
+            <Patch level="1">edd-device-map.diff</Patch>
+            -->
+
+            <!-- fix grub segfault when kernel size > 3MB -->
+            <Patch level="1">fix_segfault_on_big_kernel.patch</Patch>
+
+            <!-- uuid support for menu.lst only -->
+            <Patch level="1">misc/uuid.diff</Patch>
+
+            <!-- grubonce / savedefault -->
+            <Patch level="1">grub-R</Patch>
+
+            <!-- make sure we use /usr/lib/grub for all architectures -->
+            <Patch level="1">library_path.patch</Patch>
+
+            <!-- testing the code in now, use this in case we have problems with a20 gate
+            <Patch level="1">grub-a20.patch</Patch>
+            -->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>grub</Name>
+        <RuntimeDependencies>
+            <!-- we switch to static libs
+            <Dependency>ncurses</Dependency>
+            -->
+            <Dependency>comar</Dependency>
+            <Dependency>pardus-python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="library">/lib/grub</Path>
+            <Path fileType="executable">/sbin/</Path>
+            <Path fileType="executable">/usr/sbin/</Path>
+            <Path fileType="doc">/usr/share/doc/</Path>
+            <Path fileType="data">/usr/share/grub/</Path>
+            <Path fileType="info">/usr/share/info/</Path>
+            <Path fileType="man">/usr/share/man/</Path>
+            <Path fileType="data">/boot</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/sbin/grubonce">grubonce</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="bootloader.py">Boot.Loader</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="94">
+            <Date>2011-01-14</Date>
+            <Version>0.97</Version>
+            <Comment>Disable edd device.map patch, leave device.map to yali</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="93">
+            <Date>2010-12-31</Date>
+            <Version>0.97</Version>
+            <Comment>Update edd devicemap patch</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="92">
+            <Date>2010-12-29</Date>
+            <Version>0.97</Version>
+            <Comment>Handle kernel versions more gracefully.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="91">
+            <Date>2010-12-21</Date>
+            <Version>0.97</Version>
+            <Comment>Update COMAR backend to fix Boot.Loader removeEntry method</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="90">
+            <Date>2010-12-02</Date>
+            <Version>0.97</Version>
+            <Comment>UUID support for updateKernelEntry method of Boot.Loader</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="89">
+            <Date>2010-12-02</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed COMAR backend not updating symlinks in boot directory</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="88">
+            <Date>2010-12-02</Date>
+            <Version>0.97</Version>
+            <Comment>Get device names from edd, this will match yali behaviour especially with USB installs</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="87">
+            <Date>2010-12-01</Date>
+            <Version>0.97</Version>
+            <Comment>Fix installing of stage1 files</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="86">
+            <Date>2010-11-29</Date>
+            <Version>0.97</Version>
+            <Comment>Allow old style grubonce work, grub-set-default is also back, thanks to Hüseyin Bilen for reporting the problem</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="85">
+            <Date>2010-11-26</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Cleanup patches
+                Use static ncurses
+                Compile on all archs
+                Allow removing of grub-set-default since we patch kde 3 and 4 to use grubonce
+                Use /lib/grub for all archs
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="84">
+            <Date>2010-10-11</Date>
+            <Version>0.97</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="83">
+            <Date>2010-09-24</Date>
+            <Version>0.97</Version>
+            <Comment>Make sure we build as shared, since ncurses does not provide static libraries</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="82">
+            <Date>2010-07-07</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed Boot.Loader failing when there are previously created symbolic links for kernels.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="81">
+            <Date>2010-07-02</Date>
+            <Version>0.97</Version>
+            <Comment>Create symbolic links to latest kernels.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="80">
+            <Date>2010-06-04</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Fix grub segfault when kernel size > 3MB
+                Prevent chainloading of other configs in postinstall, thanks to Fatih
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="79">
+            <Date>2010-06-04</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed a typo in Boot-Manager backend.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="78">
+            <Date>2010-06-03</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed ugly error message while adding Windows/Memtest entries.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="77">
+            <Date>2010-05-31</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed Boot.Loader not installing default boot index</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="76">
+            <Date>2010-02-19</Date>
+            <Version>0.97</Version>
+            <Comment>Install and use static grub in 64bit</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="75">
+            <Date>2010-02-19</Date>
+            <Version>0.97</Version>
+            <Comment>Compile grub as static</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="74">
+            <Date>2010-01-20</Date>
+            <Version>0.97</Version>
+            <Comment>Handle TypeError's in bootloader.py</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="73">
+            <Date>2010-01-13</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed Boot.Loader backend's UUID problems.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="72">
+            <Date>2010-01-08</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed shifting default boot index while installing PAE kernels.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="71">
+            <Date>2010-01-04</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader COMAR API will not provide list of old kernel entries.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="70">
+            <Date>2009-12-16</Date>
+            <Version>0.97</Version>
+            <Comment>Disable xfs_freeze since it causes hangs on other filesystems, bug (#11134)</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="69">
+            <Date>2009-12-14</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Boot.Loader COMAR script will move all old kernel entries to seperate GRUB configuration file and menu.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="68">
+            <Date>2009-07-10</Date>
+            <Version>0.97</Version>
+            <Comment>
+                All entries are linux entries by default.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="67">
+            <Date>2009-07-03</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Added translations to COMAR script(s).
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="66">
+            <Date>2009-06-29</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Fixed Memtest entry error.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="65">
+            <Date>2009-06-10</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Fixed Boot.Loader not raising exception with bogus UUIDs.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="64">
+            <Date>2009-06-05</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Fixed grub configuration file path.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="63">
+            <Date>2009-06-04</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Cleanup Boot.Loader script.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="62">
+            <Date>2009-05-27</Date>
+            <Version>0.97</Version>
+            <Comment>
+                Add support for virtio devices
+                Make sure device.map is read in grub due to EDD
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="61">
+            <Date>2009-05-18</Date>
+            <Version>0.97</Version>
+            <Comment>
+                - Mysterious "No such method: 0x3485828" bug fixed.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="60">
+            <Date>2009-02-04</Date>
+            <Version>0.97</Version>
+            <Comment>
+                If the user decides to use 'uuid' as root device descriptor in grub.conf,
+                don't fail, just continue with 'uuid' silently.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="59">
+            <Date>2009-01-30</Date>
+            <Version>0.97</Version>
+            <Comment>Add UUID parsing support to stage2.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="58">
+            <Date>2008-12-30</Date>
+            <Version>0.97</Version>
+            <Comment>Change stage files copy method to dd, should fix some borks causing "error 16 inconsistent filesystem", update a20, ext2 inode size, gfxboot, gpt, UUID patches, add ext4 support</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="57">
+            <Date>2008-11-22</Date>
+            <Version>0.97</Version>
+            <Comment>
+                - bootloader script now handles the situation
+                  when /bin/mount output contains a LABEL= field
+                  instead of an absolute path for the root device.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="56">
+            <Date>2008-10-14</Date>
+            <Version>0.97</Version>
+            <Comment>Fixed #8416 (updateKernel fails to parse non-Pardus kernel entries))</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="55">
+            <Date>2008-08-15</Date>
+            <Version>0.97</Version>
+            <Comment>Ignore missing device exceptions while updating kernel entries.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="54">
+            <Date>2008-06-16</Date>
+            <Version>0.97</Version>
+            <Comment>Remove message file in favor of fixing bug #7403, remove unused menu entry templates</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="53">
+            <Date>2008-06-06</Date>
+            <Version>0.97</Version>
+            <Comment>Changed Memtest file name</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="52">
+            <Date>2008-06-03</Date>
+            <Version>0.97</Version>
+            <Comment>Really add patch</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="51">
+            <Date>2008-06-03</Date>
+            <Version>0.97</Version>
+            <Comment>Don't fail because of xfs_freeze</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="50">
+            <Date>2008-05-12</Date>
+            <Version>0.97</Version>
+            <Comment>Changed splash</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="49">
+            <Date>2008-05-09</Date>
+            <Version>0.97</Version>
+            <Comment>Added zorg options selection to grub boot</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="48">
+            <Date>2008-05-07</Date>
+            <Version>0.97</Version>
+            <Comment>Change window caption color in gfx, fix package.py for menu.lst symlink bug</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="47">
+            <Date>2008-05-06</Date>
+            <Version>0.97</Version>
+            <Comment>Fix e820 mmap and update splash message</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="46">
+            <Date>2008-04-02</Date>
+            <Version>0.97</Version>
+            <Comment>Fix ext3 detection with 256 byte inode size and some cases of booting from >128G disk, added make check</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="45">
+            <Date>2008-04-02</Date>
+            <Version>0.97</Version>
+            <Comment>Menu files kernel parameters changed to new kernel</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="44">
+            <Date>2008-03-03</Date>
+            <Version>0.97</Version>
+            <Comment>COMAR scripts ported to 2.0</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="43">
+            <Date>2008-01-08</Date>
+            <Version>0.97</Version>
+            <Comment>Switch to gfxmenu, get some stage2 fixes and gcc4 support</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="42">
+            <Date>2007-11-27</Date>
+            <Version>0.97</Version>
+            <Comment>Added extra paramaters to menu templates</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="41">
+            <Date>2007-08-13</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Better input validation for kernel version argument.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="40">
+            <Date>2007-07-09</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Support for removing old kernels.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2007-07-02</Date>
+            <Version>0.97</Version>
+            <Comment>Added Catalan menu entry</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2007-06-26</Date>
+            <Version>0.97</Version>
+            <Comment>Fix terminal when splash is garbled or not reachable (like written wrong in grub), fix booting from EZ flash drives</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2007-06-12</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Fixed a typo in updateGrub code.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2007-06-06</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Don't use device.map, create your own!</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2007-06-05</Date>
+            <Version>0.97</Version>
+            <Comment>Added menu-it and menu-fr</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2007-05-31</Date>
+            <Version>0.97</Version>
+            <Comment>Use O_DIRECT on file access, use syslinux style memory management on failure, add sync to more places in install</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2007-05-30</Date>
+            <Version>0.97</Version>
+            <Comment>Revert last. Boot.Loader fails if no device.map exists.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2007-05-30</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Create device.map</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2007-05-26</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader: Support for RAID disks and Xen.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2007-05-23</Date>
+            <Version>0.97</Version>
+            <Comment>Boot.Loader script</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2007-05-16</Date>
+            <Version>0.97</Version>
+            <Comment>Fix device.map creation for cciss</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2007-04-02</Date>
+            <Version>0.97</Version>
+            <Comment>Remove cd entries to fix bug #4409, grub shall not probe devices</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2007-04-02</Date>
+            <Version>0.97</Version>
+            <Comment>Add a sync to solve misc. XFS problems</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2007-03-08</Date>
+            <Version>0.97</Version>
+            <Comment>First menu is Language menu, next comes the others</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2007-03-01</Date>
+            <Version>0.97</Version>
+            <Comment>Really added pt_BR support</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2007-03-01</Date>
+            <Version>0.97</Version>
+            <Comment>Added pt_BR support</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2006-12-12</Date>
+            <Version>0.97</Version>
+            <Comment>Updated splash by Umutsan</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2006-12-05</Date>
+            <Version>0.97</Version>
+            <Comment>Set device limitation from 8 to 16</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2006-12-01</Date>
+            <Version>0.97</Version>
+            <Comment>Typo fix, add fadein as a splash workaround</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2006-11-29</Date>
+            <Version>0.97</Version>
+            <Comment>Add maxcpus=0 to safemode parametres, add ES to menu stuff</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2006-11-21</Date>
+            <Version>0.97</Version>
+            <Comment>Add missing menu-all</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2006-11-20</Date>
+            <Version>0.97</Version>
+            <Comment>Tidy up menu files</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2006-11-14</Date>
+            <Version>0.97</Version>
+            <Comment>Bugfixes in menu files</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2006-10-16</Date>
+            <Version>0.97</Version>
+            <Comment>DE support added</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2006-10-16</Date>
+            <Version>0.97</Version>
+            <Comment>Typo and language fixes in menu templates</Comment>
+            <Name>Gürer Özen</Name>
+            <Email>gurer@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2006-10-13</Date>
+            <Version>0.97</Version>
+            <Comment>Update menu-nl, add memtest entries</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2006-10-11</Date>
+            <Version>0.97</Version>
+            <Comment>Update menu-nl.lst</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2006-10-11</Date>
+            <Version>0.97</Version>
+            <Comment>Add new splash + lotssss of fix</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2006-10-10</Date>
+            <Version>0.97</Version>
+            <Comment>Add needed templates for Pardusman</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2006-06-20</Date>
+            <Version>0.97</Version>
+            <Comment>missing grubonce patch added</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2006-06-20</Date>
+            <Version>0.97</Version>
+            <Comment>Use grubonce for one time default selection, used by kdm</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2006-04-09</Date>
+            <Version>0.97</Version>
+            <Comment>Replace grub version string, to make countdown less ugly</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2006-04-08</Date>
+            <Version>0.97</Version>
+            <Comment>Version bump, removed unneeded patches (like raid or amd64 compile support) and some more added</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2006-03-12</Date>
+            <Version>0.96</Version>
+            <Comment>Remove debuglike info messages + small cosmetics to menu</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-02-19</Date>
+            <Version>0.96</Version>
+            <Comment>Remove the static "countdown message" so it will not be language dependent</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2005-12-26</Date>
+            <Version>0.96</Version>
+            <Comment>Don't give segfault on xfs</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2005-12-01</Date>
+            <Version>0.96</Version>
+            <Comment>Newer splash + comar script fix</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-11-24</Date>
+            <Version>0.96</Version>
+            <Comment>New splash</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-04</Date>
+            <Version>0.96</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>yali-theme-pardus</Name>
+        <Homepage>http://www.pardus.org.tr/en/yali</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>data</IsA>
+        <Summary>Pardus theme files for YALI</Summary>
+        <Description>yali-branding includes Pardus theme files for YALI(Yet Another Linux Installer).</Description>
+        <Archive sha1sum="aac61c95b3ea4821e503d4c1062cdfe36432e6c9" type="tarbz2">http://cekirdek.pardus.org.tr/~mete/dist/sources/yali-theme-pardus-2011.0.8.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>yali-theme-pardus</Name>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/yali/theme</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2011-04-25</Date>
+            <Version>2011.0.8</Version>
+            <Comment>
+                * Add missing desktop icon
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-04-25</Date>
+            <Version>2011.0.7</Version>
+            <Comment>
+                * Add collection icons
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-01-20</Date>
+            <Version>2011.0.5</Version>
+            <Comment>
+                * Logo icon updated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-01-20</Date>
+            <Version>2011.0.5</Version>
+            <Comment>
+                * License screen icon updated.
+                * Reset image added and css updated.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-01-15</Date>
+            <Version>2011.0.4</Version>
+            <Comment>
+                * Update background image and style.
+                * Modify check media icons.
+                * Update warning icon.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-12-20</Date>
+            <Version>2011.0.3</Version>
+            <Comment>
+                * Fixes several style bugs.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-12-01</Date>
+            <Version>2011.0.2</Version>
+            <Comment>
+                * Package installation screen updated.
+                * Fixes several style bugs.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-11-25</Date>
+            <Version>1.1</Version>
+            <Comment>
+                * Fixes arrow on the new button
+                * Add new icons and modify style
+                * Fixed Media check button stylesheet
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-11-17</Date>
+            <Version>1.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

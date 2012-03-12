@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>potrace</Name>
+        <Homepage>http://potrace.sourceforge.net</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Transforming bitmaps into vector graphics</Summary>
+        <Description>potrace is a command-line application that can convert bitmap image files (ordinary image files) into scalable vector graphics images.</Description>
+        <Archive sha1sum="e6e8b64d85d30b4695d197a79187ac98c2b236f9" type="targz">http://potrace.sourceforge.net/download/potrace-1.10.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>potrace</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/potrace</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-08-22</Date>
+            <Version>1.10</Version>
+            <Comment>
+                * Update 1.10
+                * Added --tight option
+                * Backends: simplified dimension calculations
+                * Eps backend: prevent integer overflow in bounding box.
+                * Disallow resolution of 0 dpi.
+                * Man page: added BACKEND TYPES section
+                * Fixed default scaling at 72dpi for variable-sized backends
+                * New gimppath backend produces SVG output suitable for current versions of Gimp.
+                * Added a --flat option for the SVG backend.
+                * Test suite: renamed *.out files to prevent make's built-in implicit rules from accidentally overwriting them.
+                * Added DXF backend. Thanks to Jonas Benedett Dorr for testing.
+                * Use high resolution bounding box in EPS, PDF, and SVG backends
+                * Autoconf: CADD can now be given at compile time
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-12-30</Date>
+            <Version>1.9</Version>
+            <Comment>
+                * Version bump, takeover of package
+                * The xfig and eps backends were improved, and a fixed pagesize PDF backend was added.
+                * Support for BMP version 4 and version 5 files, as well as top-down BMP files, was added.
+                * Minor speed improvements to Potrace and major speed improvements to mkbitmap.
+                * A Gaussian blur option was added to mkbitmap.
+                * Libtool is now used to build and optionally install the Potrace library.
+                * An optional simplified progress bar was added for dumb terminals.
+                * This release also contains some portability improvements, cross-compilation improvements, and minor bug fixes
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-24</Date>
+            <Version>1.8</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-10-19</Date>
+            <Version>1.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kde-wacom-tablet</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=114856</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Wacom tablet configuration interface for KDE</Summary>
+        <Description>kde-wacom-tablet implements a GUI for the Wacom Linux Drivers and extends it with profile support to handle different button / pen layouts per profile.</Description>
+        <Archive sha1sum="d94c55f4dfa2da950d68047abb183cba8cd41757" type="tarbz2">http://kde-apps.org/CONTENT/content-files/114856-wacomtablet-v1.3.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="104">kdelibs-devel</Dependency>
+            <Dependency versionFrom="4.6.3">qt-devel</Dependency>
+            <Dependency>libXi-devel</Dependency>
+            <Dependency>libXext-devel</Dependency>
+            <Dependency>libXrandr-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">tr-translation.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kde-wacom-tablet</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.5">kdelibs</Dependency>
+            <Dependency versionFrom="4.6.3">qt</Dependency>
+            <Dependency>xorg-app</Dependency>
+            <Dependency>libXi</Dependency>
+            <Dependency>xorg-input-wacom</Dependency>
+            <Dependency>libXrandr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include/kde4</Path>
+            <Path fileType="library">/usr/lib/kde4</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc/kde4</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="12">
+            <Date>2011-11-10</Date>
+            <Version>1.3.5</Version>
+            <Comment>
+                * Version bump
+                * Add Turkish translations patch
+            </Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2011-09-29</Date>
+            <Version>1.3.4</Version>
+            <Comment>
+                * Version bump to 1.3.4
+                * Included all translation .po files again (no changes in the program)
+            </Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2011-09-12</Date>
+            <Version>1.3.3</Version>
+            <Comment>
+                * Version bump to 1.3.3
+                * Swap cw/ccw tablet rotation when xRandR detects that the screen was rotated
+                * Ignore button1=1 assignment, works around the click error with the stylus/eraser
+                * Remove cursor settings (Cursor prox. didn't work anyway, and applying settings resulted in errors with the wacom device mouse)
+            </Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-06-03</Date>
+            <Version>1.3.2</Version>
+            <Comment>Version bump which fixes crash in the kded module when a new tablet is connected</Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2011-05-29</Date>
+            <Version>1.3.1</Version>
+            <Comment>Fix a nullpointer issue with XGetEventData, should fix kde#274346</Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-05-28</Date>
+            <Version>1.3.1</Version>
+            <Comment>Workaround for kded crash, kde#274346.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-05-24</Date>
+            <Version>1.3.1</Version>
+            <Comment>
+                * Version bump, listed some of the enhancements below, see homepage for the rest
+                * Support for the new 0.10.11 wacom driver
+                * Automatic tablet rotation when the XRandR screen rotates
+                * Calibration tool
+                * Support for more tablets (Pen and Touch series and some other)
+                * Add support for global shortcuts
+            </Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-01-20</Date>
+            <Version>1.2.5</Version>
+            <Comment>
+                - Version bump which fixes horizontal TwinView settings
+            </Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-01-20</Date>
+            <Version>1.2.3b</Version>
+            <Comment>Fix tablet detection</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-21</Date>
+            <Version>1.2.3b</Version>
+            <Comment>Translation stuff for TR support.</Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-08</Date>
+            <Version>1.2.3b</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-09-30</Date>
+            <Version>1.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Metin Akdere</Name>
+            <Email>metin@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

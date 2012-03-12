@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>msmtp</Name>
+        <Homepage>http://msmtp.sourceforge.net</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>A simple smtp client</Summary>
+        <Description>Msmtp is an SMTP client that has Sendmail compatible interface. It has support for multiple accounts and can be used with MUA's like mutt.</Description>
+        <Archive sha1sum="4c9783a888bdd7da6f39ee6fd2d52585c3aee6c0" type="tarbz2">mirrors://sourceforge/msmtp/msmtp-1.4.24.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gnutls-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>msmtp</Name>
+        <RuntimeDependencies>
+            <Dependency>gnutls</Dependency>
+            <Dependency>libgsasl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="11">
+            <Date>2011-05-17</Date>
+            <Version>1.4.24</Version>
+            <Comment>
+                * New stable release
+                * Remove the unmaintained pt_BR translation.
+                * Simplify manual license: use a simple permissive license instead of GNU FDL.
+                * Replace a call to gnutls_protocol_set_priority(), which is deprecated in
+                  GnuTLS >= 2.12.0. Fixes Debian bug #624048 (reported for mpop).
+                * Remove gnulib, for simplicity and maintainability.
+                * Update GNU autotools files, in particular configure.ac.
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2011-03-17</Date>
+            <Version>1.4.23</Version>
+            <Comment>Add missing runtime dependencies</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2011-03-08</Date>
+            <Version>1.4.23</Version>
+            <Comment>
+                * Version bump
+                * Fixes SCRAM-SHA-1 authentication via GNU SASL.
+                * Adds a passwordeval command that allows to set the password to the output of a program invocation.
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-11-26</Date>
+            <Version>1.4.21</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-01-09</Date>
+            <Version>1.4.19</Version>
+            <Comment>
+                * Version bump
+                * take over
+            </Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-10-17</Date>
+            <Version>1.4.16</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-06-08</Date>
+            <Version>1.4.15</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-05-12</Date>
+            <Version>1.4.14</Version>
+            <Comment>Remove redundant dependency</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-03-13</Date>
+            <Version>1.4.14</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-12-16</Date>
+            <Version>1.4.13</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-15</Date>
+            <Version>1.4.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

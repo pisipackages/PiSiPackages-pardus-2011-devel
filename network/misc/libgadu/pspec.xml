@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgadu</Name>
+        <Homepage>http://toxygen.net/libgadu/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>library</IsA>
+        <Summary>A Gadu-gadu protocol compatible communications library</Summary>
+        <Description>libgadu is intended to make it easy to add Gadu-Gadu communication support to your software.</Description>
+        <Archive sha1sum="05268aeea8ba972b9fd50aeaa4761eb73d522800" type="targz">http://toxygen.net/libgadu/files/libgadu-1.11.0.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">no-pthread.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libgadu</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libgadu-devel</Name>
+        <Summary>Development files for libgadu</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libgadu</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2011-09-19</Date>
+            <Version>1.11.0</Version>
+            <Comment>Fix version.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-09-19</Date>
+            <Version>1.9.1</Version>
+            <Comment>Version bump to latest release, pb#19084</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-13</Date>
+            <Version>1.9.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-10-11</Date>
+            <Version>1.9.1</Version>
+            <Comment>Version bump to 1.9.1</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-08-25</Date>
+            <Version>1.9.0</Version>
+            <Comment>Split devel package.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-08-25</Date>
+            <Version>1.9.0</Version>
+            <Comment>Version bump to 1.9.0</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-03-04</Date>
+            <Version>1.8.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

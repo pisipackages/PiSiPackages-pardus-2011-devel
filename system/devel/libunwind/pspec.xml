@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libunwind</Name>
+        <Homepage>http://www.nongnu.org/libunwind/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>Call chain tracer of a program</Summary>
+        <Description>libunwind is a portable and efficient C programming interface (API) to determine the call chain of a program.</Description>
+        <Archive sha1sum="2969f68f27b2ede08ae129178a9b393f92be73d2" type="targz">http://download.savannah.nongnu.org/releases/libunwind/libunwind-0.99.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">libunwind-0.99-disable-setjmp.patch</Patch>
+            <Patch>libunwind-0.99-implicit-declaration.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libunwind</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc/libunwind</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libunwind-devel</Name>
+        <Summary>Development files for libunwind</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libunwind</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2010-10-11</Date>
+            <Version>0.99</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-08-23</Date>
+            <Version>0.99</Version>
+            <Comment>
+                Remove static files for now as they break samba build
+                Split devel package
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-07-04</Date>
+            <Version>0.99</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

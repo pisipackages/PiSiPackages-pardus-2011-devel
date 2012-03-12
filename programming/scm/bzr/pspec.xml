@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bzr</Name>
+        <Homepage>http://bazaar-vcs.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>A distributed version control system</Summary>
+        <Description>Bazaar (bzr) is a open source version control system which is faster, flexy and scalable.</Description>
+        <Archive sha1sum="3663b862dc8fb9729f9aae2427cbab2af9c901ad" type="targz">http://launchpad.net/bzr/2.4/2.4.2/+download/bzr-2.4.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pyrex</Dependency>
+            <Dependency>python-paramiko</Dependency>
+            <Dependency>docutils</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">man-path.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>bzr</Name>
+        <RuntimeDependencies>
+            <Dependency>pyrex</Dependency>
+            <Dependency>python-paramiko</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/bash_completion.d</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc/bzr/COPYING.txt</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>bzr-docs</Name>
+        <Summary>Documentation files for bzr</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">bzr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc/bzr</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2011-11-03</Date>
+            <Version>2.4.2</Version>
+            <Comment>Version bump to a bugfix release. 2.4.2 contains all known bug fixes for all stable releases.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-09-16</Date>
+            <Version>2.4.1</Version>
+            <Comment>Version bump to the bugfix release of earlier 2.4 releases. 2.4.0 is a bugfix and polish release over the 2.3 series, with a large number of bugs fixed (>150 for the 2.4 series alone), and some performance improvements. Support for python 2.4 and 2.5 has been dropped, many large working tree operations have been optimized as well as some stacked branches operations.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-07-20</Date>
+            <Version>2.3.4</Version>
+            <Comment>Version bump to latest stable bugfix version, add missing docutils build dep.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-03-24</Date>
+            <Version>2.3.1</Version>
+            <Comment>Version bump to bugfix release, Fixes for situations where bzr would previously crash or give incorrect or undesirable results:
+                * Correctly resolve text conflicts for files in subdirs.
+                * Fix "AssertionError: repository.user_url ... does not match URL from server response" when reusing a smart transport.
+                * Restore proper logging of bytes transferred. We accidentally reset the counter when commands finished before we logged the total transferred.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-02-14</Date>
+            <Version>2.3.0</Version>
+            <Comment>Version bump, package takeover and split docs package.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-11-04</Date>
+            <Version>2.2.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-01-30</Date>
+            <Version>2.0.4</Version>
+            <Comment>
+                - Version bump, fixes #12178
+                - Fix documents path
+            </Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-05-02</Date>
+            <Version>1.14.1</Version>
+            <Comment>First release</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

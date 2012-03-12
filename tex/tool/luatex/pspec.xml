@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>luatex</Name>
+        <Homepage>http://www.luatex.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Summary>Extension of PdfTeX</Summary>
+        <Description>LuaTeX is an extension of pdftex, using lua as an embedded scripting language.</Description>
+        <Archive sha1sum="7eb0f2faa5fe444e8c14dd74eb9436fdf8d67a5c" type="tarbz2">http://foundry.supelec.fr/gf/download/frsrelease/381/1533/luatex-beta-0.62.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>zziplib-devel</Dependency>
+            <Dependency versionFrom="0.16.3">poppler-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">fix-fontforge-encoding.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>luatex</Name>
+        <RuntimeDependencies>
+            <Dependency>texlive-bin</Dependency>
+            <Dependency>zziplib</Dependency>
+            <Dependency versionFrom="0.16.3">poppler</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2011-03-23</Date>
+            <Version>0.62.0</Version>
+            <Comment>Strictly depend on the new poppler</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2011-03-18</Date>
+            <Version>0.62.0</Version>
+            <Comment>
+                * Bump to 0.62.0
+                * Change configure option to work in sync with texlive-bin
+                * Remove lots of useless line.
+                * We have to think about merge it into texlive-bing latter
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-10-13</Date>
+            <Version>0.60.2</Version>
+            <Comment>Revert to latest revision</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-12</Date>
+            <Version>0.60.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-09-02</Date>
+            <Version>0.60.2</Version>
+            <Comment>Version bump, take over</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-11-09</Date>
+            <Version>0.40.6</Version>
+            <Comment>Patches added.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>scirit@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-07-30</Date>
+            <Version>0.40.6</Version>
+            <Comment>
+                - Version bump.
+                - autools used instead of os.system
+                - New configuration options added.
+                - Patches are removed.
+                - Dependency mplib removed.
+                - İnstall options added.
+            </Comment>
+            <Name>Semen Cirit</Name>
+            <Email>scirit@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-02-11</Date>
+            <Version>0.30.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

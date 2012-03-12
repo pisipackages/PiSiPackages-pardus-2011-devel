@@ -1,0 +1,1775 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>yali</Name>
+        <Homepage>http://www.pardus.org.tr</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Yet Another Linux Installer</Summary>
+        <Description>YALI is the graphical installer for Pardus distribution which is written using the Qt framework.</Description>
+        <Archive sha1sum="9af98a7c3c079cbf1afa6fbe1a995684708b39b0" type="tarbz2">http://cekirdek.pardus.org.tr/~mete/dist/sources/yali-2.4.1_pre20110530gitb6686c4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>python-qt-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">repo-uri.patch</Patch>
+            <Patch level="1">conf.patch</Patch>
+            <Patch level="1">0001-Fix-adding-resume-kernel-parameter-if-no-swap-device.patch</Patch>
+            <Patch level="1">0002-Fix-importing-other-linux-systems-boot-loader-conf.patch</Patch>
+            <Patch level="1">0003-Allow-passing-screen-if-only-disk-layout-warning-rai.patch</Patch>
+            <Patch level="1">0004-add-padding-on-help-screen.patch</Patch>
+            <Patch level="1">fix-progress-panel.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>yali</Name>
+        <RuntimeDependencies>
+            <Dependency>python-qt</Dependency>
+            <Dependency>eject</Dependency>
+            <!--
+            <Dependency>gptsync</Dependency>
+            -->
+            <Dependency>mdadm</Dependency>
+            <Dependency>lvm2</Dependency>
+            <Dependency>reiserfsprogs</Dependency>
+            <Dependency>ntfsprogs</Dependency>
+            <Dependency>dosfstools</Dependency>
+            <Dependency>xfsprogs</Dependency>
+            <Dependency>xdm</Dependency>
+            <Dependency>comar</Dependency>
+            <Dependency>panda</Dependency>
+            <Dependency>python-pyaspects</Dependency>
+            <Dependency>pardus-python</Dependency>
+            <Dependency>syslinux</Dependency>
+            <Dependency>pyqtermwidget</Dependency>
+            <Dependency>gfxtheme-pardus-install</Dependency>
+            <Dependency versionFrom="2.2">pyparted</Dependency>
+            <Dependency>python-pyblock</Dependency>
+            <Dependency>yali-branding-pardus</Dependency>
+            <Dependency>yali-theme-pardus</Dependency>
+            <Dependency>pardus-desktop-services</Dependency>
+
+            <!--
+            pardusman should add locale packages according to the selected languages.
+            IsA tags could be used to decide which packages to be installed.
+            -->
+            <Dependency>glibc-locales-nl</Dependency>
+            <Dependency>glibc-locales-de</Dependency>
+            <Dependency>glibc-locales-es</Dependency>
+            <Dependency>glibc-locales-pt</Dependency>
+            <Dependency>glibc-locales-sv</Dependency>
+            <Dependency>glibc-locales-fr</Dependency>
+            <Dependency>glibc-locales-it</Dependency>
+            <Dependency>glibc-locales-ca</Dependency>
+            <Dependency>glibc-locales-pl</Dependency>
+            <Dependency>glibc-locales-ru</Dependency>
+            <Dependency>glibc-locales-hu</Dependency>
+
+            <Dependency>droid-fonts</Dependency>
+            <!-- <Dependency>cursor-theme-oxygen-white</Dependency> -->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/etc/yali</Path>
+            <Path fileType="data">/lib/udev/rules.d/70-yali.rules</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/display-managers/yali.desktop">yali.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="184">
+            <Date>2011-09-19</Date>
+            <Version>2.4.1_pre20110530</Version>
+            <Comment>Use 2011.2 repository.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="183">
+            <Date>2011-08-17</Date>
+            <Version>2.4.1_pre20110530</Version>
+            <Comment>Fix progress panel and takeover yali</Comment>
+            <Name>Renan Çakırerk</Name>
+            <Email>renan@pardus.org.tr</Email>
+        </Update>
+        <Update release="182">
+            <Date>2011-07-11</Date>
+            <Version>2.4.1_pre20110530</Version>
+            <Comment>Update repo url</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="181">
+            <Date>2011-05-30</Date>
+            <Version>2.4.1_pre20110530</Version>
+            <Comment>
+                * Add padding on help screen
+                * Allow passing screen if only disk layout warning raised
+                * Fix importing other linux systems boot loader conf
+                * Fix adding resume kernel parameter if no swap device defined
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="180">
+            <Date>2011-05-30</Date>
+            <Version>2.4.1_pre20110530</Version>
+            <Comment>
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="179">
+            <Date>2011-05-26</Date>
+            <Version>2.4.1_pre20110517</Version>
+            <Comment>
+                * Fixed package validation text while checking(pb:#16848)
+                * Change default partitioning method as non selected(pb:#17381)
+                * Fix Password rescue screen exception
+                * Update translations
+                * Handle some translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="178">
+            <Date>2011-05-17</Date>
+            <Version>2.4.1_pre20110517</Version>
+            <Comment>
+                * Rescue mode refactored after new storage api backend.
+                * Revised postinstall operations.
+                * Determine next step due to the number of collections
+                * Verified kernel parameters values.
+                * Change collection flag default value as deactivated.
+                * Handle exitting applications case and codes.
+                * Fixes RAID Array  menu on Manual Partitioning screen.
+                * Fix hostname setting in firstboot
+                * Translations updated.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="177">
+            <Date>2011-05-11</Date>
+            <Version>2.4.1_pre20110302</Version>
+            <Comment>
+                * Fix summary content for collection support
+                * Collection screen is additional feature and it must be disabled by default
+                  Use yali=collection kernel parameter or write collection=True in /etc/yali/yali.conf
+                  to enable collection support.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="176">
+            <Date>2011-04-25</Date>
+            <Version>2.4.1_pre20110302</Version>
+            <Comment>
+                * Fix typo questionReinitInconsistentLVM module.
+                * Revert storage formats translations
+                * Disable collection support and skip screen if parsing collection.xml failed.
+                * Fix collection summary content.
+                * Change context's flag to enable collection by default.
+                * Fix UI issues about Qt bugs (Thanks Gokmen)
+                * Add details button to show collection description
+                * Use collection icon from data.qrc
+                * Revised collection support.
+                * Always scan devices by getDeviceByPath method if device is cciss type.
+                * Add pylint.sh script to check modules
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="175">
+            <Date>2011-02-21</Date>
+            <Version>2.4.1_pre20110221</Version>
+            <Comment>
+                * Fixes reserved blocks size on small partitions.(#16999)
+                * Fixes default partitioning scheme if nolvm flags used(#16598)
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="174">
+            <Date>2011-02-10</Date>
+            <Version>2.4.1_20110208</Version>
+            <Comment>
+                * Fixes bugs.(#15323, #16078, #16767, #16598, #16446, #16598, #16397)
+                * Update translations.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="173">
+            <Date>2011-02-02</Date>
+            <Version>2.4.1_20110202</Version>
+            <Comment>
+                * Change questionInitializeDisk message
+                * Set keyboard list as sorted  #15996
+                * Fixes continue forward if storage backend throws exception #16236, #15256
+                * Enable and use ntfs quick format option.
+                * Translations updated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="172">
+            <Date>2011-01-20</Date>
+            <Version>2.4.0_20110120</Version>
+            <Comment>
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="171">
+            <Date>2011-01-20</Date>
+            <Version>2.4.0_20110120</Version>
+            <Comment>
+                * New tarball for 2011 Final Release
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="170">
+            <Date>2011-01-20</Date>
+            <Version>2.4.0_20110120</Version>
+            <Comment>
+                * Change pardus logo
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="169">
+            <Date>2011-01-20</Date>
+            <Version>2.4.0_20110120</Version>
+            <Comment>
+                * Hide layout information after passing the screen
+                * Translation generator script is fixed to include all modules strings
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="168">
+            <Date>2011-01-20</Date>
+            <Version>2.4.0_20110120</Version>
+            <Comment>
+                * Alt-Shift can be used with Russian keyboard layout to toggle between this and alternative
+                * Fixes translations errors
+                * Update translatiosn
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="167">
+            <Date>2011-01-18</Date>
+            <Version>2.4.0_20110118</Version>
+            <Comment>
+                * New tarball for 2011 Final Release
+                * Style modifications(by Renan Cakierk)
+                * Fixes Russian and Turkish translations errors
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="166">
+            <Date>2011-01-17</Date>
+            <Version>2.4.0_20110117</Version>
+            <Comment>
+                * Fixes bootloader modules typo.
+                * New tarball for 2011 Final Release
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="165">
+            <Date>2011-01-17</Date>
+            <Version>2.4.0_20110115</Version>
+            <Comment>
+                * Add showing messagewindow text with in qt tags patch
+                * Fixes Russian translations(by H.Ibrahim Gungor)
+                * TermWidget usage changes(by Gokmen Goksel)
+                * Translations updated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="164">
+            <Date>2011-01-15</Date>
+            <Version>2.4.0_20110115</Version>
+            <Comment>
+                * Fixes timezone crash due to localization changes(#16255)
+                * Fixes installing packages summary widget height
+                * Translations updated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="163">
+            <Date>2011-01-14</Date>
+            <Version>2.4.0_20110113</Version>
+            <Comment>
+                * Use target batch file with device-map parameter.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="162">
+            <Date>2011-01-13</Date>
+            <Version>2.4.0_20110113</Version>
+            <Comment>
+                * Fixes import other linux systems boot configuration if root is uuid
+                * Add support if installation grub with device.map file(Not enabled yet.)
+                * Update translations.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="161">
+            <Date>2011-01-10</Date>
+            <Version>2.4.0_20110110</Version>
+            <Comment>
+                * Disable debug mode as default.
+                * Obey environment changes on yali.postionstall.cleanup method.
+                * Use unicoded mountpoints
+                * Remove zorg dependency (by Fatih Aşıcı)
+                * Fixes User Screen password oriented problems.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="160">
+            <Date>2010-12-30</Date>
+            <Version>2.4.0_20101229</Version>
+            <Comment>
+                * Add ru and hu locales as YALI deps.
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="159">
+            <Date>2010-12-30</Date>
+            <Version>2.4.0_20101229</Version>
+            <Comment>
+                * Hide release notes if installation type is firstboot
+                * Change firstboot value for yali-bin
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="158">
+            <Date>2010-12-29</Date>
+            <Version>2.4.0_20101229</Version>
+            <Comment>Add Hungarian and Russian translations support to defaults.</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="157">
+            <Date>2010-12-29</Date>
+            <Version>2.4.0_20101229</Version>
+            <Comment>Depend on panda for driver suggestion</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="156">
+            <Date>2010-12-29</Date>
+            <Version>2.4.0_20101229</Version>
+            <Comment>
+                * Merged plymouth transition patch to mainline
+                * Add suggesting video driver according to hardware
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="155">
+            <Date>2010-12-29</Date>
+            <Version>2.4.0_20101228</Version>
+            <Comment>
+                * Fixes runnig commands with extended log call
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="154">
+            <Date>2010-12-28</Date>
+            <Version>2.4.0_20101228</Version>
+            <Comment>
+                * Fixes resetting user password if returning back user setup screen
+                * Fixes creating logical volume if it has been edited
+                * Display goodbye screen help content according to install type
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="153">
+            <Date>2010-12-28</Date>
+            <Version>2.4.0_20101228</Version>
+            <Comment>
+                * Fixes raid devices incremental adding
+                * Partition resize operation errors
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="152">
+            <Date>2010-12-20</Date>
+            <Version>2.4.0_20101220</Version>
+            <Comment>
+                * Fixes raid devices mounting as /boot scenario
+                * Fixes manual partitioning screen create menu actions
+                * Revert password character restrictions
+                * Update translations
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="151">
+            <Date>2010-12-08</Date>
+            <Version>2.4.0_20101207</Version>
+            <Comment>
+                * Add setting user-defined mountpoints as user root and group disk to access by user.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="150">
+            <Date>2010-12-08</Date>
+            <Version>2.4.0_20101207</Version>
+            <Comment>
+                * UUID support is enabled in grub.conf
+                * Remove package cleaup after all in default install.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="149">
+            <Date>2010-12-07</Date>
+            <Version>2.4.0_20101207</Version>
+            <Comment>
+                * Use os.environ for subprocess environment.
+                * Fixes password character restriction.#15447
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="148">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Fixes typo in firstboot.dbus.patch that effects ScrSummary checking before return back.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="147">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Adding enabling default installation from kernel cmdline.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="146">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Setting hostname needs using comar necassarily.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="145">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * In firstboot installation we can set hostname instantly.
+                * Remove redundant help content from goodbye screen.
+                * Usb installation needs re-writing grub.conf file.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="144">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Storage api obeys disk order from edd.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="143">
+            <Date>2010-12-02</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Write dependency to pardus-desktop-services, so we're now able to start YALI.
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="142">
+            <Date>2010-12-01</Date>
+            <Version>2.4.0_20101201</Version>
+            <Comment>
+                * Package Installation screen updated
+                * yet-another-freeze-fix.diff updated
+                * Fixes several bugs.
+                  #15263,#15388,#15327,#15331,#15337,#14887,#15326,#15202,#14779,#15340,#14892,#15401
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="141">
+            <Date>2010-11-24</Date>
+            <Version>2.4.0_20101125</Version>
+            <Comment>
+                * Enable base installation in configuration file
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="140">
+            <Date>2010-11-24</Date>
+            <Version>2.4.0_20101125</Version>
+            <Comment>
+                * Disable restarting and clean up system at firstboot stage in Goodbye screen
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="139">
+            <Date>2010-11-24</Date>
+            <Version>2.4.0_20101125</Version>
+            <Comment>
+                * Check dbus socket target if installation type is firstboot or base
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="138">
+            <Date>2010-11-24</Date>
+            <Version>2.4.0_20101125</Version>
+            <Comment>
+                * Fix arrow on the new button on manual partitioning screen (#14891)
+                * Change instant pop-up of new menu on manual partition screen(#15261)
+                * Fix unshown parts on user screen(#14763)
+                * Fix auto partitining ui alignment problem and modify icon
+                * Change summary screen icon
+                * Change bootloader screen icon
+                * Modify package installation screen ui
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="137">
+            <Date>2010-11-24</Date>
+            <Version>2.4.0_20101124</Version>
+            <Comment>
+                * Add new Welcome screen
+                * Firstboot option activated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="136">
+            <Date>2010-11-23</Date>
+            <Version>2.4.0_20101123</Version>
+            <Comment>
+                * Enable USB installation
+                * Enable installation screen freezing patch
+                * Fixes bugs #14777, #14629, #14789, #14956,
+                             #14746, #15260, #14657, #14888,
+                             #15259, #15265, #14756
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="135">
+            <Date>2010-11-22</Date>
+            <Version>2.4.0_20101122</Version>
+            <Comment>
+                * New tarball
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="134">
+            <Date>2010-11-22</Date>
+            <Version>2.4.0_20101121</Version>
+            <Comment>
+                * Add yali-branding-pardus dependency
+                * Add yali-theme-pardus dependency
+                * Temprorarily disable Package Installation Screen patch
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="133">
+            <Date>2010-10-23</Date>
+            <Version>2.4.0_20101021</Version>
+            <Comment>Add a new option to yali.desktop to indicate Plymouth transition support</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="132">
+            <Date>2010-10-23</Date>
+            <Version>2.4.0_20101021</Version>
+            <Comment>Add support for transition from Plymouth</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="131">
+            <Date>2010-10-21</Date>
+            <Version>2.4.0_20101021</Version>
+            <Comment>
+                *Fixes Summary Screen return back choice
+                *Fixes Media Validation screen labels
+                *Fixes Release version in Welcome Screen
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="130">
+            <Date>2010-10-21</Date>
+            <Version>2.4.0_20101021</Version>
+            <Comment>
+                *Fixes redundant informationWindow
+                *Fixes media validation
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="129">
+            <Date>2010-10-20</Date>
+            <Version>2.4.0_20101020</Version>
+            <Comment>
+                *Fixes redundant informationWindow
+                *Fixes media validation
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="128">
+            <Date>2010-10-20</Date>
+            <Version>2.4.0_20101020</Version>
+            <Comment>
+                *Fixes dialogs central positioning
+                *Fixes #14585
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="127">
+            <Date>2010-10-20</Date>
+            <Version>2.4.0_20101020</Version>
+            <Comment>Update YALI slides.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="126">
+            <Date>2010-10-20</Date>
+            <Version>2.4.0_20101020</Version>
+            <Comment>
+                *Fixes several bugs
+                  #2364, #3100, #1343, #1642, #14520, #14368, #14365, #14721, #1449
+                  #14215, #14728, #14722, #14588, #14556, #14558, #14455, #14679
+                  #14728, #13304, #14676, #14724, #14684, #14576, #14557, #14458
+                  #14328, #14683, #14296, #14405, #14703, #14741, #14587, #14555
+                  #14747, #14406, #14720, #14459
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="125">
+            <Date>2010-10-15</Date>
+            <Version>2.4.0_20101015</Version>
+            <Comment>
+                * Show storage operations after summary screen.
+                * Fixed #14695, #14680, #14667
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="124">
+            <Date>2010-10-13</Date>
+            <Version>2.4.0_20101013</Version>
+            <Comment>
+                * New Feature: Add RAID support
+                * New Feature: User interface redesigned
+                * Fix existing logical volume partitioning
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="123">
+            <Date>2010-10-12</Date>
+            <Version>2.4.0_20101004</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="122">
+            <Date>2010-10-04</Date>
+            <Version>2.4.0_20101004</Version>
+            <Comment>
+                * Add other distros loader configs in bootloader menu.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="121">
+            <Date>2010-09-30</Date>
+            <Version>2.4.0_20100930</Version>
+            <Comment>
+                *Add new shrink operation gui on Automatic partitioning screen
+                *Fixes storage api resizing operations
+                *Fixes non-leaf devices destroy operations.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="120">
+            <Date>2010-09-24</Date>
+            <Version>2.4.0_20100924</Version>
+            <Comment>
+                *Fixes existed volume groups not to be detected to add device tree
+                *Fixes suggested volume group names to be checking host name value
+                *Fıxes creating logical volume on lvm_gui if cancel button is pressed
+                *Fixes some display errors in the screens
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="119">
+            <Date>2010-09-16</Date>
+            <Version>2.4.0_20100916</Version>
+            <Comment>
+                -Fixes LVM Gui editor logical volumes cancel action
+                -Fixes some error messagebox resize
+                -Disabled shrink option in automatic partiton screen
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="118">
+            <Date>2010-09-16</Date>
+            <Version>2.4.0_20100916</Version>
+            <Comment>
+                -Fixes manual partitioning on logical volume type devices screens
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="117">
+            <Date>2010-09-16</Date>
+            <Version>2.4.0_20100916</Version>
+            <Comment>
+                -Add LVM support
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="116">
+            <Date>2010-09-15</Date>
+            <Version>2.4.0_20100831</Version>
+            <Comment>
+                -Use python multiprocessing module for install and configure operations. (EXPERIMENTAL)
+            </Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="115">
+            <Date>2010-09-03</Date>
+            <Version>2.4.0_20100831</Version>
+            <Comment>
+                -Fixes package installation screen freeze.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="114">
+            <Date>2010-09-02</Date>
+            <Version>2.4.0_20100831</Version>
+            <Comment>
+                -New release to development version.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="113">
+            <Date>2010-08-26</Date>
+            <Version>2.2.5</Version>
+            <Comment>
+                -Revert old packages.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="112">
+            <Date>2010-08-25</Date>
+            <Version>2.4.0_20100823</Version>
+            <Comment>
+                -Fixes hav command locale settings assignment.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="111">
+            <Date>2010-08-24</Date>
+            <Version>2.4.0_20100823</Version>
+            <Comment>
+                -Fixes adding redundant cmdline paramters at kernel line in grubconf.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="110">
+            <Date>2010-08-24</Date>
+            <Version>2.4.0_20100823</Version>
+            <Comment>
+                -Fix python-pyblock initializing error not to be modprobed device-mapper module.
+                -Fix partitioning screeen regressions.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="109">
+            <Date>2010-08-23</Date>
+            <Version>2.4.0_20100823</Version>
+            <Comment>
+                -New tarball for updated fixes.
+                -Fix storage backend errors.
+                -Fix storage new ui errors.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="108">
+            <Date>2010-08-06</Date>
+            <Version>2.4</Version>
+            <Comment>
+                -Add python-pyblock dependency.
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="107">
+            <Date>2010-07-22</Date>
+            <Version>2.4</Version>
+            <Comment>
+                -Add pyparted dependency.
+                -Support new parted and pyparted.
+                -Storage backend rewrite.
+                -New partitioning types on auto partition screen.
+                -New interface in manual partition screen.
+                -FSH mounpoints as /boot, /usr, /opt are selectable in manual partition screen
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="106">
+            <Date>2010-05-31</Date>
+            <Version>2.3.2</Version>
+            <Comment>
+                -Fixes bug #12583 depends #13044, #13051, #13141
+                -Update translations
+                -Disable menu to prevent hard reboot on partitioning disk and installing packages
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="105">
+            <Date>2010-05-17</Date>
+            <Version>2.3.2</Version>
+            <Comment>
+                -Fixes bug #11255
+                -Fixes collection installation usuability problems
+                -Add menu to prevent hard reboot
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="104">
+            <Date>2010-02-24</Date>
+            <Version>2.3.1</Version>
+            <Comment>Remove unneeded deps</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="103">
+            <Date>2010-01-21</Date>
+            <Version>2.3.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="102">
+            <Date>2009-12-30</Date>
+            <Version>2.3.0</Version>
+            <Comment>
+                -Archive updated
+                -Slideshow icons updated
+                -Color codes updated
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="101">
+            <Date>2009-12-28</Date>
+            <Version>2.3.0</Version>
+            <Comment>fixed data_rc setup problem</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="100">
+            <Date>2009-12-28</Date>
+            <Version>2.3.0</Version>
+            <Comment>
+                -New Relase.
+                -DVD Installation Package Collection supported
+                -Corporate2 Artwork
+                -Translation changes
+            </Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="99">
+            <Date>2009-10-03</Date>
+            <Version>2.2.1</Version>
+            <Comment>Cleanup package for Corporate2.</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+         </Update>
+         <Update release="98">
+            <Date>2009-10-03</Date>
+            <Version>2.2.1</Version>
+            <Comment>Fixed grub error on usb installation</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="97">
+            <Date>2009-10-02</Date>
+            <Version>2.2.1</Version>
+            <Comment>Updated pics</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="96">
+            <Date>2009-10-02</Date>
+            <Version>2.2.1</Version>
+            <Comment>Fixed usb installation error</Comment>
+            <Name>Mete Alpaslan</Name>
+            <Email>mete@pardus.org.tr</Email>
+        </Update>
+        <Update release="95">
+            <Date>2009-07-17</Date>
+            <Version>2.2.0</Version>
+            <Comment>Sync with SVN</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="94">
+            <Date>2009-07-17</Date>
+            <Version>2.2.0</Version>
+            <Comment>Sync with new translations</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="93">
+            <Date>2009-07-17</Date>
+            <Version>2.2.0</Version>
+            <Comment>Stable update for 2009</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="92">
+            <Date>2009-07-10</Date>
+            <Version>2.1.9</Version>
+            <Comment>Sync with SVN. Update theme</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="91">
+            <Date>2009-07-10</Date>
+            <Version>2.1.9</Version>
+            <Comment>Sync with SVN.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="90">
+            <Date>2009-07-02</Date>
+            <Version>2.1.9</Version>
+            <Comment>Add wireless firmwares to runtime dependencies, Sync with SVN.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="89">
+            <Date>2009-06-19</Date>
+            <Version>2.1.9</Version>
+            <Comment>
+                * Sync with SVN
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="88">
+            <Date>2009-06-19</Date>
+            <Version>2.1.9</Version>
+            <Comment>
+                * Sync with SVN
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="87">
+            <Date>2009-06-18</Date>
+            <Version>2.1.9</Version>
+            <Comment>
+                * Sync with SVN
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="86">
+            <Date>2009-06-16</Date>
+            <Version>2.1.9</Version>
+            <Comment>
+                * New release 2.1.9
+                * Show human-readable exceptions ...
+                * Bug fixed at http://bugs.pardus.org.tr/7896
+                * Bug fixed at http://bugs.pardus.org.tr/9906
+                * Comment added to http://bugs.pardus.org.tr/9955
+                * Bug fixed at http://bugs.pardus.org.tr/9876
+                * Bug fixed at http://bugs.pardus.org.tr/7999
+                * Comment added to http://bugs.pardus.org.tr/9955
+                * Comment added to http://bugs.pardus.org.tr/9894
+                * Bug fixed at http://bugs.pardus.org.tr/9904
+                * Bug fixed at http://bugs.pardus.org.tr/7658
+                * User screen improvements
+                * Update YALI sizes when X resized ...
+                * Use new COMAR backend instead of Polkit API ..
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="85">
+            <Date>2009-06-10</Date>
+            <Version>2.1.8</Version>
+            <Comment>
+                * Sync with svn archive update
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="84">
+            <Date>2009-06-04</Date>
+            <Version>2.1.8</Version>
+            <Comment>
+                * Sync with svn archive update
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="83">
+            <Date>2009-06-03</Date>
+            <Version>2.1.8</Version>
+            <Comment>
+                * Sync with svn archive update
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="82">
+            <Date>2009-05-28</Date>
+            <Version>2.1.8</Version>
+            <Comment>
+                * Sync with svn archive update
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="81">
+            <Date>2009-05-28</Date>
+            <Version>2.1.8</Version>
+            <Comment>
+                * UI Fixes
+                * Use packages full path to avoid package checking twice
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="80">
+            <Date>2009-05-28</Date>
+            <Version>2.1.8</Version>
+            <Comment>Fix UI</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="79">
+            <Date>2009-05-28</Date>
+            <Version>2.1.8</Version>
+            <Comment>Archive update, new Theme</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="78">
+            <Date>2009-05-28</Date>
+            <Version>2.1.8</Version>
+            <Comment>New release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="77">
+            <Date>2009-05-21</Date>
+            <Version>2.1.7</Version>
+            <Comment>Archive update</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="76">
+            <Date>2009-05-21</Date>
+            <Version>2.1.7</Version>
+            <Comment>New Release 2.1.7;
+                * Much better NTFS resize process..
+                * Swap off fix for all opened swaps
+                * Experimental btrfs support
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="75">
+            <Date>2009-05-21</Date>
+            <Version>2.1.6</Version>
+            <Comment>
+                * Archive update
+                * Fix for resizing
+                * Added Btrfs support
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="74">
+            <Date>2009-05-21</Date>
+            <Version>2.1.6</Version>
+            <Comment>New Release 2.1.6;
+                * Add using freespace support for automatic installation
+                * Make debug default on
+                * Bug fixed for check CD screen
+                * Bug fixed for manual partitioning
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="73">
+            <Date>2009-05-15</Date>
+            <Version>2.1.5</Version>
+            <Comment>New Release 2.1.5;
+                * If no label defined try to use filesystem label..
+                * Grub rescue mode added
+                * Bug fixed at http://bugs.pardus.org.tr/7169
+                * Scan partitions and try to find Pardus installed one
+                * Show usable partitions for rescue
+                * Show error messages as a result of partition scan
+                * Fixed keyboard issues beacuse of conf.d/mudur change
+                * Reset all changes before reiniting devices
+                * Bug fixed at http://bugs.pardus.org.tr/9476
+                * Fixed grub device order issue
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="72">
+            <Date>2009-05-12</Date>
+            <Version>2.1.4</Version>
+            <Comment>New Release 2.1.4;
+                * Fixed important partitioning issues
+                * Fix swap filesystem selection issue
+                * Enable safety checks of resize2fs
+                * Use quiet for mkfs.extX
+                * Fix wrong /home path for umount
+                * Call check functions before starting to resize
+                * Localize resize fail messages
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="71">
+            <Date>2009-05-09</Date>
+            <Version>2.1.3</Version>
+            <Comment>
+                * Use os.system for grub install
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="70">
+            <Date>2009-05-08</Date>
+            <Version>2.1.3</Version>
+            <Comment>New release with following changes;
+                * Bug fixed at http://bugs.pardus.org.tr/9233
+                * User can choose filesystem for each partition that we support
+                * All command outputs during install captured by debugger
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="69">
+            <Date>2009-05-04</Date>
+            <Version>2.1.2</Version>
+            <Comment>
+                * New release
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="68">
+            <Date>2009-05-04</Date>
+            <Version>2.1.1</Version>
+            <Comment>
+                * Retry commit if it fails.
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="67">
+            <Date>2009-05-04</Date>
+            <Version>2.1.1</Version>
+            <Comment>
+                * Use Network.Stack
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="66">
+            <Date>2009-05-04</Date>
+            <Version>2.1.1</Version>
+            <Comment>
+                * Do not call device.commit if disk table is not changed
+                * Use Oxygen theme by default
+                * New release with some improvements
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="65">
+            <Date>2009-04-28</Date>
+            <Version>2.1.0</Version>
+            <Comment>
+                * Stable update supports ext4 file system
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="64">
+            <Date>2009-01-30</Date>
+            <Version>2.0.8</Version>
+            <Comment>
+                * Another fix for fix for other distros grub.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+       </Update>
+       <Update release="63">
+            <Date>2009-01-29</Date>
+            <Version>2.0.8</Version>
+            <Comment>
+                * Yet another fix for other distros grub..
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="62">
+            <Date>2009-01-29</Date>
+            <Version>2.0.8</Version>
+            <Comment>
+                * Also check uuid command in foreign grub.conf
+                * Fix for overriding selected partitioning method
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="61">
+            <Date>2009-01-28</Date>
+            <Version>2.0.8</Version>
+            <Comment>
+                * New release 2.0.8
+                * New translation strings
+                * Do not override selected partitioning method
+                * Use global get_minor method, it causes some problems in grub.conf
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="60">
+            <Date>2009-01-23</Date>
+            <Version>2.0.7</Version>
+            <Comment>
+                * Check Grub commands before update
+                * Bug fixed at http://bugs.pardus.org.tr/9014
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+       </Update>
+       <Update release="59">
+            <Date>2009-01-02</Date>
+            <Version>2.0.7</Version>
+            <Comment>
+                * New bugfix release 2.0.7
+                * If not found a proper grub.conf umount foreign partition correctly
+                * If entry "root" not found in foreign grub.conf skip them
+                * Use correct win device with map definition in grub.conf
+                * Bug fixed at http://bugs.pardus.org.tr/8947
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="58">
+            <Date>2008-12-30</Date>
+            <Version>2.0.6</Version>
+            <Comment>Repo name updated for 2008.2</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="57">
+            <Date>2008-12-26</Date>
+            <Version>2.0.6</Version>
+            <Comment>
+                New release with following changes:
+
+                     * Get theme options from /proc/cmdline
+                     * Theme support added to cmd-line options
+                     * Oxygen based new theme added
+                     * Using selected disk in manual partitioning issue fixed (7631)
+                     * Button enabling/disabling issues in partitioning screen fixed (8602)
+                     * Fixed enabling auto-resize radio button issue when it is impossible to resize.
+                     * Update disk order in foreign grub.conf before append to our grub.conf
+                     * Comment added to http://bugs.pardus.org.tr/8782
+                     * If swap opened, close it before umount
+                     * Finalize_chroot method added to stop dbus and its friends before installing grub
+                     * All mounted devices unmounted before grub install
+                     * Grub batch used instead of grub-install command
+                     * Pisi's FilesDB succesfully closed if still open before umount targets
+                     * Comment added to http://bugs.pardus.org.tr/8764
+                     * Bug fixed at http://bugs.pardus.org.tr/7550
+                     * Bug fixed at http://bugs.pardus.org.tr/8616
+                     * Use swap while install
+                     * Comment added to http://bugs.pardus.org.tr/7656
+                     * Comment added to http://bugs.pardus.org.tr/2898
+                     * Check number of primary partitions and warn if one try to create a new one.
+                     * For YaliException don't show close button on exception window
+                     * Ask for retry when packages are broken is finished.
+            </Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="56">
+            <Date>2008-10-23</Date>
+            <Version>2.0.5</Version>
+            <Comment>Plug-in support added.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="55">
+            <Date>2008-09-20</Date>
+            <Version>2.0.5</Version>
+            <Comment>Timeout of Xorg.Display's ready method call increased to 5 * 60 seconds</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="54">
+            <Date>2008-09-11</Date>
+            <Version>2.0.5</Version>
+            <Comment>New release with po updates and some fixes.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="53">
+            <Date>2008-09-06</Date>
+            <Version>2.0.4</Version>
+            <Comment>Really Really fix Firstboot</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="52">
+            <Date>2008-09-05</Date>
+            <Version>2.0.4</Version>
+            <Comment>Really fix Firstboot</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="51">
+            <Date>2008-09-04</Date>
+            <Version>2.0.4</Version>
+            <Comment>New Version</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="50">
+            <Date>2008-09-04</Date>
+            <Version>2.0.3</Version>
+            <Comment>First Boot patch fixed</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="49">
+            <Date>2008-09-04</Date>
+            <Version>2.0.3</Version>
+            <Comment>First Boot patch added</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="48">
+            <Date>2008-09-04</Date>
+            <Version>2.0.3</Version>
+            <Comment>New Version</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="47">
+            <Date>2008-09-04</Date>
+            <Version>2.0.2</Version>
+            <Comment>FirstBoot start fixed</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="46">
+            <Date>2008-09-04</Date>
+            <Version>2.0.2</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="45">
+            <Date>2008-09-02</Date>
+            <Version>2.0.2</Version>
+            <Comment>Minor Changes</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="44">
+            <Date>2008-08-28</Date>
+            <Version>2.0.1</Version>
+            <Comment>Repo Patch</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="43">
+            <Date>2008-08-28</Date>
+            <Version>2.0.1</Version>
+            <Comment>Sv ..</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="42">
+            <Date>2008-08-27</Date>
+            <Version>2.0.1</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="41">
+            <Date>2008-06-27</Date>
+            <Version>2.0</Version>
+            <Comment>Update FR, ES and NL translations</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="40">
+            <Date>2008-06-27</Date>
+            <Version>2.0</Version>
+            <Comment>Add PL support</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2008-06-27</Date>
+            <Version>2.0</Version>
+            <Comment>Fix Grub..</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2008-06-27</Date>
+            <Version>2.0</Version>
+            <Comment>Po fixes...</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2008-06-26</Date>
+            <Version>2.0</Version>
+            <Comment>Po update..</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2008-06-26</Date>
+            <Version>2.0</Version>
+            <Comment>Final Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2008-06-25</Date>
+            <Version>2.0</Version>
+            <Comment>Root pass fix</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2008-06-25</Date>
+            <Version>2.0</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2008-06-25</Date>
+            <Version>2.0</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2008-06-25</Date>
+            <Version>2.0</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2008-06-18</Date>
+            <Version>2.0</Version>
+            <Comment>Fix for user-pass check</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2008-06-18</Date>
+            <Version>2.0</Version>
+            <Comment>New Release for RC2</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2008-06-18</Date>
+            <Version>2.0</Version>
+            <Comment>New Release for RC2</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2008-06-18</Date>
+            <Version>2.0</Version>
+            <Comment>New Release for RC2</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2008-06-17</Date>
+            <Version>2.0</Version>
+            <Comment>Udev patch, po update</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2008-06-17</Date>
+            <Version>2.0</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2008-06-09</Date>
+            <Version>2.0</Version>
+            <Comment>Face icon patch</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2008-06-09</Date>
+            <Version>2.0</Version>
+            <Comment>New Release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2008-06-03</Date>
+            <Version>2.0</Version>
+            <Comment>Dependency update.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2008-06-03</Date>
+            <Version>2.0</Version>
+            <Comment>New Release for P08Beta</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2008-06-02</Date>
+            <Version>2.0</Version>
+            <Comment>New Release for P08Beta</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2008-05-30</Date>
+            <Version>2.0</Version>
+            <Comment>New release with a lot of Grub Improvements</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-05-12</Date>
+            <Version>2.0</Version>
+            <Comment>Slide patch</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2008-05-11</Date>
+            <Version>2.0</Version>
+            <Comment>Ready for 2008</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2008-05-11</Date>
+            <Version>2.0</Version>
+            <Comment>New release with a lot of GUI Fix.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2008-05-09</Date>
+            <Version>2.0</Version>
+            <Comment>Umount patch.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2008-05-09</Date>
+            <Version>2.0</Version>
+            <Comment>Dbus patch.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2008-05-09</Date>
+            <Version>2.0</Version>
+            <Comment>Partitioning and GUI issues fixed.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>Unlucky release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>FirstBoot service patch</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>Edd patch</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>Fix for windows boot</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>Po update</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-05-08</Date>
+            <Version>2.0</Version>
+            <Comment>OemInstall and FirstBoot Support added.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-05-06</Date>
+            <Version>2.0</Version>
+            <Comment>Refactoring..</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-05-01</Date>
+            <Version>2.0</Version>
+            <Comment>Resize issues fixed.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-04-30</Date>
+            <Version>2.0</Version>
+            <Comment>New release</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-04-23</Date>
+            <Version>2.0</Version>
+            <Comment>errors fixed.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-04-21</Date>
+            <Version>2.0</Version>
+            <Comment>set dbus timeouts</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-04-21</Date>
+            <Version>2.0</Version>
+            <Comment>RC (remote controller)</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-02-04</Date>
+            <Version>2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Göksel</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

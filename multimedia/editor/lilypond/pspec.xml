@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lilypond</Name>
+        <Homepage>http://lilypond.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>GNU Music Typesetter</Summary>
+        <Description>LilyPond is an "automated engraving system". It will format music notation beautifully without requiring typographical expertise.</Description>
+        <Archive sha1sum="0ea657bb184d9d6a2e3f6bca91e6b0d62a3a013e" type="targz">http://download.linuxaudio.org/lilypond/sources/v2.14/lilypond-2.14.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>vim</Dependency>
+            <Dependency>mftrace</Dependency>
+            <Dependency>t1utils</Dependency>
+            <Dependency>texi2html</Dependency>
+            <Dependency>guile-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>freetype-devel</Dependency>
+            <Dependency>fontconfig-devel</Dependency>
+            <Dependency>ghostscript-devel</Dependency>
+            <Dependency versionFrom="0.0_20110308">texlive-core</Dependency>
+            <Dependency versionFrom="0.0_20110222">fontforge-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="0">lilypond-2.11.65-python26.patch</Patch>
+            <Patch level="0">lilypond-2.21.2-gcc44-relocate.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lilypond</Name>
+        <RuntimeDependencies>
+            <Dependency>vim</Dependency>
+            <Dependency>guile</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>t1utils</Dependency>
+            <Dependency>mftrace</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>texi2html</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>ghostscript</Dependency>
+            <Dependency versionFrom="0.0_20110222">fontforge</Dependency>
+            <Dependency versionFrom="0.0_20110308">texlive-core</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/lilypond</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/vim</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/emacs</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/emacs/site-lisp/50lilypond.el">50lilypond.el</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="13">
+            <Date>2011-09-08</Date>
+            <Version>2.14.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2011-03-25</Date>
+            <Version>2.13.44</Version>
+            <Comment>Change texlive-dependencies</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-12-30</Date>
+            <Version>2.13.44</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-12-29</Date>
+            <Version>2.12.2</Version>
+            <Comment>Change vim runtime to $VIMRUNTIME</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-07-31</Date>
+            <Version>2.12.2</Version>
+            <Comment>Fix md5 deprecation warnings in lilypond-book.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-06-18</Date>
+            <Version>2.12.2</Version>
+            <Comment>Add texlive-metapost to build and runtime deps.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>scirit@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-06-03</Date>
+            <Version>2.12.2</Version>
+            <Comment>Add some fedora fixes.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-02-07</Date>
+            <Version>2.12.2</Version>
+            <Comment>
+                - Version bump to 2.12.2 (#8999),
+                - Correcly install vim and emacs plugins,
+                - Disable documentation generation as it's broken.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-06-14</Date>
+            <Version>2.10.33</Version>
+            <Comment>Correctly remove *.pyc files from package.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-05-08</Date>
+            <Version>2.10.33</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-28</Date>
+            <Version>2.8.7</Version>
+            <Comment>Comply to new guile and vim, fix source adress</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-11-28</Date>
+            <Version>2.8.7</Version>
+            <Comment>Remove pyc's</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-10-19</Date>
+            <Version>2.8.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

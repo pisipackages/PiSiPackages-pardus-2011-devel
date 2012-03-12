@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>musescore</Name>
+        <Homepage>http://musescore.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>mscore</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Free music notation program</Summary>
+        <Description>musescore is a free WYSIWYG music notation program, that offers a cost-effective alternative to proprietary programs such as Sibelius and Finale.</Description>
+        <Archive sha1sum="a4e3963b995bbadf0f9a9ecdb6134d58414fd6cc" type="tarbz2">mirrors://sourceforge/mscore/mscore/MuseScore-1.1/mscore-1.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt-devel</Dependency>
+            <Dependency>qt-webkit-devel</Dependency>
+            <Dependency>jack-audio-connection-kit-devel</Dependency>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>freetype-devel</Dependency>
+            <Dependency>libsndfile-devel</Dependency>
+            <Dependency>portaudio-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- scriptgen conflicts with qtscriptgenerator used by amarok (http://musescore.org/en/node/7895) -->
+            <Patch level="1">musescore-1.0-no-scriptgen.patch</Patch>
+
+            <Patch level="1">add-tr-translations.diff</Patch>
+            <Patch level="1">disable-rpath.diff</Patch>
+            <Patch level="1">disable-auto-update.diff</Patch>
+
+            <!-- Do not remove that! Musescore cannot play scores unless it's used with Jack or Portaudio, 
+            portaudio is easier to use and configure than jack, so enable it by default -->
+            <Patch level="2">14-enable-portaudio-by-default.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>musescore</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>portaudio</Dependency>
+            <!-- We are not using bundled qtscriptgenerator, using the package instead -->
+            <Dependency>qtscriptgenerator</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mscore-*/</Path>
+            <Path fileType="localedata">/usr/share/mscore-*/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="library">/usr/lib/qt4/plugins/designer</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2011-10-24</Date>
+            <Version>1.1</Version>
+            <Comment>Version bump to latest stable release and add missing deps.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-07-14</Date>
+            <Version>1.0</Version>
+            <Comment>Bump to 1.0 version and refactor package.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-01-31</Date>
+            <Version>0.9.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

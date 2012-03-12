@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>django-piston</Name>
+        <Homepage>http://bitbucket.org/jespern/django-piston</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>A mini framework for Django for creating RESTful APIs</Summary>
+        <Description>Django-piston is a relatively small Django application that lets you create application programming interfaces (API) for you sites.</Description>
+        <Archive sha1sum="65e6d30b03cc201d21a6d7ba82c2b7684beeac2b" type="targz">http://pypi.python.org/packages/source/d/django-piston/django-piston-0.2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-setuptools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>django-piston</Name>
+        <RuntimeDependencies>
+            <Dependency>Django</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3" type="security">
+            <Date>2010-11-15</Date>
+            <Version>0.2.3</Version>
+            <Comment>Fix CVE-2011-4103 (pb#19492):
+                * Remote execution of arbitrary code with unsafe yaml.load method during de-serialization of YAML post data
+            </Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-10-13</Date>
+            <Version>0.2.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-03-15</Date>
+            <Version>0.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

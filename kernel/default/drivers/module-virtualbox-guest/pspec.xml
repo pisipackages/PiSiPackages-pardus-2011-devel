@@ -1,0 +1,346 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>module-virtualbox-guest</Name>
+        <Homepage>http://www.virtualbox.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>driver</IsA>
+        <Summary>Kernel modules for VirtualBox guest machines</Summary>
+        <Description>This package provides the kernel modules needed for mouse integration and shared folder support between VirtualBox host and guest systems.</Description>
+        <Archive sha1sum="b874cf38feafc227526b4c3922d7dea79b6b0c17" type="targz">http://cekirdek.pardus.org.tr/~farslan/dist/virtualbox/module-virtualbox-guest-4.0.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="2.6.37.6">kernel-module-headers</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>module-virtualbox-guest</Name>
+        <RuntimeDependencies>
+            <Dependency version="2.6.37.6">kernel</Dependency>
+            <Dependency releaseFrom="98">baselayout</Dependency>
+            <Dependency version="current">module-virtualbox-guest-userspace</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>virtualbox-guest-modules</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library" permanent="true">/lib/modules</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>module-virtualbox-guest-userspace</Name>
+        <Summary>Userspace documentation, tools, udev and modprobe rules for the kernel driver virtualbox-guest</Summary>
+        <Conflicts>
+            <Package releaseTo="9">module-virtualbox-guest</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="config">/etc/conf.d</Path>
+            <Path fileType="data">/lib/udev/rules.d</Path>
+            <Path fileType="executable">/lib/udev/vbox-guest.sh</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/conf.d/virtualbox-guest">virtualbox-guest.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/lib/udev/vbox-guest.sh">vbox-guest.sh</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/lib/udev/rules.d/48-vbox-guest.rules">48-vbox-guest.rules</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+
+    <History>
+        <Update release="40">
+            <Date>2011-06-28</Date>
+            <Version>4.0.10</Version>
+            <Comment>New maintenance release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="39">
+            <Date>2011-05-18</Date>
+            <Version>4.0.8</Version>
+            <Comment>New maintenance release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="38">
+            <Date>2011-03-29</Date>
+            <Version>4.0.4</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="37">
+            <Date>2011-03-25</Date>
+            <Version>4.0.4</Version>
+            <Comment>Bump release for new kernel</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2011-02-18</Date>
+            <Version>4.0.4</Version>
+            <Comment>New maintenance release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="35">
+            <Date>2011-01-29</Date>
+            <Version>4.0.2</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2011-01-19</Date>
+            <Version>4.0.2</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2011-01-07</Date>
+            <Version>4.0.0</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2011-01-05</Date>
+            <Version>3.2.10</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2010-12-30</Date>
+            <Version>3.2.10</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2010-12-28</Date>
+            <Version>3.2.10</Version>
+            <Comment>Rebuild for the new kernel</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="29">
+            <Date>2010-12-02</Date>
+            <Version>3.2.10</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2010-11-26</Date>
+            <Version>3.2.10</Version>
+            <Comment>Bump release for new kernel.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2010-11-01</Date>
+            <Version>3.2.10</Version>
+            <Comment>Rebuild for kernel 2.6.36-145</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2010-10-15</Date>
+            <Version>3.2.10</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2010-10-14</Date>
+            <Version>3.2.8</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2010-10-10</Date>
+            <Version>3.2.8</Version>
+            <Comment>Fix build with kernel 2.6.36</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2010-08-06</Date>
+            <Version>3.2.8</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2010-07-03</Date>
+            <Version>3.2.6</Version>
+            <Comment>Remove old module in postRemove</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="21">
+            <Date>2010-06-26</Date>
+            <Version>3.2.6</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2010-03-26</Date>
+            <Version>3.1.6</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2010-03-15</Date>
+            <Version>3.1.4</Version>
+            <Comment>Fix crash on newer kernels</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2010-02-13</Date>
+            <Version>3.1.4</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2010-01-21</Date>
+            <Version>3.1.2</Version>
+            <Comment>Remove conflict with module-virtualbox</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2010-01-19</Date>
+            <Version>3.1.2</Version>
+            <Comment>Conflict with module-virtualbox to avoid duplicate symbols</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2009-12-22</Date>
+            <Version>3.1.2</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2009-10-30</Date>
+            <Version>3.0.10</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2009-10-07</Date>
+            <Version>3.0.8</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2009-09-15</Date>
+            <Version>3.0.6</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2009-08-06</Date>
+            <Version>3.0.4</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2009-07-16</Date>
+            <Version>3.0.2</Version>
+            <Comment>Depend on the new sub-package.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-07-11</Date>
+            <Version>3.0.2</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-07-02</Date>
+            <Version>3.0.0</Version>
+            <Comment>
+                - New stable release
+                - Build vboxvideo drm module
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-06-01</Date>
+            <Version>2.2.4</Version>
+            <Comment>
+                - New stable release
+                - Do not build vboxvideo for now
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-05-23</Date>
+            <Version>2.2.2</Version>
+            <Comment>Fix unknown symbol errors while loading vboxvfs module</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-05-21</Date>
+            <Version>2.2.2</Version>
+            <Comment>
+                - New stable release
+                - Build new vboxvideo module
+            </Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-04-13</Date>
+            <Version>2.2.0</Version>
+            <Comment>Bump to new release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-02-18</Date>
+            <Version>2.1.4</Version>
+            <Comment>Add udev script to load vboxvfs module and to start time synchronisation daemon</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-02-17</Date>
+            <Version>2.1.4</Version>
+            <Comment>Bump to new bugfix release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-02-01</Date>
+            <Version>2.1.2</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

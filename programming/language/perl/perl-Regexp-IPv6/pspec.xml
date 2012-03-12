@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Regexp-IPv6</Name>
+        <Homepage>http://search.cpan.org/~salva/Regexp-IPv6/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Regular expression for IPv6 addresses</Summary>
+        <Description>perl-Regexp-IPv6 is a Perl module exports the $IPv6_re regular expression that matches any valid IPv6 address as described in "RFC 2373 - 2.2 Text Representation of Addresses" but ::. Any string not compliant with such RFC will be rejected.</Description>
+        <Archive sha1sum="0926165c486339f5377a396927691848d382dc61" type="targz">http://search.cpan.org/CPAN/authors/id/S/SA/SALVA/Regexp-IPv6-0.03.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Regexp-IPv6</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.12.2">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2010-10-13</Date>
+            <Version>0.03</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-08-21</Date>
+            <Version>0.03</Version>
+            <Comment>Strictly depend on perl 5.12.1 and remove useless pisitools.removeDir func. in actions.py.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-05-05</Date>
+            <Version>0.03</Version>
+            <Comment>First release.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

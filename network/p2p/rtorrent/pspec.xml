@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rtorrent</Name>
+        <Homepage>http://libtorrent.rakshasa.no</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>app:console</IsA>
+        <Summary>A BitTorrent client for ncurses</Summary>
+        <Description>Rtorrent is a BitTorrent client for ncurses, using the libtorrent library. The client and library is written in C++ with emphasis on speed and efficiency, while delivering features to those found in GUI based clients in an ncurses client.</Description>
+        <Archive sha1sum="0ac51c185e98b5a386e5f1a07bca9a9963e2d6ce" type="targz">http://libtorrent.rakshasa.no/downloads/rtorrent-0.8.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsigc++-devel</Dependency>
+            <Dependency versionFrom="0.12.9">libtorrent-rakshasa-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>rtorrent</Name>
+        <RuntimeDependencies>
+            <Dependency>libsigc++</Dependency>
+            <Dependency versionFrom="0.12.9">libtorrent-rakshasa</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-10-07</Date>
+            <Version>0.8.9</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökhan Özbulak</Name>
+            <Email>gozbulak@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-05-18</Date>
+            <Version>0.8.6</Version>
+            <Comment>Version bump and takeover.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-09-02</Date>
+            <Version>0.8.5</Version>
+            <Comment>
+                * Version bump.
+                * Package takeover.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-02-04</Date>
+            <Version>0.8.4</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

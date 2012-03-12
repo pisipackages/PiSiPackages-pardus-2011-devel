@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>media-player-info</Name>
+        <Homepage>http://cgit.freedesktop.org/media-player-info</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <Summary>Media player capability database</Summary>
+        <Description>media-player-info is a repository of data files describing media player capabilities. These files contain information about the directory layout to use to add music to these devices, about the supported file formats, etc.</Description>
+        <Archive sha1sum="f81b1ba8662109b5d9ef420201d2221d5e453d6b" type="targz">http://www.freedesktop.org/software/media-player-info/media-player-info-15.tar.gz</Archive>
+        <BuildDependencies>
+            <!-- For pkgconfig fixes in udev -->
+            <Dependency releaseFrom="77">udev</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>media-player-info</Name>
+        <Files>
+            <Path fileType="data">/lib/udev/rules.d</Path>
+            <Path fileType="data">/usr/share/media-player-info</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2011-10-05</Date>
+            <Version>15</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2011-09-22</Date>
+            <Version>14</Version>
+            <Comment>Strictly depend on new udev during build</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2011-09-06</Date>
+            <Version>14</Version>
+            <Comment>Add more device support</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-05-06</Date>
+            <Version>14</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-03-23</Date>
+            <Version>13</Version>
+            <Comment>
+                HTC Evo uses same ID as Desire/Hero in non debug mode -> merging
+                Vortex uses same ID (in debug mode) as Ally -> merge
+                Add playlist format to HTC Desire and friends
+                Improve LG 0x6018 phones m-p-i file
+                Improve Sony Ericsson Xperia X10 mini Pro m-p-i
+                Add Sony Ericsson XPERIA X1
+                Add Motorola Droid 2 Android phone
+                Rename Motorola Droid X mpi file
+                Fix USB id of sony-ericsson K800i (was phone mode instead of mass storage mode)
+                Add storage folder to Sony Ericsson K800i
+                Add Huawei Ideos non-debug mode
+                Add Samsung Galaxy S debug ID
+                Add Desire HD debug ID
+                Don't generate icon rules as it is currently broken (see LP #657609)
+                Add 5 Coby players
+                Add FolderDepth=2 for the Zen Stone
+                Add RCA H100a
+                Add informations about bug reporting
+                Add Samsung U6.
+                Add Sony Walkman NWZ-E355.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-01-11</Date>
+            <Version>12</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-11-10</Date>
+            <Version>11</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

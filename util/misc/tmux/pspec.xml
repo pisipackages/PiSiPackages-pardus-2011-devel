@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tmux</Name>
+        <Homepage>http://tmux.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <License>ISC</License>
+        <IsA>app:console</IsA>
+        <Summary>A terminal multiplexer</Summary>
+        <Description>Tmux is a terminal multiplexer. It's similar to GNU Screen.</Description>
+        <Archive sha1sum="e26132f02f344f8d6d06ae87d11f6a7aad880f67" type="targz">mirrors://sourceforge/tmux/tmux-1.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.0.12">libevent-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tmux</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.0.12">libevent</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2011-09-28</Date>
+            <Version>1.5</Version>
+            <Comment>Remove buggy patch. It causes regression with socket handling</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2011-09-05</Date>
+            <Version>1.5</Version>
+            <Comment>
+                * New stable release
+                * Comes with a beautiful makefile, no need to patch old makefile
+                * Lots of changes, the important ones are:
+                    * Add three new copy-mode commands - select-line, copy-line, copy-end-of-line.
+                    * Support setting the xterm clipboard when copying from copy mode using the
+                      xterm escape sequence for the purpose (if xterm is configured to allow it).
+                    * Vi mode improvements
+                    * For more information look at: http://tmux.svn.sourceforge.net/viewvc/tmux/trunk/CHANGES
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2011-06-28</Date>
+            <Version>1.4</Version>
+            <Comment>Write strict dependency to new version of libevent</Comment>
+            <Name>Meltem Parmaksız</Name>
+            <Email>meltem@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2011-06-03</Date>
+            <Version>1.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

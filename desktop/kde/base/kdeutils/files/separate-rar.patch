@@ -1,0 +1,70 @@
+Index: kdeutils-4.6.3/ark/kerfuffle/archivebase.cpp
+===================================================================
+--- kdeutils-4.6.3.orig/ark/kerfuffle/archivebase.cpp
++++ kdeutils-4.6.3/ark/kerfuffle/archivebase.cpp
+@@ -35,6 +35,9 @@
+ #include <QStringList>
+ 
+ #include <KDebug>
++#include <KMessageBox>
++#include <KProcess>
++#include <KLocale>
+ 
+ namespace Kerfuffle
+ {
+@@ -81,11 +84,33 @@ ListJob* ArchiveBase::list()
+     return job;
+ }
+ 
++void ArchiveBase::installRarIfNeeded()
++{
++    if( m_iface->filename().endsWith(".rar") ) {
++        QFile rar( "/usr/bin/rar" );
++        if( !rar.exists() ) {
++            int ans = KMessageBox::questionYesNo(NULL, i18n("Compression in rar format requires closed sourced proprietary software to be installed. We recommend against this. Do you want to continue anyway?"));
++            if( ans == KMessageBox::Yes ) {
++                KProcess pmInstall;
++                pmInstall << "/usr/bin/pm-install" << "--hide-summary" << "kdeutils-plugin-rar";
++                pmInstall.setOutputChannelMode(KProcess::SeparateChannels);
++                int failed = pmInstall.execute();
++                if(failed)
++                    KMessageBox::error(NULL, i18n("Packages could not be installed."));
++            } else {
++                exit(0);
++            }
++        }
++    }
++}
++
+ DeleteJob* ArchiveBase::deleteFiles(const QList<QVariant> & files)
+ {
+     if (m_iface->isReadOnly()) {
+         return 0;
+     }
++    installRarIfNeeded();
++
+     DeleteJob *newJob = new DeleteJob(files, static_cast<ReadWriteArchiveInterface*>(m_iface), this);
+ 
+     return newJob;
+@@ -94,6 +119,9 @@ DeleteJob* ArchiveBase::deleteFiles(cons
+ AddJob* ArchiveBase::addFiles(const QStringList & files, const CompressionOptions& options)
+ {
+     Q_ASSERT(!m_iface->isReadOnly());
++
++    installRarIfNeeded();
++
+     AddJob *newJob = new AddJob(files, options, static_cast<ReadWriteArchiveInterface*>(m_iface), this);
+     connect(newJob, SIGNAL(result(KJob*)),
+             this, SLOT(onAddFinished(KJob*)));
+Index: kdeutils-4.6.3/ark/kerfuffle/archivebase.h
+===================================================================
+--- kdeutils-4.6.3.orig/ark/kerfuffle/archivebase.h
++++ kdeutils-4.6.3/ark/kerfuffle/archivebase.h
+@@ -67,6 +67,7 @@ private slots:
+     void onAddFinished(KJob*);
+ 
+ private:
++    void installRarIfNeeded();
+     void listIfNotListed();
+     ReadOnlyArchiveInterface *m_iface;
+     bool m_hasBeenListed;

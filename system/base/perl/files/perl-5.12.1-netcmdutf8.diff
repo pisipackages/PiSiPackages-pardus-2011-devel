@@ -1,0 +1,25 @@
+diff -Naur perl-5.12.1.orig/cpan/libnet/Net/Cmd.pm perl-5.12.1/cpan/libnet/Net/Cmd.pm
+--- perl-5.12.1.orig/cpan/libnet/Net/Cmd.pm	2010-04-26 11:09:07.000000000 +0300
++++ perl-5.12.1/cpan/libnet/Net/Cmd.pm	2010-08-18 11:54:08.340000245 +0300
+@@ -226,6 +226,10 @@
+     $str = $cmd->toascii($str) if $tr;
+     $str .= "\015\012";
+ 
++    # encode to individual utf8 bytes if
++    # $str is a string (in internal UTF-8)
++    utf8::encode($str) if is_utf8($str);
++
+     my $len = length $str;
+     my $swlen;
+ 
+@@ -471,6 +475,10 @@
+ 
+   return 0 unless defined(fileno($cmd));
+ 
++  # encode to individual utf8 bytes if
++  # $line is a string (in internal UTF-8)
++  utf8::encode($line) if is_utf8($line);
++
+   return 1
+     unless length($line);
+ 

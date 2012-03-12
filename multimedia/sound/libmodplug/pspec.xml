@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libmodplug</Name>
+        <Homepage>http://modplug-xmms.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Library for playing MOD-like music files</Summary>
+        <Description>libmodplug is a library based on the mod rendering code from ModPlug, a popular windows mod player written by Olivier Lapicque.</Description>
+        <Archive sha1sum="425bb013194242ac45d36f547574d3883ee52770" type="targz">mirrors://sourceforge/modplug-xmms/libmodplug-0.8.8.2.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">libmodplug-0.8.4-timidity-patches.patch</Patch>
+            <Patch level="2">modplug-xmms-16d7a78efe14d345a6c5b241f88422ad0ee483ea.patch</Patch>
+            <Patch level="2">modplug-xmms-26243ab9fe1171f70053e9aec4b20e9f7de9e4ef.patch</Patch>
+            <Patch level="2">modplug-xmms-2d4c56de314ab13e4437bd8b609f0b751066eee8.patch</Patch>
+            <Patch level="2">modplug-xmms-f4e5295658fff000379caa122e75c9200205fe20.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libmodplug</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+    <Package>
+        <Name>libmodplug-devel</Name>
+        <RuntimeDependencies>
+            <Dependency release="current">libmodplug</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="9" type="security">
+            <Date>2011-08-10</Date>
+            <Version>0.8.8.2</Version>
+            <Comment>Fix multiple vulnurabilities, fixes pb #18917 #18918 #18919 #18920</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="8" type="security">
+            <Date>2011-04-12</Date>
+            <Version>0.8.8.2</Version>
+            <Comment>Fix S3M stack overflow, fixes CVE-2011-1574, fixes pb #17755 #17756 #17757 #17758</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-10-12</Date>
+            <Version>0.8.8.1</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2010-08-19</Date>
+            <Version>0.8.8.1</Version>
+            <Comment>
+                Version bump
+                Split devel packages
+                Use sourceforge mirrors
+            </Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="5" type="security">
+            <Date>2009-08-27</Date>
+            <Version>0.8.7</Version>
+            <Comment>Version bump to fix integer overflow in MED files loading routine (#10994).</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4" type="security">
+            <Date>2009-04-24</Date>
+            <Version>0.8.4</Version>
+            <Comment>Fix integer boundary condition, bug #9619</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-04-23</Date>
+            <Version>0.8.4</Version>
+            <Comment>Be 64bit ready</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-04-03</Date>
+            <Version>0.8.4</Version>
+            <Comment>Compile with new toolchain</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-02</Date>
+            <Version>0.8.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

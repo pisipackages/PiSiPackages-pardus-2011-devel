@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>less</Name>
+        <Homepage>http://www.greenwoodsoftware.com/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>Excellent text file viewer</Summary>
+        <Description>The less utility is a text file browser that resembles more, but has more capabilities. Less allows you to move backwards in the file as well as forwards. Since less doesn't have to read the entire input file before it starts, less starts up more quickly than text editors (for example, vi).</Description>
+        <Archive sha1sum="2a10860360a98c07353bbd5b28ec7477af3ec8a4" type="targz">http://www.greenwoodsoftware.com/less/less-444.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="5.2">ncurses</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">less-394-time.patch</Patch>
+            <!-- Define HAVE_FSYNC if fsync() on a tty works. -->
+            <Patch level="1">less-418-fsync.patch</Patch>
+            <!-- enable the script returning zero if the output was
+            valid and non-zero otherwise, so less could detect even
+            a valid empty output (for example while uncompressing
+            gzipped empty file) This is not enabled by default, if you
+            want to enable it, put another vertical bar (|) straight
+            after the first one in the LESSOPEN environment variable, eg.
+            LESSOPEN="||lesspipe.sh %s".
+            -->
+            <Patch level="1">less-436-empty-lessopen-pipe.patch</Patch>
+            <Patch level="1">less-443-Foption.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>less</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.2">ncurses</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/env.d</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/lesspipe.sh">lesspipe.sh</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/env.d/70less">70less</AdditionalFile>
+            <!-- http://www-zeuthen.desy.de/~friebel/unix/less/code2color -->
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/code2color">code2color</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="11">
+            <Date>2011-08-12</Date>
+            <Version>444</Version>
+            <Comment>Version bump to bugfix release:
+                * Fix bug in unget handling that can cause strange effects on the command line.
+                * Remove vestiges of obsolete -l option that can cause a crash.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2011-05-31</Date>
+            <Version>443</Version>
+            <Comment>* Version bump to version 443.
+                * Foption patch made applicable against 443
+                * Add a patch (less-436-empty-lessopen-pipe.patch) to enable the script returning zero if the output was valid and non-zero otherwise, so less could detect even a valid empty output (for example while uncompressing gzipped empty file).
+                * Define HAVE_FSYNC if fsync() on a tty works.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-10-11</Date>
+            <Version>436</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-09-15</Date>
+            <Version>436</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-01-03</Date>
+            <Version>418</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-11-06</Date>
+            <Version>413</Version>
+            <Comment>Version bump to fix a fallout from #34</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-11-06</Date>
+            <Version>411</Version>
+            <Comment>Version bump, fixes #34</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-10-26</Date>
+            <Version>409</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-07-22</Date>
+            <Version>406</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-03-28</Date>
+            <Version>394</Version>
+            <Comment>Version bump</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-22</Date>
+            <Version>382</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

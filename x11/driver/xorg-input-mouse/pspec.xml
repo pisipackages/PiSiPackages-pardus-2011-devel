@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xorg-input-mouse</Name>
+        <Homepage>http://www.x.org</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>driver</IsA>
+        <Summary>X.Org mouse input driver</Summary>
+        <Description>xorg-input-mouse contains the X.Org driver for mice.</Description>
+        <Archive sha1sum="8b99054e5e4feafd7e08c87b936e64386b74ae8f" type="tarbz2">mirrors://xorg/individual/driver/xf86-input-mouse-1.7.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.8.99">xorg-server-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xorg-input-mouse</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.8.99">xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/xorg</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2011-03-24</Date>
+            <Version>1.7.0</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2011-01-07</Date>
+            <Version>1.6.0</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-10-12</Date>
+            <Version>1.5.0</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-12-15</Date>
+            <Version>1.5.0</Version>
+            <Comment>New stable release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-04-11</Date>
+            <Version>1.4.0</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

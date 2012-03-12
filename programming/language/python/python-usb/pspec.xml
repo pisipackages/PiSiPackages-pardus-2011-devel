@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-usb</Name>
+        <Homepage>http://pyusb.berlios.de</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Python bindings for libusb 0.x</Summary>
+        <Description>python-usb is a native Python module written in C which provides USB access for it.</Description>
+        <Archive sha1sum="5a6729169e320e9dfb19c6af461eca6d45242787" type="targz">mirrors://sourceforge/pyusb/PyUSB%200.x/0.4.3/pyusb-0.4.3.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>python-usb</Name>
+        <Replaces>
+            <Package>pyusb</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2010-12-27</Date>
+            <Version>0.4.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-10-13</Date>
+            <Version>0.4.2</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-07-13</Date>
+            <Version>0.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2009-01-16</Date>
+            <Version>0.4.1</Version>
+            <Comment>Take over package, dummy release for squeezing the contrib one.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-09-08</Date>
+            <Version>0.4.1</Version>
+            <Comment>Version bump and add documentation</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-14</Date>
+            <Version>0.3.5</Version>
+            <Comment>First release</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

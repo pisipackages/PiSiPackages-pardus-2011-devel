@@ -1,0 +1,14 @@
+Index: mozilla-release/browser/locales/Makefile.in
+===================================================================
+--- mozilla-release.orig/browser/locales/Makefile.in
++++ mozilla-release/browser/locales/Makefile.in
+@@ -195,7 +195,9 @@ GARBAGE += tmp-search.jar.mn
+ libs-%:
+ 	$(NSINSTALL) -D $(DIST)/install
+ 	@$(MAKE) -C ../../toolkit/locales libs-$* BOTH_MANIFESTS=1
++ifdef MOZ_SERVICES_SYNC
+ 	@$(MAKE) -C ../../services/sync/locales AB_CD=$* XPI_NAME=locale-$* BOTH_MANIFESTS=1
++endif
+ 	@$(MAKE) -B searchplugins AB_CD=$* XPI_NAME=locale-$*
+ 	@$(MAKE) -C ../../extensions/spellcheck/locales AB_CD=$* XPI_NAME=locale-$* BOTH_MANIFESTS=1
+ 	@$(MAKE) -C ../../intl/locales AB_CD=$* XPI_NAME=locale-$* BOTH_MANIFESTS=1

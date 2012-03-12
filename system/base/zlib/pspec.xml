@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>zlib</Name>
+        <Homepage>http://www.gzip.org/zlib/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>ZLIB</License>
+        <IsA>library</IsA>
+        <Summary>Standard (de)compression library</Summary>
+        <Description>Zlib is a general-purpose, patent-free, lossless data compression library which is used by many different programs.</Description>
+        <Archive sha1sum="8e8b93fa5eb80df1afe5422309dca42964562d7e" type="targz">http://www.zlib.net/zlib-1.2.5.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">zlib-1.2.4-autotools.patch</Patch>
+            <Patch level="1">zlib-1.2.5-gentoo.patch</Patch>
+            <Patch level="1">dont-call-ldconfig.patch</Patch>
+            <Patch level="1">zlib-1.2.2-format.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>minizip</Name>
+        <PartOf>util.archive</PartOf>
+        <Summary>Library for manipulating files from a zip archive</Summary>
+        <BuildType>minizip</BuildType>
+        <RuntimeDependencies>
+            <Dependency release="current">zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/libminizip.so*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>minizip-devel</Name>
+        <PartOf>util.archive</PartOf>
+        <Summary>Development files for minizip</Summary>
+        <BuildType>minizip</BuildType>
+        <RuntimeDependencies>
+            <Dependency release="current">minizip</Dependency>
+            <Dependency release="current">zlib-devel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/minizip</Path>
+            <Path fileType="data">/usr/lib/pkgconfig/minizip.pc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>zlib</Name>
+        <Files>
+            <Path fileType="library">/lib/libz.so*</Path>
+            <Path fileType="library">/usr/lib/libz.so*</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>zlib-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development files for zlib</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/lib/pkgconfig/zlib.pc</Path>
+            <Path fileType="data">/usr/lib32/pkgconfig</Path>
+            <Path fileType="header">/usr/include/z*.h</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+            <Path fileType="doc">/usr/share/doc/zlib/algorithm.txt</Path>
+            <Path fileType="doc">/usr/share/doc/zlib/example.c</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>zlib-32bit</Name>
+        <PartOf>emul32</PartOf>
+        <Summary>32-bit shared libraries for zlib</Summary>
+        <BuildType>emul32</BuildType>
+        <RuntimeDependencies>
+            <Dependency release="current">zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib32/libz.so*</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="13">
+            <Date>2011-03-01</Date>
+            <Version>1.2.5</Version>
+            <Comment>Add main package as dep for 32-bit package</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2011-02-28</Date>
+            <Version>1.2.5</Version>
+            <Comment>Add lib32 package for zlib</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2010-10-11</Date>
+            <Version>1.2.5</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2010-08-20</Date>
+            <Version>1.2.5</Version>
+            <Comment>Version bump and split devel packages.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2010-06-08</Date>
+            <Version>1.2.3</Version>
+            <Comment>Refactor package, split out minizip</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2010-02-23</Date>
+            <Version>1.2.3</Version>
+            <Comment>Fix unchecked malloc()</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-02-12</Date>
+            <Version>1.2.3</Version>
+            <Comment>Don't call ldconfig</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-07-14</Date>
+            <Version>1.2.3</Version>
+            <Comment>Use gcc visibility to handle exporting of symbols (gentoo bug #149929), disable zlib-1.2.2-mapfile.patch to enable 1.2.2+ symbols</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-05-08</Date>
+            <Version>1.2.3</Version>
+            <Comment>Revert cleanup, we need libs or links to libs in /usr/lib, see python-imaging for example</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-09-10</Date>
+            <Version>1.2.3</Version>
+            <Comment>Install zutil.h and really remove static lib</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2005-11-13</Date>
+            <Version>1.2.3</Version>
+            <Comment>Fixed wrong file path specification.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="2" type="security">
+            <Date>2005-10-27</Date>
+            <Version>1.2.3</Version>
+            <Comment>Update to version 1.2.3 to fix multiple security vulnerabilities</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-07-25</Date>
+            <Version>1.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

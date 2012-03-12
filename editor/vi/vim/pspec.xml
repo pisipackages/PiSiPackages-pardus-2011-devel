@@ -1,0 +1,1229 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vim</Name>
+        <Homepage>http://www.vim.org/</Homepage>
+        <Packager>
+            <Name>PiSi Packages</Name>
+            <Email>packages@pisipackages.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Summary>Vi IMproved, an advanced text editor</Summary>
+        <Description>Vim, which stands for Vi IMproved, is an open-source, multiplatform text editor extended from vi. It was first released by Bram Moolenaar in 1991. Since then, numerous features have been added to Vim, many of which are helpful in editing program source code.</Description>
+        <Archive sha1sum="46faa96c5fab639899b1c655c23d8755b62f036f" type="tarbz2">ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gpm</Dependency>
+            <Dependency>ctags</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>libSM-devel</Dependency>
+            <Dependency>libXt-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>libICE-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Official VIM patches: ftp://ftp.vim.org/pub/vim/patches -->
+            <Patch>official/7.3.001</Patch>
+            <Patch>official/7.3.002</Patch>
+            <Patch>official/7.3.003</Patch>
+            <Patch>official/7.3.004</Patch>
+            <Patch>official/7.3.005</Patch>
+            <Patch>official/7.3.006</Patch>
+            <Patch>official/7.3.007</Patch>
+            <Patch>official/7.3.008</Patch>
+            <Patch>official/7.3.009</Patch>
+            <Patch>official/7.3.010</Patch>
+            <Patch>official/7.3.011</Patch>
+            <Patch>official/7.3.012</Patch>
+            <Patch>official/7.3.013</Patch>
+            <Patch>official/7.3.014</Patch>
+            <Patch>official/7.3.015</Patch>
+            <Patch>official/7.3.016</Patch>
+            <Patch>official/7.3.017</Patch>
+            <Patch>official/7.3.018</Patch>
+            <Patch>official/7.3.019</Patch>
+            <Patch>official/7.3.020</Patch>
+            <Patch>official/7.3.021</Patch>
+            <Patch>official/7.3.022</Patch>
+            <Patch>official/7.3.023</Patch>
+            <Patch>official/7.3.024</Patch>
+            <Patch>official/7.3.025</Patch>
+            <Patch>official/7.3.026</Patch>
+            <Patch>official/7.3.027</Patch>
+            <Patch>official/7.3.028</Patch>
+            <Patch>official/7.3.029</Patch>
+            <Patch>official/7.3.030</Patch>
+            <Patch>official/7.3.031</Patch>
+            <Patch>official/7.3.032</Patch>
+            <Patch>official/7.3.033</Patch>
+            <Patch>official/7.3.034</Patch>
+            <Patch>official/7.3.035</Patch>
+            <Patch>official/7.3.036</Patch>
+            <Patch>official/7.3.037</Patch>
+            <Patch>official/7.3.038</Patch>
+            <Patch>official/7.3.039</Patch>
+            <Patch>official/7.3.040</Patch>
+            <Patch>official/7.3.041</Patch>
+            <Patch>official/7.3.042</Patch>
+            <Patch>official/7.3.043</Patch>
+            <Patch>official/7.3.044</Patch>
+            <Patch>official/7.3.045</Patch>
+            <Patch>official/7.3.046</Patch>
+            <Patch>official/7.3.047</Patch>
+            <Patch>official/7.3.048</Patch>
+            <Patch>official/7.3.049</Patch>
+            <Patch>official/7.3.050</Patch>
+            <Patch>official/7.3.051</Patch>
+            <Patch>official/7.3.052</Patch>
+            <Patch>official/7.3.053</Patch>
+            <Patch>official/7.3.054</Patch>
+            <Patch>official/7.3.055</Patch>
+            <Patch>official/7.3.056</Patch>
+            <Patch>official/7.3.057</Patch>
+            <Patch>official/7.3.058</Patch>
+            <Patch>official/7.3.059</Patch>
+            <Patch>official/7.3.060</Patch>
+            <Patch>official/7.3.061</Patch>
+            <Patch>official/7.3.062</Patch>
+            <Patch>official/7.3.063</Patch>
+            <Patch>official/7.3.064</Patch>
+            <Patch>official/7.3.065</Patch>
+            <Patch>official/7.3.066</Patch>
+            <Patch>official/7.3.067</Patch>
+            <Patch>official/7.3.068</Patch>
+            <Patch>official/7.3.069</Patch>
+            <Patch>official/7.3.070</Patch>
+            <Patch>official/7.3.071</Patch>
+            <Patch>official/7.3.072</Patch>
+            <Patch>official/7.3.073</Patch>
+            <Patch>official/7.3.074</Patch>
+            <Patch>official/7.3.075</Patch>
+            <Patch>official/7.3.076</Patch>
+            <Patch>official/7.3.077</Patch>
+            <Patch>official/7.3.078</Patch>
+            <Patch>official/7.3.079</Patch>
+            <Patch>official/7.3.080</Patch>
+            <Patch>official/7.3.081</Patch>
+            <Patch>official/7.3.082</Patch>
+            <Patch>official/7.3.083</Patch>
+            <Patch>official/7.3.084</Patch>
+            <Patch>official/7.3.085</Patch>
+            <Patch>official/7.3.086</Patch>
+            <Patch>official/7.3.087</Patch>
+            <Patch>official/7.3.088</Patch>
+            <Patch>official/7.3.089</Patch>
+            <Patch>official/7.3.090</Patch>
+            <Patch>official/7.3.091</Patch>
+            <Patch>official/7.3.092</Patch>
+            <Patch>official/7.3.093</Patch>
+            <Patch>official/7.3.094</Patch>
+            <Patch>official/7.3.095</Patch>
+            <Patch>official/7.3.096</Patch>
+            <Patch>official/7.3.097</Patch>
+            <Patch>official/7.3.098</Patch>
+            <Patch>official/7.3.099</Patch>
+            <Patch>official/7.3.100</Patch>
+            <Patch>official/7.3.101</Patch>
+            <Patch>official/7.3.102</Patch>
+            <Patch>official/7.3.103</Patch>
+            <Patch>official/7.3.104</Patch>
+            <Patch>official/7.3.105</Patch>
+            <Patch>official/7.3.106</Patch>
+            <Patch>official/7.3.107</Patch>
+            <Patch>official/7.3.108</Patch>
+            <Patch>official/7.3.109</Patch>
+            <Patch>official/7.3.110</Patch>
+            <Patch>official/7.3.111</Patch>
+            <Patch>official/7.3.112</Patch>
+            <Patch>official/7.3.113</Patch>
+            <Patch>official/7.3.114</Patch>
+            <Patch>official/7.3.115</Patch>
+            <Patch>official/7.3.116</Patch>
+            <Patch>official/7.3.117</Patch>
+            <Patch>official/7.3.118</Patch>
+            <Patch>official/7.3.119</Patch>
+            <Patch>official/7.3.120</Patch>
+            <Patch>official/7.3.121</Patch>
+            <Patch>official/7.3.122</Patch>
+            <Patch>official/7.3.123</Patch>
+            <Patch>official/7.3.124</Patch>
+            <Patch>official/7.3.125</Patch>
+            <Patch>official/7.3.126</Patch>
+            <Patch>official/7.3.127</Patch>
+            <Patch>official/7.3.128</Patch>
+            <Patch>official/7.3.129</Patch>
+            <Patch>official/7.3.130</Patch>
+            <Patch>official/7.3.131</Patch>
+            <Patch>official/7.3.132</Patch>
+            <Patch>official/7.3.133</Patch>
+            <Patch>official/7.3.134</Patch>
+            <Patch>official/7.3.135</Patch>
+            <Patch>official/7.3.136</Patch>
+            <Patch>official/7.3.137</Patch>
+            <Patch>official/7.3.138</Patch>
+            <Patch>official/7.3.139</Patch>
+            <Patch>official/7.3.140</Patch>
+            <Patch>official/7.3.141</Patch>
+            <Patch>official/7.3.142</Patch>
+            <Patch>official/7.3.143</Patch>
+            <Patch>official/7.3.144</Patch>
+            <Patch>official/7.3.145</Patch>
+            <Patch>official/7.3.146</Patch>
+            <Patch>official/7.3.147</Patch>
+            <Patch>official/7.3.148</Patch>
+            <Patch>official/7.3.149</Patch>
+            <Patch>official/7.3.150</Patch>
+            <Patch>official/7.3.151</Patch>
+            <Patch>official/7.3.152</Patch>
+            <Patch>official/7.3.153</Patch>
+            <Patch>official/7.3.154</Patch>
+            <Patch>official/7.3.155</Patch>
+            <Patch>official/7.3.156</Patch>
+            <Patch>official/7.3.157</Patch>
+            <Patch>official/7.3.158</Patch>
+            <Patch>official/7.3.159</Patch>
+            <Patch>official/7.3.160</Patch>
+            <Patch>official/7.3.161</Patch>
+            <Patch>official/7.3.162</Patch>
+            <Patch>official/7.3.163</Patch>
+            <Patch>official/7.3.164</Patch>
+            <Patch>official/7.3.165</Patch>
+            <Patch>official/7.3.166</Patch>
+            <Patch>official/7.3.167</Patch>
+            <Patch>official/7.3.168</Patch>
+            <Patch>official/7.3.169</Patch>
+            <Patch>official/7.3.170</Patch>
+            <Patch>official/7.3.171</Patch>
+            <Patch>official/7.3.172</Patch>
+            <Patch>official/7.3.173</Patch>
+            <Patch>official/7.3.174</Patch>
+            <Patch>official/7.3.175</Patch>
+            <Patch>official/7.3.176</Patch>
+            <Patch>official/7.3.177</Patch>
+            <Patch>official/7.3.178</Patch>
+            <Patch>official/7.3.179</Patch>
+            <Patch>official/7.3.180</Patch>
+            <Patch>official/7.3.181</Patch>
+            <Patch>official/7.3.182</Patch>
+            <Patch>official/7.3.183</Patch>
+            <Patch>official/7.3.184</Patch>
+            <Patch>official/7.3.185</Patch>
+            <Patch>official/7.3.186</Patch>
+            <Patch>official/7.3.187</Patch>
+            <Patch>official/7.3.188</Patch>
+            <Patch>official/7.3.189</Patch>
+            <Patch>official/7.3.190</Patch>
+            <Patch>official/7.3.191</Patch>
+            <Patch>official/7.3.192</Patch>
+            <Patch>official/7.3.193</Patch>
+            <Patch>official/7.3.194</Patch>
+            <Patch>official/7.3.195</Patch>
+            <Patch>official/7.3.196</Patch>
+            <Patch>official/7.3.197</Patch>
+            <Patch>official/7.3.198</Patch>
+            <Patch>official/7.3.199</Patch>
+            <Patch>official/7.3.200</Patch>
+            <Patch>official/7.3.201</Patch>
+            <Patch>official/7.3.202</Patch>
+            <Patch>official/7.3.203</Patch>
+            <Patch>official/7.3.204</Patch>
+            <Patch>official/7.3.205</Patch>
+            <Patch>official/7.3.206</Patch>
+            <Patch>official/7.3.207</Patch>
+            <Patch>official/7.3.208</Patch>
+            <Patch>official/7.3.209</Patch>
+            <Patch>official/7.3.210</Patch>
+            <Patch>official/7.3.211</Patch>
+            <Patch>official/7.3.212</Patch>
+            <Patch>official/7.3.213</Patch>
+            <Patch>official/7.3.214</Patch>
+            <Patch>official/7.3.215</Patch>
+            <Patch>official/7.3.216</Patch>
+            <Patch>official/7.3.217</Patch>
+            <Patch>official/7.3.218</Patch>
+            <Patch>official/7.3.219</Patch>
+            <Patch>official/7.3.220</Patch>
+            <Patch>official/7.3.221</Patch>
+            <Patch>official/7.3.222</Patch>
+            <Patch>official/7.3.223</Patch>
+            <Patch>official/7.3.224</Patch>
+            <Patch>official/7.3.225</Patch>
+            <Patch>official/7.3.226</Patch>
+            <Patch>official/7.3.227</Patch>
+            <Patch>official/7.3.228</Patch>
+            <Patch>official/7.3.229</Patch>
+            <Patch>official/7.3.230</Patch>
+            <Patch>official/7.3.231</Patch>
+            <Patch>official/7.3.232</Patch>
+            <Patch>official/7.3.233</Patch>
+            <Patch>official/7.3.234</Patch>
+            <Patch>official/7.3.235</Patch>
+            <Patch>official/7.3.236</Patch>
+            <Patch>official/7.3.237</Patch>
+            <Patch>official/7.3.238</Patch>
+            <Patch>official/7.3.239</Patch>
+            <Patch>official/7.3.240</Patch>
+            <Patch>official/7.3.241</Patch>
+            <Patch>official/7.3.242</Patch>
+            <Patch>official/7.3.243</Patch>
+            <Patch>official/7.3.244</Patch>
+            <Patch>official/7.3.245</Patch>
+            <Patch>official/7.3.246</Patch>
+            <Patch>official/7.3.247</Patch>
+            <Patch>official/7.3.248</Patch>
+            <Patch>official/7.3.249</Patch>
+            <Patch>official/7.3.250</Patch>
+            <Patch>official/7.3.251</Patch>
+            <Patch>official/7.3.252</Patch>
+            <Patch>official/7.3.253</Patch>
+            <Patch>official/7.3.254</Patch>
+            <Patch>official/7.3.255</Patch>
+            <Patch>official/7.3.256</Patch>
+            <Patch>official/7.3.257</Patch>
+            <Patch>official/7.3.258</Patch>
+            <Patch>official/7.3.259</Patch>
+            <Patch>official/7.3.260</Patch>
+            <Patch>official/7.3.261</Patch>
+            <Patch>official/7.3.262</Patch>
+            <Patch>official/7.3.263</Patch>
+            <Patch>official/7.3.264</Patch>
+            <Patch>official/7.3.265</Patch>
+            <Patch>official/7.3.266</Patch>
+            <Patch>official/7.3.267</Patch>
+            <Patch>official/7.3.268</Patch>
+            <Patch>official/7.3.269</Patch>
+            <Patch>official/7.3.270</Patch>
+            <Patch>official/7.3.271</Patch>
+            <Patch>official/7.3.272</Patch>
+            <Patch>official/7.3.273</Patch>
+            <Patch>official/7.3.274</Patch>
+            <Patch>official/7.3.275</Patch>
+            <Patch>official/7.3.276</Patch>
+            <Patch>official/7.3.277</Patch>
+            <Patch>official/7.3.278</Patch>
+            <Patch>official/7.3.279</Patch>
+            <Patch>official/7.3.280</Patch>
+            <Patch>official/7.3.281</Patch>
+            <Patch>official/7.3.282</Patch>
+            <Patch>official/7.3.283</Patch>
+            <Patch>official/7.3.284</Patch>
+            <Patch>official/7.3.285</Patch>
+            <Patch>official/7.3.286</Patch>
+            <Patch>official/7.3.287</Patch>
+            <Patch>official/7.3.288</Patch>
+            <Patch>official/7.3.289</Patch>
+            <Patch>official/7.3.290</Patch>
+            <Patch>official/7.3.291</Patch>
+            <Patch>official/7.3.292</Patch>
+            <Patch>official/7.3.293</Patch>
+            <Patch>official/7.3.294</Patch>
+            <Patch>official/7.3.295</Patch>
+            <Patch>official/7.3.296</Patch>
+            <Patch>official/7.3.297</Patch>
+            <Patch>official/7.3.298</Patch>
+            <Patch>official/7.3.299</Patch>
+            <Patch>official/7.3.300</Patch>
+            <Patch>official/7.3.301</Patch>
+            <Patch>official/7.3.302</Patch>
+            <Patch>official/7.3.303</Patch>
+            <Patch>official/7.3.304</Patch>
+            <Patch>official/7.3.305</Patch>
+            <Patch>official/7.3.306</Patch>
+            <Patch>official/7.3.307</Patch>
+            <Patch>official/7.3.308</Patch>
+            <Patch>official/7.3.309</Patch>
+            <Patch>official/7.3.310</Patch>
+            <Patch>official/7.3.311</Patch>
+            <Patch>official/7.3.312</Patch>
+            <Patch>official/7.3.313</Patch>
+            <Patch>official/7.3.314</Patch>
+            <Patch>official/7.3.315</Patch>
+            <Patch>official/7.3.316</Patch>
+            <Patch>official/7.3.317</Patch>
+            <Patch>official/7.3.318</Patch>
+            <Patch>official/7.3.319</Patch>
+            <Patch>official/7.3.320</Patch>
+            <Patch>official/7.3.321</Patch>
+            <Patch>official/7.3.322</Patch>
+            <Patch>official/7.3.323</Patch>
+            <Patch>official/7.3.324</Patch>
+            <Patch>official/7.3.325</Patch>
+            <Patch>official/7.3.326</Patch>
+            <Patch>official/7.3.327</Patch>
+            <Patch>official/7.3.328</Patch>
+            <Patch>official/7.3.329</Patch>
+            <Patch>official/7.3.330</Patch>
+            <Patch>official/7.3.331</Patch>
+            <Patch>official/7.3.332</Patch>
+            <Patch>official/7.3.333</Patch>
+            <Patch>official/7.3.334</Patch>
+            <Patch>official/7.3.335</Patch>
+            <Patch>official/7.3.336</Patch>
+            <Patch>official/7.3.337</Patch>
+            <Patch>official/7.3.338</Patch>
+            <Patch>official/7.3.339</Patch>
+            <Patch>official/7.3.340</Patch>
+            <Patch>official/7.3.341</Patch>
+            <Patch>official/7.3.342</Patch>
+            <Patch>official/7.3.343</Patch>
+            <Patch>official/7.3.344</Patch>
+            <Patch>official/7.3.345</Patch>
+            <Patch>official/7.3.346</Patch>
+            <Patch>official/7.3.347</Patch>
+            <Patch>official/7.3.348</Patch>
+            <Patch>official/7.3.349</Patch>
+            <Patch>official/7.3.350</Patch>
+            <Patch>official/7.3.351</Patch>
+            <Patch>official/7.3.352</Patch>
+            <Patch>official/7.3.353</Patch>
+            <Patch>official/7.3.354</Patch>
+            <Patch>official/7.3.355</Patch>
+            <Patch>official/7.3.356</Patch>
+            <Patch>official/7.3.357</Patch>
+            <Patch>official/7.3.358</Patch>
+            <Patch>official/7.3.359</Patch>
+            <Patch>official/7.3.360</Patch>
+            <Patch>official/7.3.361</Patch>
+            <Patch>official/7.3.362</Patch>
+            <Patch>official/7.3.363</Patch>
+            <Patch>official/7.3.364</Patch>
+            <Patch>official/7.3.365</Patch>
+            <Patch>official/7.3.366</Patch>
+            <Patch>official/7.3.367</Patch>
+            <Patch>official/7.3.368</Patch>
+            <Patch>official/7.3.369</Patch>
+            <Patch>official/7.3.370</Patch>
+            <Patch>official/7.3.371</Patch>
+            <Patch>official/7.3.372</Patch>
+            <Patch>official/7.3.373</Patch>
+            <Patch>official/7.3.374</Patch>
+            <Patch>official/7.3.375</Patch>
+            <Patch>official/7.3.376</Patch>
+            <Patch>official/7.3.377</Patch>
+            <Patch>official/7.3.378</Patch>
+            <Patch>official/7.3.379</Patch>
+            <Patch>official/7.3.380</Patch>
+            <Patch>official/7.3.381</Patch>
+            <Patch>official/7.3.382</Patch>
+            <Patch>official/7.3.383</Patch>
+            <Patch>official/7.3.384</Patch>
+            <Patch>official/7.3.385</Patch>
+            <Patch>official/7.3.386</Patch>
+            <Patch>official/7.3.387</Patch>
+            <Patch>official/7.3.388</Patch>
+            <Patch>official/7.3.389</Patch>
+            <Patch>official/7.3.390</Patch>
+
+            <!--
+            Don't forget to update official/README everyime to add new patches
+
+            An handy shell loop for downloading vim patches:
+            for i in {162..198}; do wget ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.$i ;done
+            -->
+
+            <!-- Fix xml autocomplete crash (Fixes #8383) -->
+            <Patch>vim-fix-xml-crash.patch</Patch>
+
+            <!-- Pardus patches-->
+            <Patch level="1">pardus/pisi.patch</Patch>
+
+            <!-- syntax higlighting fixes -->
+            <Patch level="1">pardus/bash_completion.patch</Patch>
+            <Patch level="1">pardus/fstab.patch</Patch>
+            <Patch level="1">pardus/grub_conf.patch</Patch>
+            <Patch level="1">pardus/grub_locations.patch</Patch>
+            <Patch level="1">pardus/xorg_conf.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>vim</Name>
+        <IsA>app:console</IsA>
+        <RuntimeDependencies>
+            <Dependency>gpm</Dependency>
+            <Dependency>ctags</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency>libXt</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>ruby</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/vi*</Path>
+            <Path fileType="executable">/usr/bin/rvi*</Path>
+            <Path fileType="executable">/usr/bin/ex</Path>
+            <Path fileType="executable">/usr/bin/xxd</Path>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="data">/usr/share/vim</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="config">/etc/vim</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/vim/vimrc">vimrc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/actions.vim">pardus/actions.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/pspec.vim">pardus/pspec.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/translations.vim">pardus/translations.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/taglist.vim">plugins/taglist.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/kde-devel-vim.vim">plugins/kde-devel-vim.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/plugin/newpythonfile.vim">plugins/newpythonfile.vim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/vim/vimfiles/colors/redstring.vim">plugins/redstring.vim</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <Package>
+        <Name>gvim</Name>
+        <Icon>gvim</Icon>
+        <IsA>app:gui</IsA>
+        <BuildType>gui</BuildType>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gpm</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency>libXt</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>vim</Dependency>
+            <Dependency>ruby</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/ggvi*</Path>
+            <Path fileType="executable">/usr/bin/gvi*</Path>
+            <Path fileType="executable">/usr/bin/egvi*</Path>
+            <Path fileType="executable">/usr/bin/rggvi*</Path>
+            <Path fileType="executable">/usr/bin/rgvi*</Path>
+            <Path fileType="executable">/usr/bin/gvimtutor</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/gvimtutor">gvimtutor</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gvim.xpm">gvim.xpm</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gvim.desktop">gvim.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="88">
+            <Date>2012-01-02</Date>
+            <Version>7.3.390</Version>
+            <Comment>Add official patches up to 390</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="87">
+            <Date>2011-10-13</Date>
+            <Version>7.3.338</Version>
+            <Comment>Add official patches up to 338</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="86">
+            <Date>2011-08-26</Date>
+            <Version>7.3.284</Version>
+            <Comment>Remove shebang from actions.py template</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="85">
+            <Date>2011-08-19</Date>
+            <Version>7.3.284</Version>
+            <Comment>Add official patches up to 284</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="84">
+            <Date>2011-07-08</Date>
+            <Version>7.3.244</Version>
+            <Comment>Add official patches up to 244</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="83">
+            <Date>2011-05-24</Date>
+            <Version>7.3.198</Version>
+            <Comment>Add official patches up to 198</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="82">
+            <Date>2011-04-13</Date>
+            <Version>7.3.161</Version>
+            <Comment>Add official patches up to 161</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="81">
+            <Date>2011-03-15</Date>
+            <Version>7.3.138</Version>
+            <Comment>Add ruby to runtime dependencies</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="80">
+            <Date>2011-03-09</Date>
+            <Version>7.3.138</Version>
+            <Comment>
+                * Add official patches up to 138, changes can be read under offical/README
+                * Enable ruby interface
+                * Use buildtype for gui building
+                * Simplify actions.py
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="79">
+            <Date>2011-02-09</Date>
+            <Version>7.3.112</Version>
+            <Comment>Add offical patches up to 112</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="78">
+            <Date>2010-12-29</Date>
+            <Version>7.3.087</Version>
+            <Comment>Change vim runtime to the correct one. Vim73 should contain only runtime modules from vim itself.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="77">
+            <Date>2010-12-24</Date>
+            <Version>7.3.087</Version>
+            <Comment>Turn of numbers</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="76">
+            <Date>2010-12-23</Date>
+            <Version>7.3.087</Version>
+            <Comment>
+                * Tidy up vimrc, add comments to settings
+                * j,k keys are now capable to move upward/downward in breaked lines
+                * Offical upstream patches are included:
+                    * 7.3.080  spelling doesn't work on VMS
+                    * 7.3.081  non-printable characters in 'statusline' cause trouble
+                    * 7.3.082  leaking file descriptor when netbeans hostname doesn't exist
+                    * 7.3.083  when a read() or write() is interrupted by a signal it fails
+                    * 7.3.084  after window split the new one scrolls with cursor at top
+                    * 7.3.085  (after 7.3.083) inconsistency with preproc symbols
+                    * 7.3.086  v:count has value of previous command in expression mapping
+                    * 7.3.087  (after 7.3.083) missing include for errno.h
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="75">
+            <Date>2010-12-10</Date>
+            <Version>7.3.079</Version>
+            <Comment>Fix typo</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="74">
+            <Date>2010-12-08</Date>
+            <Version>7.3.079</Version>
+            <Comment>
+                Offical upstream patched between *.062-*.079 are added:
+                * 7.3.062  Python has problems when installed in an unusual directory
+                * 7.3.063  Win32: Running a filter command makes Vim lose focus
+                * 7.3.064  Win32: ":dis +" shows nothing, but "+p does insert text
+                * 7.3.065  can't get current line number in a source file
+                * 7.3.066  crash when changing to another window during :vimgrep command
+                * 7.3.067  Ruby: Init_prelude is not always available
+                * 7.3.068  using freed memory on ":saveas" if autocommand sets 'acd'
+                * 7.3.069  GTK: pressing Enter in inputdialog() doesn't work like OK
+                * 7.3.070  can set environment variables in the sandbox
+                * 7.3.071  cursor binding not reset when editing another file
+                * 7.3.072  can't complete file names while ignoring case
+                * 7.3.073  double free memory when netbeans command follows DETACH
+                * 7.3.074  can't use the "+ register like "* for yank and put
+                * 7.3.075  (after 7.3.072) also use 'wildignorecase' in expand()
+                * 7.3.076  Clang warnings for dead code
+                * 7.3.077  when updating swapfile crypt fails there is no error message
+                * 7.3.078  warning for unused variable
+                * 7.3.079  duplicate lines in MSVC makefile
+            </Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>farslan@pardus.org.tr</Email>
+        </Update>
+        <Update release="73">
+            <Date>2010-11-22</Date>
+            <Version>7.3.062</Version>
+            <Comment>Update to patch level 62.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="72">
+            <Date>2010-10-24</Date>
+            <Version>7.3.034</Version>
+            <Comment>Update to patch level 34.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="71">
+            <Date>2010-10-13</Date>
+            <Version>7.3.003</Version>
+            <Comment>Mass rebuild for Pardus 2011 Beta</Comment>
+            <Name>Gökcen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="70">
+            <Date>2010-08-21</Date>
+            <Version>7.3.003</Version>
+            <Comment>Fix dosed parameter.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="69">
+            <Date>2010-08-21</Date>
+            <Version>7.3.003</Version>
+            <Comment>Update new version, ready for 2011.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="68">
+            <Date>2010-05-21</Date>
+            <Version>7.2.436</Version>
+            <Comment>Update to patchlevel 436.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="67">
+            <Date>2009-12-17</Date>
+            <Version>7.2.319</Version>
+            <Comment>Update to patchlevel 319.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="66">
+            <Date>2009-11-09</Date>
+            <Version>7.2.284</Version>
+            <Comment>Update to patchlevel 284.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="65">
+            <Date>2009-08-05</Date>
+            <Version>7.2.245</Version>
+            <Comment>Update to patchlevel 245.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="64">
+            <Date>2009-07-09</Date>
+            <Version>7.2.222</Version>
+            <Comment>Update to patchlevel 222.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="63">
+            <Date>2009-06-24</Date>
+            <Version>7.2.210</Version>
+            <Comment>Update to patchlevel 210.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="62">
+            <Date>2009-04-15</Date>
+            <Version>7.2.160</Version>
+            <Comment>Update to patchlevel 160. Fixes lot memleak problems.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="61">
+            <Date>2009-04-15</Date>
+            <Version>7.2.148</Version>
+            <Comment>Update to patchlevel 148.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="60">
+            <Date>2009-03-08</Date>
+            <Version>7.2.132</Version>
+            <Comment>Update to patchlevel 132.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="59">
+            <Date>2009-02-05</Date>
+            <Version>7.2.100</Version>
+            <Comment>
+                *Update to patchlevel 100,
+                *Fixed this problems;
+                 -Explanation about making a diff for extra_patches is unclear.
+                 -rename(from, to) deletes the file if "from" and "to" are not equal but still refer to the same file.
+                 -rename(from, to) doesn't work if "from" and "to" differ only in case on a system that ignores case in file names.
+                 -When deleting a fold that is specified with markers the cursor position may be wrong.  Folds may not be displayed properly after a delete.  Wrong fold may be deleted.
+                 -"killed" netbeans events are not handled correctly.
+                 -When typing a composing character just after starting completion may access memory before its allocation point.
+                 -Compiler warning for floating point overflow on VAX.
+                 -When 'ff' is "mac" then "ga" on a ^J shows 0x0d instead of 0x0a.
+                 -":tag" does not return to the right tag entry from the tag stack.
+                 -Recursive structures are not handled properly in Python vim.eval().
+                 -Using ":diffget 1" in buffer 1 corrupts the text.
+                 -Adding URL to 'path' doesn't work to edit a file.
+                 -User command containing 0x80 in multi-byte character does not work properly.
+                 -":cs help" output is not aligned for some languages.
+                 -Some error messages are not translated.
+                 -Compiler warning for signed/unsigned compare.
+                 -With Visual selection, "r" and then CTRL-C Visual mode is stopped but the highlighting is not removed.
+                 -After ":number" the "Press Enter" message may be on the wrong screen, if switching screens for shell commands.
+                 -"!xterm" doesn't work when 'shell' is "bash".
+                 -Warning for signed/unsigned pointer.
+                 -Changing GUI options causes an unnecessary redraw when the GUI isn't active.
+                 -When using ":source" on a FIFO or something else that can't rewind the first three bytes are skipped.
+            </Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="58">
+            <Date>2008-12-25</Date>
+            <Version>7.2.070</Version>
+            <Comment>Fix typo translations.xml plugin.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="57">
+            <Date>2008-12-23</Date>
+            <Version>7.2.070</Version>
+            <Comment>
+                *Add translations.xml plugin,
+                *Update to patchlevel 70,
+                *Fixed this problems;
+                 -Can't create a funcref for an autoload function without loading the script first.
+                 -"[Scratch]" is not translated.
+                 -Warning for NULL argument of Perl_sys_init3().
+                 -Screen update bug when repeating "~" on a Visual block and the last line doesn't change.
+                 -GTK GUI: the cursor disappears when doing ":vsp" and the Vim window is maximized.
+                 -It's not easy to see whether 'encoding' is a multi-byte encoding.
+                 -Session file can't load extra file when the path contains special characters.
+                 -Emacs tags file lines can be too long, resulting in an error message.
+                 -Compiler warning for storing size_t in int.
+                 -Crash when a function returns a:000.
+            </Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="56">
+            <Date>2008-12-06</Date>
+            <Version>7.2.060</Version>
+            <Comment>Add patch to fix segfault when adding XML comments (Fixes #8383)</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="55">
+            <Date>2008-11-30</Date>
+            <Version>7.2.060</Version>
+            <Comment>
+                *Update to patchlevel 60,
+                *Fixed this problems:
+                 -In diff mode, when using two tabs, each with two diffed buffers, editing a buffer of the other tab messes up the diff.
+                 -When using winrestview() in a BufWinEnter autocommand the window is scrolled anyway.
+                 -VMS: Too many characters are escaped in filename and shell commands.
+                 -Crash because of STRCPY() being over protective of the destination size.
+                 -The Python interface has an empty entry in sys.path.
+                 -Wrong check for filling buffer with encoding.
+                 -Starting Vim with the -nb argument while it's not supported causes the other side to hang.
+                 -v:prevcount is changed too often.  Counts are not multiplied when setting v:count.
+                 -Warnings for not checking return value of fwrite().
+                 -Can't avoid 'wildignore' and 'suffixes' for glob() and globpath().
+                 -synIDattr() doesn't support "sp" for special color.
+                 -Crash when using WorkShop command ":ws foo".
+                 -Compilation warnings for format in getchar.c.
+                 -Various compiler warnings with strict checking.
+                 -Combination of int and size_t may not work.
+                 -Can't add a patch name to the ":version" output.
+                 -Diff display is not always updated.
+            </Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="54">
+            <Date>2008-11-12</Date>
+            <Version>7.2.040</Version>
+            <Comment>Update to patchlevel 40 and revert kde-devel-vim plugin.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="53">
+            <Date>2008-11-10</Date>
+            <Version>7.2.032</Version>
+            <Comment>Fix bash-completion dir syntax highlighting</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="52">
+            <Date>2008-11-09</Date>
+            <Version>7.2.032</Version>
+            <Comment>Update to patchlevel 32.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="51">
+            <Date>2008-10-18</Date>
+            <Version>7.2.025</Version>
+            <Comment>Add highlighting fixes for grub.conf, xorg.conf, fstab and bash_completion scripts</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="50">
+            <Date>2008-10-06</Date>
+            <Version>7.2.025</Version>
+            <Comment>Taglist and kde-devel-vim plugin bump to lastest</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="49">
+            <Date>2008-10-06</Date>
+            <Version>7.2.025</Version>
+            <Comment>Update to patchlevel 25.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="48">
+            <Date>2008-09-15</Date>
+            <Version>7.2.018</Version>
+            <Comment>Update to patchlevel 18.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="47">
+            <Date>2008-09-08</Date>
+            <Version>7.2.015</Version>
+            <Comment>Update to patchlevel 15. Split package gvim and vim. Remove gtk2 dependency for vim. Add gvimtutor additional file.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="46">
+            <Date>2008-09-07</Date>
+            <Version>7.2.012</Version>
+            <Comment>Update to patchlevel 12.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="45">
+            <Date>2008-08-27</Date>
+            <Version>7.2.006</Version>
+            <Comment>Update to patchlevel 6.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="44" type="security">
+            <Date>2008-08-24</Date>
+            <Version>7.2.002</Version>
+            <Comment>Fix arbitrary code execution issue with v_K and potentially K command.</Comment>
+            <Name>Pınar Yanardağ</Name>
+            <Email>pinar@pardus.org.tr</Email>
+        </Update>
+        <Update release="43">
+            <Date>2008-08-18</Date>
+            <Version>7.2.002</Version>
+            <Comment>Update to patchlevel 2.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="42">
+            <Date>2008-08-14</Date>
+            <Version>7.2</Version>
+            <Comment>Add desktop file and icon.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="41">
+            <Date>2008-08-10</Date>
+            <Version>7.2</Version>
+            <Comment>Stable update</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="40">
+            <Date>2008-08-09</Date>
+            <Version>7.2c</Version>
+            <Comment>Stable update</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="39">
+            <Date>2008-08-05</Date>
+            <Version>7.2b</Version>
+            <Comment>Stable update</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="38">
+            <Date>2008-07-28</Date>
+            <Version>7.1.330</Version>
+            <Comment>Update to patchlevel 330</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="37" type="security">
+            <Date>2008-06-16</Date>
+            <Version>7.1.314</Version>
+            <Comment>Update to patchlevel 314</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="36">
+            <Date>2008-04-29</Date>
+            <Version>7.1.293</Version>
+            <Comment>BUG:FIXED:7146</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="35">
+            <Date>2008-03-10</Date>
+            <Version>7.1.293</Version>
+            <Comment>Update to patchlevel 293</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="34">
+            <Date>2008-02-28</Date>
+            <Version>7.1.266</Version>
+            <Comment>Update to patchlevel 266</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="33">
+            <Date>2008-01-28</Date>
+            <Version>7.1.242</Version>
+            <Comment>Update to patchlevel 242</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="32">
+            <Date>2007-12-26</Date>
+            <Version>7.1.175</Version>
+            <Comment>Update to patchlevel 175</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="31">
+            <Date>2007-12-01</Date>
+            <Version>7.1.164</Version>
+            <Comment>Update to patchlevel 164</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="30">
+            <Date>2007-08-31</Date>
+            <Version>7.1.40</Version>
+            <Comment>Correctly detect failing diff. Symlink /bin/ex to /usr/bin/vim, gdb looks at /bin/ex.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="29" type="security">
+            <Date>2007-07-27</Date>
+            <Version>7.1.40</Version>
+            <Comment>Patch sync to fix CVE-2007-2953</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="28">
+            <Date>2007-05-29</Date>
+            <Version>7.1</Version>
+            <Comment>Fix actions.py and newPythonFile plugins conflict</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="27">
+            <Date>2007-05-25</Date>
+            <Version>7.1</Version>
+            <Comment>Updated and translated taglist plugin</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="26">
+            <Date>2007-05-22</Date>
+            <Version>7.1</Version>
+            <Comment>Fix kde vim ftp and some defaults in vimrc</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="25">
+            <Date>2007-05-22</Date>
+            <Version>7.1</Version>
+            <Comment>Pspec.xml plugin</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="24">
+            <Date>2007-05-13</Date>
+            <Version>7.1</Version>
+            <Comment>New stable release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="23">
+            <Date>2007-05-10</Date>
+            <Version>7.0</Version>
+            <Comment>Enable X support</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
+            <Date>2007-05-09</Date>
+            <Version>7.0</Version>
+            <Comment>Disable X support</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="21" type="security">
+            <Date>2007-04-30</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream again (official patches 225-235)</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="20">
+            <Date>2007-04-03</Date>
+            <Version>7.0</Version>
+            <Comment>Add redstring.vim</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2007-04-03</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream again (official patches 192-224)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="18">
+            <Date>2007-02-18</Date>
+            <Version>7.0</Version>
+            <Comment>Default background color has changed in vimrc</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+        <Update release="17">
+            <Date>2007-02-10</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream again (official patches 189-192)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="16">
+            <Date>2007-01-23</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream (WTF???)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="15">
+            <Date>2006-10-21</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream (somehow we still love you!)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="14">
+            <Date>2006-09-03</Date>
+            <Version>7.0</Version>
+            <Comment>Sync with upstream (we all love you!)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="13">
+            <Date>2006-07-10</Date>
+            <Version>7.0</Version>
+            <Comment>Path corrections</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="12">
+            <Date>2006-05-08</Date>
+            <Version>7.0</Version>
+            <Comment>Stable release</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="11">
+            <Date>2006-04-17</Date>
+            <Version>7.0d</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="10">
+            <Date>2006-04-04</Date>
+            <Version>7.0c</Version>
+            <Comment>Browse .pisi packages</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="9">
+            <Date>2006-04-02</Date>
+            <Version>7.0c</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2005-11-18</Date>
+            <Version>6.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2005-10-30</Date>
+            <Version>6.3</Version>
+            <Comment>Taglist added. vimrc updated.</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2005-10-18</Date>
+            <Version>6.3</Version>
+            <Comment>Cool vimrc enhancements by A. Murat Eren</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2005-10-09</Date>
+            <Version>6.3</Version>
+            <Comment>
+                Replaced sed operation with an echo. I love you ActionsAPI.
+                Removed my name from actions.vim :)
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2005-10-08</Date>
+            <Version>6.3</Version>
+            <Comment>
+                Fixed wrong AdditionalFile path.
+                Added missing m4 dependency.
+            </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2005-10-08</Date>
+            <Version>6.3</Version>
+            <Comment>Added missing directory</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-10-08</Date>
+            <Version>6.3</Version>
+            <Comment>
+                Syntax highlight, nowrap, autoindent. These are now set by default.
+                A. Murat Eren's actions.vim added to plugin list.
+                Fixed broken vi link
+             </Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-17</Date>
+            <Version>6.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

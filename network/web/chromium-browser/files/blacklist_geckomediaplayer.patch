@@ -1,0 +1,12 @@
+Index: chromium-11.0.696.68/webkit/plugins/npapi/plugin_list_posix.cc
+===================================================================
+--- chromium-11.0.696.68.orig/webkit/plugins/npapi/plugin_list_posix.cc
++++ chromium-11.0.696.68/webkit/plugins/npapi/plugin_list_posix.cc
+@@ -90,6 +90,7 @@ bool IsUndesirablePlugin(const WebPlugin
+ bool IsBlacklistedPlugin(const FilePath& path) {
+   const char* kBlackListedPlugins[] = {
+     "nppdf.so",           // Adobe PDF
++    "gecko-mediaplayer",           // Gecko Media Player, it'still have regression
+   };
+   std::string filename = path.BaseName().value();
+   for (size_t i = 0; i < arraysize(kBlackListedPlugins); i++) {

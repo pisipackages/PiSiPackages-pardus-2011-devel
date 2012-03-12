@@ -1,0 +1,119 @@
+Index: lyx-2.0.1/lib/configure.py
+===================================================================
+--- lyx-2.0.1.orig/lib/configure.py
++++ lyx-2.0.1/lib/configure.py
+@@ -492,25 +492,25 @@ def checkModule(module):
+ 
+ def checkFormatEntries(dtl_tools):
+     ''' Check all formats (\Format entries) '''
+-    checkViewerEditor('a Tgif viewer and editor', ['tgif'],
++    checkViewerEditor('a Tgif viewer and editor', ['xdg-open', 'tgif'],
+         rc_entry = [r'\Format tgif       obj     Tgif                   "" "%%"	"%%"	"vector"'])
+     #
+-    checkViewerEditor('a FIG viewer and editor', ['xfig', 'jfig3-itext.jar', 'jfig3.jar'],
++    checkViewerEditor('a FIG viewer and editor', ['xdg-open', 'xfig', 'jfig3-itext.jar', 'jfig3.jar'],
+         rc_entry = [r'\Format fig        fig     FIG                    "" "%%"	"%%"	"vector"'])
+     #
+-    checkViewerEditor('a Dia viewer and editor', ['dia'],
++    checkViewerEditor('a Dia viewer and editor', ['xdg-open', 'dia'],
+         rc_entry = [r'\Format dia        dia     DIA                    "" "%%"	"%%"	"vector"'])
+     #
+-    checkViewerEditor('a Grace viewer and editor', ['xmgrace'],
++    checkViewerEditor('a Grace viewer and editor', ['xdg-open', 'xmgrace'],
+         rc_entry = [r'\Format agr        agr     Grace                  "" "%%"	"%%"	"vector"'])
+     #
+     checkViewerEditor('a FEN viewer and editor', ['xboard -lpf $$i -mode EditPosition'],
+         rc_entry = [r'\Format fen        fen     FEN                    "" "%%"	"%%"	""'])
+     #
+-    checkViewerEditor('a SVG viewer and editor', ['inkscape'],
++    checkViewerEditor('a SVG viewer and editor', ['xdg-open', 'inkscape'],
+         rc_entry = [r'\Format svg        svg     SVG                    "" "%%" "%%"	"vector"'])
+     #
+-    path, iv = checkViewerNoRC('a raster image viewer', ['xv', 'kview', 'gimp-remote', 'gimp'],
++    path, iv = checkViewerNoRC('a raster image viewer', ['xdg-open', 'xv', 'kview', 'gimp-remote', 'gimp'],
+         rc_entry = [r'''\Format bmp        bmp     BMP                    "" "%s"	"%s"	""
+ \Format gif        gif     GIF                    "" "%s"	"%s"	""
+ \Format jpg        jpg     JPEG                   "" "%s"	"%s"	""
+@@ -521,7 +521,7 @@ def checkFormatEntries(dtl_tools):
+ \Format tiff       tif     TIFF                   "" "%s"	"%s"	""
+ \Format xbm        xbm     XBM                    "" "%s"	"%s"	""
+ \Format xpm        xpm     XPM                    "" "%s"	"%s"	""'''])
+-    path, ie = checkEditorNoRC('a raster image editor', ['gimp-remote', 'gimp'],
++    path, ie = checkEditorNoRC('a raster image editor', ['xdg-open', 'gimp-remote', 'gimp'],
+         rc_entry = [r'''\Format bmp        bmp     BMP                    "" "%s"	"%s"	""
+ \Format gif        gif     GIF                    "" "%s"	"%s"	""
+ \Format jpg        jpg     JPEG                   "" "%s"	"%s"	""
+@@ -544,7 +544,7 @@ def checkFormatEntries(dtl_tools):
+ \Format xpm        xpm     XPM                    "" "%s"	"%s"	""''' % \
+         (iv, ie, iv, ie, iv, ie, iv, ie, iv, ie, iv, ie, iv, ie, iv, ie, iv, ie, iv, ie) )
+     #
+-    checkViewerEditor('a text editor', ['xemacs', 'gvim', 'kedit', 'kwrite', 'kate', \
++    checkViewerEditor('a text editor', ['xdg-open', 'xemacs', 'gvim', 'kedit', 'kwrite', 'kate', \
+         'nedit', 'gedit', 'notepad'],
+         rc_entry = [r'''\Format asciichess asc    "Plain text (chess output)"  "" ""	"%%"	""
+ \Format asciiimage asc    "Plain text (image)"         "" ""	"%%"	""
+@@ -568,17 +568,17 @@ def checkFormatEntries(dtl_tools):
+ \Format text4      txt    "Plain text (catdvi)"   "" ""	"%%"	"document"
+ \Format textparagraph txt "Plain Text, Join Lines" "" ""	"%%"	"document"''' ])
+    #Spreadsheets using ssconvert from gnumeric
+-    checkViewer('gnumeric spreadsheet software', ['gnumeric'],
++    checkViewer('gnumeric spreadsheet software', ['xdg-open', 'gnumeric'],
+       rc_entry = [r'''\Format gnumeric gnumeric "Gnumeric spreadsheet" "" ""    "%%"   "document"
+ \Format excel      xls    "Excel spreadsheet"      "" "" "%%"    "document"
+ \Format oocalc     ods    "OpenOffice spreadsheet" "" "" "%%"    "document"'''])
+  #
+-    path, xhtmlview = checkViewer('an HTML previewer', ['firefox', 'mozilla file://$$p$$i', 'netscape'],
++    path, xhtmlview = checkViewer('an HTML previewer', ['xdg-open', 'firefox', 'mozilla file://$$p$$i', 'netscape'],
+         rc_entry = [r'\Format xhtml      xhtml   "LyXHTML"              y "%%" ""    "document,menu=export"'])
+     if xhtmlview == "":
+         addToRC(r'\Format xhtml      xhtml   "LyXHTML"              y "" ""  "document,menu=export"')
+  #
+-    checkEditor('a BibTeX editor', ['jabref', 'JabRef', \
++    checkEditor('a BibTeX editor', ['xdg-open', 'jabref', 'JabRef', \
+         'pybliographic', 'bibdesk', 'gbib', 'kbib', \
+         'kbibtex', 'sixpack', 'bibedit', 'tkbibtex' \
+         'xemacs', 'gvim', 'kedit', 'kwrite', 'kate', \
+@@ -587,11 +587,11 @@ def checkFormatEntries(dtl_tools):
+     #
+     #checkProg('a Postscript interpreter', ['gs'],
+     #  rc_entry = [ r'\ps_command "%%"' ])
+-    checkViewer('a Postscript previewer', ['kghostview', 'okular', 'evince', 'gv', 'ghostview -swap'],
++    checkViewer('a Postscript previewer', ['xdg-open', 'kghostview', 'okular', 'evince', 'gv', 'ghostview -swap'],
+         rc_entry = [r'''\Format eps        eps     EPS                    "" "%%"	""	"vector"
+ \Format ps         ps      Postscript             t  "%%"	""	"document,vector,menu=export"'''])
+     # for xdg-open issues look here: http://www.mail-archive.com/lyx-devel@lists.lyx.org/msg151818.html
+-    checkViewer('a PDF previewer', ['kpdf', 'okular', 'evince', 'kghostview', 'xpdf', 'acrobat', 'acroread', \
++    checkViewer('a PDF previewer', ['xdg-open', 'kpdf', 'okular', 'evince', 'kghostview', 'xpdf', 'acrobat', 'acroread', \
+ 		    'gv', 'ghostview'],
+         rc_entry = [r'''\Format pdf        pdf    "PDF (ps2pdf)"          P  "%%"	""	"document,vector,menu=export"
+ \Format pdf2       pdf    "PDF (pdflatex)"        F  "%%"	""	"document,vector,menu=export"
+@@ -599,24 +599,24 @@ def checkFormatEntries(dtl_tools):
+ \Format pdf4       pdf    "PDF (XeTeX)"           X  "%%"	""	"document,vector,menu=export"
+ \Format pdf5       pdf    "PDF (LuaTeX)"          u  "%%"	""	"document,vector,menu=export"'''])
+     #
+-    checkViewer('a DVI previewer', ['xdvi', 'kdvi', 'okular', 'yap', 'dviout -Set=!m'],
++    checkViewer('a DVI previewer', ['xdg-open', 'xdvi', 'kdvi', 'okular', 'yap', 'dviout -Set=!m'],
+         rc_entry = [r'''\Format dvi        dvi     DVI                    D  "%%"	""	"document,vector,menu=export"
+ \Format dvi3       dvi     "DVI (LuaTeX)"          V  "%%"	""	"document,vector,menu=export"'''])
+     if dtl_tools:
+         # Windows only: DraftDVI
+         addToRC(r'\Format dvi2       dvi     DraftDVI               ""	""	""	"vector"')
+     #
+-    checkViewer('an HTML previewer', ['firefox', 'mozilla file://$$p$$i', 'netscape'],
++    checkViewer('an HTML previewer', ['xdg-open', 'firefox', 'mozilla file://$$p$$i', 'netscape'],
+         rc_entry = [r'\Format html       html    HTML                   H  "%%"	""	"document,menu=export"'])
+     #
+-    checkViewerEditor('Noteedit', ['noteedit'],
++    checkViewerEditor('Noteedit', ['xdg-open', 'noteedit'],
+         rc_entry = [r'\Format noteedit   not     Noteedit               "" "%%"	"%%"	"vector"'])
+     #
+-    checkViewerEditor('an OpenDocument/OpenOffice viewer', ['swriter', 'oowriter', 'abiword'],
++    checkViewerEditor('an OpenDocument/OpenOffice viewer', ['xdg-open', 'swriter', 'oowriter', 'abiword'],
+         rc_entry = [r'''\Format odt        odt     OpenDocument           "" "%%"	"%%"	"document,vector,menu=export"
+ \Format sxw        sxw    "OpenOffice.Org (sxw)"  "" ""	""	"document,vector"'''])
+     #
+-    checkViewerEditor('a Rich Text and Word viewer', ['swriter', 'oowriter', 'abiword'],
++    checkViewerEditor('a Rich Text and Word viewer', ['xdg-open', 'swriter', 'oowriter', 'abiword'],
+         rc_entry = [r'''\Format rtf        rtf    "Rich Text Format"      "" "%%"	"%%"	"document,vector,menu=export"
+ \Format word       doc    "MS Word"               W  "%%"	"%%"	"document,vector,menu=export"'''])
+     #
